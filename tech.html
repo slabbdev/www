@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="slabb-api" content="">
+<title>Sam Labbe — Lead dev full-stack · dompteur d'agents IA · conformité par la preuve</title>
+<meta name="description" content="Lead dev full-stack depuis 2004, dompteur d'agents IA en production, conformité AI Act & RGPD vérifiable. Créateur de NoireBox et navette.">
+<meta property="og:title" content="Sam Labbe — Lead dev full-stack · dompteur d'agents IA · conformité">
+<meta property="og:description" content="Preuves, pas promesses. Développement, agents IA, conformité vérifiable.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0b0d'/%3E%3Crect x='20' y='20' width='24' height='24' rx='4' fill='%237de8a9'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0a0b0d; --surface:#121417; --fg:#e9eae7; --dim:#9aa0a6; --line:#23262b;
+  --accent:#7de8a9;
+  --muted:#525860;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65}
+::selection{background:var(--accent);color:#08110c}
+a{color:var(--fg);text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+.kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.09em;color:var(--accent);margin-bottom:18px}
+
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,11,13,.88);backdrop-filter:blur(10px);z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{font-family:var(--mono);font-size:.95rem}
+.brand span{color:var(--dim)}
+.barright{display:flex;align-items:center;gap:24px}
+nav{display:flex;gap:24px}
+nav a{font-family:var(--mono);font-size:.82rem;color:var(--dim);transition:color .15s}
+nav a:hover{color:var(--accent)}
+.lang{background:none;border:1px solid var(--line);color:var(--dim);font-family:var(--mono);font-size:.74rem;padding:6px 13px;border-radius:999px;cursor:pointer;transition:color .15s,border-color .15s}
+.lang:hover{color:var(--accent);border-color:var(--accent)}
+
+.hero{padding:104px 0 80px}
+.hero h1{font-size:clamp(2.6rem,7vw,4rem);font-weight:500;letter-spacing:-.02em;margin-bottom:22px}
+.lede{max-width:680px;font-size:1.12rem;color:var(--dim);margin-bottom:26px}
+.lede strong{color:var(--fg);font-weight:500}
+.meta{font-family:var(--mono);font-size:.8rem;color:var(--dim)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);margin:0 -29px;padding:0 29px}
+.stat{padding:26px 20px 26px 0}
+.stat + .stat{padding-left:24px;border-left:1px solid var(--line)}
+.stat b{display:block;font-family:var(--mono);font-size:1.7rem;font-weight:500;color:var(--accent)}
+.stat small{display:block;color:var(--dim);font-size:.82rem;line-height:1.45;margin-top:4px}
+
+section{padding:88px 0 0;position:relative}
+h2{font-size:1.55rem;font-weight:500;letter-spacing:-.01em;margin-bottom:8px}
+.sub{color:var(--dim);max-width:640px;margin-bottom:36px}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:#3a3f46;transform:translateY(-2px)}
+.num{font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-bottom:14px}
+.card h3{font-size:1.02rem;font-weight:500;margin-bottom:10px}
+.card p{color:var(--dim);font-size:.92rem}
+.product .num{color:var(--accent)}
+.mini{padding:20px}
+.mini .num{margin-bottom:10px;color:var(--fg)}
+.mini p{font-size:.85rem}
+.tags{font-family:var(--mono);font-size:.74rem;color:var(--dim);margin-top:18px}
+.plink{display:inline-block;font-family:var(--mono);font-size:.82rem;margin-top:10px;border-bottom:1px solid var(--line);transition:border-color .15s,color .15s}
+.plink:hover{color:var(--accent);border-color:var(--accent)}
+.also{font-family:var(--mono);font-size:.78rem;color:var(--dim);margin-top:22px}
+.also a{border-bottom:1px solid var(--line)}
+.also a:hover{color:var(--accent)}
+.reperes{font-family:var(--mono);font-size:.78rem;color:var(--dim);margin-top:8px}
+
+.articles{margin-top:8px}
+.article{display:flex;justify-content:space-between;align-items:baseline;gap:28px;padding:18px 0;border-top:1px solid var(--line)}
+.article:last-of-type{border-bottom:1px solid var(--line)}
+.article .atitle{font-size:.98rem;transition:color .15s}
+.article .atitle:hover{color:var(--accent)}
+.ameta{font-family:var(--mono);font-size:.74rem;color:var(--dim);white-space:nowrap}
+
+.contact{padding-bottom:104px}
+.bigmail{display:inline-block;font-family:var(--mono);font-size:clamp(1.15rem,3.4vw,1.7rem);color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:4px;margin:10px 0 26px;transition:background .15s}
+.bigmail:hover{background:rgba(125,232,169,.08)}
+.crow{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+.crow a{color:var(--dim);transition:color .15s}
+.crow a:hover{color:var(--accent)}
+.crow span{color:#3a3f46}
+.loc{color:var(--dim);font-size:.9rem;margin-top:26px}
+
+footer{border-top:1px solid var(--line);margin-top:88px}
+.foot{padding:30px 0 40px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}.d5{transition-delay:.3s}.d6{transition-delay:.36s}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .card,.bigmail{transition:none}
+}
+
+@media (max-width:820px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:22px 0}
+  .stat + .stat{padding-left:0;border-left:none}
+  .stat:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .grid3,.grid2,.grid4{grid-template-columns:1fr}
+  .grid4{gap:18px}
+  .hero{padding:72px 0 56px}
+  section{padding-top:64px}
+  .article{flex-direction:column;gap:6px;align-items:flex-start}
+  .ameta{white-space:normal}
+  nav{gap:16px}
+}
+.foot a,.seal a{border-bottom:1px solid var(--line);transition:color .15s,border-color .15s}
+.foot a:hover,.seal a:hover{color:var(--accent);border-color:var(--accent)}
+#lab{--lbad:#f87171;--lwarn:#f5b942}
+.labcaption{color:var(--dim);font-size:.9rem;margin-bottom:14px}
+.lbadge{display:inline-block;font-family:var(--mono);font-size:.7rem;padding:4px 10px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);margin-bottom:12px}
+.lbadge.bad{border-color:var(--lbad);color:var(--lbad)}
+.chainln{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:10px 12px;font-family:var(--mono);font-size:.72rem;margin-bottom:8px;transition:border-color .15s,background .15s}
+.chainln.bad{border-color:var(--lbad);background:rgba(248,113,113,.07)}
+.chainln .crow1{display:flex;justify-content:space-between;gap:10px;color:var(--dim);margin-bottom:4px}
+.chainln .chash{color:var(--dim);margin-top:5px;display:flex;justify-content:space-between;gap:10px}
+.chainln .chash b{color:var(--accent);font-weight:400}
+.chainln.bad .chash b{color:var(--lbad)}
+.chainin{background:var(--surface);border:1px solid var(--line);color:var(--accent);font-family:var(--mono);font-size:.72rem;padding:3px 6px;border-radius:4px;width:100%;margin-top:4px}
+.labrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.lbtn{font-family:var(--mono);font-size:.74rem;padding:6px 10px;border:1px solid var(--line);background:none;color:var(--dim);border-radius:6px;cursor:pointer;transition:color .15s,border-color .15s}
+.lbtn:hover{color:var(--accent);border-color:var(--accent)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chip{font-family:var(--mono);font-size:.7rem;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--dim);cursor:pointer;background:none;transition:color .15s,border-color .15s;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{color:var(--fg)}
+.chip.on{color:var(--accent);border-color:var(--accent)}
+.chip .dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.matrix{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:12px;margin-bottom:10px}
+.mcell{aspect-ratio:1;border-radius:2px;background:var(--accent);opacity:.85;cursor:crosshair;transition:transform .12s,opacity .12s}
+.mcell.gate{background:var(--lwarn)}
+.mcell.chal{background:var(--lbad)}
+.mcell.dim{opacity:.12}
+.mcell:hover{transform:scale(1.6);opacity:1}
+.readout{font-family:var(--mono);font-size:.74rem;color:var(--dim);min-height:20px;margin-bottom:10px;overflow-wrap:anywhere}
+@media (max-width:820px){.matrix{grid-template-columns:repeat(10,1fr)}}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:60;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+section[data-num]::before{content:attr(data-num);position:absolute;top:-16px;right:0;font-family:var(--mono);font-size:clamp(3.4rem,9vw,6rem);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);pointer-events:none}
+.pill{font-family:var(--mono);font-size:.72rem;color:var(--dim);border:1px solid var(--line);padding:6px 13px;border-radius:999px;transition:color .15s,border-color .15s}.pill b{color:var(--accent);font-weight:400}.pill:hover{color:var(--accent);border-color:var(--accent)}
+.tick{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0}.tick-in{display:flex;width:max-content;animation:tick 32s linear infinite}.tick-in span{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;white-space:nowrap}@keyframes tick{to{transform:translateX(-50%)}}@media (prefers-reduced-motion: reduce){.tick-in{animation:none}}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:end}
+.hbox{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:18px;font-family:var(--mono);font-size:.72rem}
+.hcap{color:var(--muted);font-size:.68rem;line-height:1.5;margin-bottom:10px}
+.hline{color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.9}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+
+/* démo agent */
+code{font-family:var(--mono);font-size:.85em;color:var(--accent)}
+.offline{display:none;border:1px solid var(--accent);background:rgba(125,232,169,.06);border-radius:12px;padding:16px 20px;font-size:.92rem;color:var(--dim);margin-bottom:22px}
+.offline code{color:var(--accent)}
+.demogrid{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+.demogrid .card{display:flex;flex-direction:column}
+.phead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.74rem;color:var(--dim);flex-wrap:wrap}
+.pbody{padding:16px;flex:1;min-height:0}
+.chatbox{height:52vh;overflow-y:auto}
+.msg{border-radius:12px;padding:10px 14px;margin-bottom:10px;max-width:94%;font-size:.92rem;width:fit-content}
+.msg.user{background:#1a2b22;margin-left:auto}
+.msg.agent{background:var(--bg);border:1px solid var(--line)}
+.ev{font-family:var(--mono);font-size:.73rem;color:var(--dim);border-left:2px solid var(--line);padding:4px 10px;margin:8px 0 8px 8px;overflow-wrap:anywhere}
+.ev b{color:var(--accent);font-weight:400}
+.ev details{margin-top:4px}
+.ev summary{cursor:pointer;color:var(--muted)}
+.ev pre{color:var(--fg);font-size:.68rem;margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.formrow{display:flex;gap:10px;margin-top:14px}
+.input{flex:1;background:var(--bg);border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:11px 15px;font-size:.92rem;font-family:var(--sans)}
+.input:focus{outline:1px solid var(--accent);border-color:var(--accent)}
+.abtn{background:var(--accent);color:#08110c;border:none;font-family:var(--mono);font-size:.84rem;font-weight:500;padding:11px 22px;border-radius:10px;cursor:pointer;transition:opacity .15s}
+.abtn:disabled{opacity:.5;cursor:wait}
+.abtn:hover:not(:disabled){opacity:.9}
+.jbox{height:52vh;overflow-y:auto}
+.jentry{border-top:1px solid var(--line);padding:8px 0;font-family:var(--mono);font-size:.71rem;color:var(--dim);overflow-wrap:anywhere}
+.jentry:first-child{border-top:none}
+.jentry.seal{border-left:2px solid var(--accent);padding-left:10px;color:var(--fg)}
+.jentry .ts{color:var(--muted)}
+.pfoot{padding:11px 18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.spin{display:inline-block;width:11px;height:11px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:sp .7s linear infinite;vertical-align:-1px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spin{animation:none}}
+@media (max-width:900px){.demogrid{grid-template-columns:1fr}.chatbox,.jbox{height:44vh}}
+/* grille d'ingénierie exposée */
+main{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+section{margin-left:-29px;margin-right:-29px;padding-left:29px;padding-right:29px;border-bottom:1px solid var(--line)}
+.cx{position:absolute;font-family:var(--mono);font-size:12px;color:var(--muted);bottom:-7.5px;line-height:1;z-index:3;pointer-events:none}
+.cx.l{left:-4.5px}.cx.r{right:-4.5px}
+section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px}
+#travail .grid3,#preuves .grid2{gap:0;border:1px solid var(--line)}
+#travail .grid3 .card,#preuves .grid2 .card{border:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent;transform:none}
+#travail .grid3 .card:hover,#preuves .grid2 .card:hover{background:radial-gradient(120% 90% at 50% 0%,rgba(125,232,169,.06),transparent 70%),var(--surface);transform:none}
+#travail .grid3 .card:nth-child(3n){border-right:none}
+#travail .grid3 .card:nth-last-child(-n+3){border-bottom:none}
+#preuves .grid2 .card:nth-child(2n){border-right:none}
+#preuves .grid2 .card:nth-last-child(-n+2){border-bottom:none}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.mcell{cursor:pointer}
+/* registre */
+.reg{border-top:1px solid var(--line)}
+.rrow{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+.rrow.hide{display:none}
+.rper{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.rmain b{font-weight:500;font-size:.98rem;display:block}
+.rmain small{color:var(--dim);font-size:.85rem}
+/* tiroir d'audit */
+#audit{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--surface);border-left:1px solid var(--line);z-index:90;transform:translateX(103%);transition:transform .28s ease;display:flex;flex-direction:column}
+#audit.open{transform:translateX(0)}
+.ahead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.76rem;color:var(--accent);flex-wrap:wrap}
+.abody{padding:18px;overflow-y:auto;flex:1;font-family:var(--mono);font-size:.78rem}
+.arow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.arow .h{color:var(--dim);overflow-wrap:anywhere}
+.aok{color:var(--accent)}.abad{color:var(--lbad)}
+.afoot{padding:12px 18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){#audit{transition:none}}
+@media (max-width:820px){
+  main{border-left:none;border-right:none}
+  section{margin-left:0;margin-right:0;padding-left:0;padding-right:0}
+  .rrow{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">slabb<span>.dev</span></a>
+    <div class="barright">
+      <nav>
+        <a href="#travail" data-en="work">travail</a>
+        <a href="#registre" data-en="registry">registre</a>
+        <a href="#preuves" data-en="proof">preuves</a>
+        <a href="#demo" data-en="demo">démo</a>
+        <a href="#ecrits" data-en="writing">écrits</a>
+        <a href="#contact" data-en="contact">contact</a>
+      </nav>
+      <a class="pill" id="sealPill" href="verify.html" data-en="sealed · Ed25519 ✓ — audit [v]">scellé · Ed25519 ✓</a>
+      <button class="lang" id="sfxBtn" type="button" aria-pressed="false" aria-label="Micro-clics sonores / UI sounds" title="micro-clics d'instrumentation (WebAudio, aucun fichier)">sfx</button>
+      <button class="lang" id="langBtn" type="button" aria-pressed="false" aria-label="Changer de langue / Switch language">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" data-num="00">
+    <p class="kicker rv" data-en="full-stack lead dev · ai agent tamer · compliance by proof">lead dev full-stack · dompteur d'agents ia · conformité par la preuve</p>
+    <h1 class="rv d1" id="pagename" data-txt="Sam Labbe">Sam Labbe</h1>
+    <div class="hero-grid">
+      <div>
+        <p class="lede rv d2" data-en="Developer since 2004, lead across front end, back end and mobile. Today: AI agent systems heading to production, <strong>and the proof they can be trusted</strong>. Code can be verified — commitments should be too.">Développeur depuis 2004, lead tech front, back et mobile. Aujourd'hui : des systèmes d'agents IA qui partent en production, <strong>et les preuves qu'on peut leur faire confiance</strong>. Le code se vérifie — les engagements aussi.</p>
+        <p class="meta rv d3" data-en="Épinal (Vosges), France · remote first · FR / EN">Épinal (Vosges) · remote d'abord · FR / EN</p>
+      </div>
+      <div class="hbox rv d3">
+        <p class="hcap" data-en="right now, in your browser — real SHA-256 of your cursor. nothing leaves this page.">en ce moment, dans votre navigateur — la vraie SHA-256 de votre curseur. rien ne quitte cette page.</p>
+        <div class="hline" id="hl0">&nbsp;</div>
+        <div class="hline" id="hl1">&nbsp;</div>
+        <div class="hline" id="hl2">&nbsp;</div>
+        <div class="hline" id="hl3">&nbsp;</div>
+        <div class="hline" id="hl4">&nbsp;</div>
+      </div>
+    </div>
+  </section>
+  <div class="tick" aria-hidden="true"><div class="tick-in"><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span></div></div>
+
+  <div class="stats rv">
+    <div class="stat"><b data-cnt="20" data-suf="+">20+</b><small data-en="years of code, every seat<br>since 2004">années de code, tous postes<br>depuis 2004</small></div>
+    <div class="stat"><b data-cnt="8" data-suf="+">8+</b><small data-en="public open source projects<br>NoireBox · navette &amp; more">projets open source publics<br>NoireBox · navette &amp; cie</small></div>
+    <div class="stat"><b data-cnt="82.5" data-suf="&nbsp;%" data-dec="," data-en="82.5%">82,5&nbsp;%</b><small data-en="of the web readable by an agent<br>public benchmark, 200 URLs">du web lisible par un agent<br>bench public, 200 URLs</small></div>
+    <div class="stat"><b>0</b><small data-en="cookies, tracking or<br>dependencies on this site">cookie, tracking,<br>dépendance sur ce site</small></div>
+  </div>
+
+  
+  <section id="lab" data-num="01">
+    <p class="kicker rv" data-en="// interactive proof lab">// laboratoire de preuve — en direct</p>
+    <h2 class="rv d1" data-en="Don't take my word for it. Test the mechanics.">Ne me croyez pas sur parole. Testez la mécanique.</h2>
+    <p class="sub rv d2" data-en="Left: a live SHA-256 hash chain — touch entry #02 and watch tampering propagate. Right: the 200 real URLs of the tollbooth bench, one cell each. Every number is measured, none invented.">À gauche : une chaîne de hash SHA-256 vivante — touchez l'entrée #02 et regardez l'altération se propager. À droite : les 200 URLs réelles du bench tollbooth, une cellule chacune. Chaque chiffre est mesuré, aucun inventé.</p>
+    <div class="grid2">
+      <div class="card product rv">
+        <p class="num">noirebox · simulateur</p>
+        <h3 data-en="The journal nothing can betray">Le journal que rien ne trahit</h3>
+        <p class="labcaption" data-en="Each line seals the hash of the previous one — real SHA-256, computed in your browser. Edit entry #02: the break propagates and the seal falls.">Chaque ligne scelle le hash de la précédente — vraie SHA-256, calculée dans votre navigateur. Modifiez l'entrée #02 : la rupture se propage et le sceau tombe.</p>
+        <span class="lbadge" id="chainbadge" data-en="VALID SEAL · SHA-256">SCEAU VALIDE · SHA-256</span>
+        <div id="chain"></div>
+        <div class="labrow">
+          <button class="lbtn" id="tamper" type="button" data-en="[ tamper #02 ]">[ altérer #02 ]</button>
+          <button class="lbtn" id="restore" type="button" data-en="[ restore ]">[ restaurer ]</button>
+        </div>
+        <div class="labrow">
+          <a class="plink" href="https://github.com/noirebox/noirebox">github.com/noirebox →</a>
+          <a class="plink" href="verify.html">le sceau de ce site même →</a>
+        </div>
+      </div>
+      <div class="card product rv d1">
+        <p class="num">navette · bench tollbooth — données réelles</p>
+        <h3 data-en="200 real websites vs. an agent">200 sites réels face à un agent</h3>
+        <p class="labcaption" data-en="Measured with navette on 08.10.2026. Filter, hover, check — then reproduce it yourself, the dataset is CC BY 4.0.">Mesuré avec navette le 08.10.2026. Filtrez, survolez, vérifiez — puis reproduisez : le dataset est CC BY 4.0.</p>
+        <span class="lbadge" id="badge">165 lisibles · 23 JS-gate · 12 challenges · 82,5 %</span>
+        <div class="chips" id="chips"></div>
+        <div class="matrix" id="matrix" aria-label="Les 200 URLs du bench tollbooth"></div>
+        <p class="readout" id="readout" aria-live="polite">survolez une cellule — chaque chiffre est mesuré, aucun inventé</p>
+        <p class="tags">73 sites bannissent ≥ 1 bot IA (robots.txt) · 1 paywall · 0 x402 · <a class="plink" href="https://github.com/slabbdev/navette">navette →</a></p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="demo" data-num="02">
+    <p class="kicker rv" data-en="// live demo — drive the agent">// démo — pilotez l'agent</p>
+    <h2 class="rv d1" data-en="Give it a mission. Watch it work. Watch it prove it.">Donnez-lui une mission. Regardez-le travailler. Regardez-le le prouver.</h2>
+    <p class="sub rv d2" data-en="The agent (GLM-4.5-flash, a free model) thinks, calls navette_navigate to read a real web page, then seals its conclusion with noirebox_note. Everything is displayed here — including the hashes.">L'agent (<code>GLM-4.5-flash</code>, un modèle free) réfléchit, appelle <code>navette_navigate</code> pour lire une vraie page web, puis scelle sa conclusion avec <code>noirebox_note</code>. Tout s'affiche ici — y compris les hash. <strong style="color:var(--fg);font-weight:500">Astuce : cliquez n'importe quelle cellule de la matrice ci-dessus, l'agent ira l'inspecter.</strong></p>
+    <div class="offline" id="demoOffline" data-en="The agent server is off — the rest of the site works without it. For the demo: <code>npm install &amp;&amp; npm start</code> in the site folder (it starts navette by itself). No data leaves anywhere while it is off.">Le serveur de l'agent est éteint — le reste du site marche sans lui. Pour la démo : <code>npm install &amp;&amp; npm start</code> dans le dossier du site (il démarre navette tout seul). Aucune donnée n'est envoyée nulle part tant qu'il est éteint.</div>
+    <div class="demogrid">
+      <div class="card">
+        <div class="phead"><span data-en="MISSION">MISSION</span>
+          <span style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="abtn" data-task="Va lire https://example.com et dis-moi de quoi il s'agit" style="padding:5px 12px;font-size:.7rem">example.com</button>
+            <button class="abtn" data-task="Lis https://github.com/slabbdev/navette et résume-moi ce qu'est navette en deux phrases" style="padding:5px 12px;font-size:.7rem" data-en="the navette repo">le repo navette</button>
+            <button class="abtn" data-task="Ouvre https://news.ycombinator.com et cite le premier titre de la page" style="padding:5px 12px;font-size:.7rem" data-en="today's HN">le HN du moment</button>
+          </span>
+        </div>
+        <div class="pbody">
+          <div class="chatbox" id="chat"></div>
+          <form class="formrow" id="taskForm">
+            <input class="input" id="taskInput" placeholder="ex. : va lire https://example.com et résume-le" autocomplete="off">
+            <button class="abtn" id="sendBtn" type="submit" data-en="Send">Envoyer</button>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="phead"><span data-en="HASH-CHAINED JOURNAL — PUBLIC">JOURNAL CHAÎNÉ — PUBLIC</span>
+          <span id="jhead" style="font-family:var(--mono);font-size:.68rem;color:var(--accent)">…</span>
+        </div>
+        <div class="pbody"><div class="jbox" id="jentries"></div></div>
+        <div class="pfoot" data-en="each entry commits to the previous one · head signed Ed25519 after every run">chaque entrée s'engage sur la précédente · tête signée Ed25519 après chaque run</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="travail" data-num="03">
+    <p class="kicker rv" data-en="// what i do">// ce que je fais</p>
+    <h2 class="rv d1" data-en="Six trades, one requirement: it has to be verifiable.">Six métiers, une exigence&nbsp;: que ce soit vérifiable.</h2>
+    <p class="sub rv d2" data-en="From the lead seat to regulatory compliance, the same approach: prove it, don't promise it.">Du poste de lead à la conformité réglementaire, la même approche&nbsp;: on prouve, on ne promet pas.</p>
+    <div class="grid3">
+      <div class="card rv">
+        <p class="num">01</p>
+        <h3 data-en="Development">Développement</h3>
+        <p data-en="Full-stack lead: PHP/Symfony, TypeScript, Python, Rust, Dart, Swift. Web, API, mobile. Audit, refactoring, greenfield — maintainability first: the code I leave behind must stay alive.">Lead full-stack&nbsp;: PHP/Symfony, TypeScript, Python, Rust, Dart, Swift. Web, API, mobile. Audit, refonte, greenfield. Maintenabilité d'abord — le code que je laisse derrière moi doit rester vivant.</p>
+      </div>
+      <div class="card rv d1">
+        <p class="num">02</p>
+        <h3 data-en="AI agents">Agents IA</h3>
+        <p data-en="Designing agent systems and shipping them to production: tooling, guardrails, observability. From the impressive prototype to the service that survives Monday morning.">Architecture et mise en production de systèmes d'agents&nbsp;: outillage, garde-fous, observabilité. Du prototype qui impressionne au service qui tient le lundi matin.</p>
+      </div>
+      <div class="card rv d2">
+        <p class="num">03</p>
+        <h3 data-en="CI/CD &amp; platform">CI/CD &amp; plateforme</h3>
+        <p data-en="GitHub Actions pipelines, Docker, end-to-end automation — down to Microsoft 365 and Active Directory. Agent fleets running on free runners, releases that ship themselves, tests that catch bad surprises before users do.">Pipelines GitHub Actions, Docker, automatisation de bout en bout — jusqu'à l'admin Microsoft 365 et AD. Des flottes d'agents sur des runners gratuits, des releases qui partent seules, des tests qui bloquent les mauvaises surprises.</p>
+      </div>
+      <div class="card rv d3">
+        <p class="num">04</p>
+        <h3 data-en="Security &amp; audit">Sécurité &amp; audit</h3>
+        <p data-en="Forensic code review, vulnerability hunting, hardening. RCEs reported and fixed in open source projects, infra audits, leaking secrets — I find it before someone else does.">Revue de code forensique, chasse aux failles, durcissement. RCE signalées et corrigées dans l'open source, audits d'infra, secrets qui fuient — je trouve avant les autres.</p>
+      </div>
+      <div class="card rv d4">
+        <p class="num">05</p>
+        <h3 data-en="Compliance by proof">Conformité par la preuve</h3>
+        <p data-en="The AI Act is in force, GDPR is daily life. Making compliance verifiable: hash-chained journals, sealed receipts, decision provenance. Auditable deliverables, not slides.">AI Act en force, RGPD au quotidien. Rendre la conformité vérifiable&nbsp;: journaux chaînés, receipts scellés, provenance des décisions. Livrables auditables, pas des slides.</p>
+      </div>
+      <div class="card rv d5">
+        <p class="num">06</p>
+        <h3 data-en="Teaching &amp; mentoring">Transmission</h3>
+        <p data-en="Teaching and mentoring: Git, Symfony, debugging, security. Courses, workshops, team upskilling. What is understood gets passed on — otherwise it was cargo cult.">Formation et mentorat&nbsp;: Git, Symfony, debugging, sécurité. Cours, ateliers, montée en compétences d'équipes. Ce qui se comprend se transmet — sinon c'était du cargo cult.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="registre" data-num="04">
+    <p class="kicker rv" data-en="// career registry — 2004 → today">// registre — 2004 → aujourd'hui</p>
+    <h2 class="rv d1" data-en="“An OVNI,” some say. “A bridge,” say the facts.">« Un OVNI », disent certains. « Un pont », disent les faits.</h2>
+    <p class="sub rv d2" data-en="Twenty years on the ground: offensive security, senior production, public impact, teaching — all the way to tools that prove themselves. Filter.">Vingt ans de terrain : sécurité offensive, production senior, impact public, transmission — jusqu'aux outils qui se prouvent eux-mêmes. Filtrez.</p>
+    <div class="chips rv d3" id="regChips"></div>
+    <div class="reg rv d3">
+      <div class="rrow" data-cat="archi"><span class="rper">2004</span><span class="rmain"><b>Les premières lignes</b><small>web, back, mobile — tout commence</small></span></div>
+      <div class="rrow" data-cat="secu"><span class="rper">2008 — 2018</span><span class="rmain"><b>Ethical hacking &amp; pentest</b><small>près de 10 ans, offensive et défensive · #owasp #blueteam #hds</small></span></div>
+      <div class="rrow" data-cat="archi"><span class="rper">15+ ans</span><span class="rmain"><b>graphicNAIVETY / tinyjsapp studio</b><small>l'atelier — artisanat full-stack · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis #kibana #sentry #azure</small></span></div>
+      <div class="rrow" data-cat="archi"><span class="rper">production</span><span class="rmain"><b>Bilendi Technology (ex-Elma)</b><small>production senior</small></span></div>
+      <div class="rrow" data-cat="archi"><span class="rper">production</span><span class="rmain"><b>MGEL</b><small>production senior</small></span></div>
+      <div class="rrow" data-cat="archi"><span class="rper">lead</span><span class="rmain"><b>CODUSTEL</b><small>Team Lead</small></span></div>
+      <div class="rrow" data-cat="impact"><span class="rper">service public</span><span class="rmain"><b>Histologe — beta.gouv.fr</b><small>Lead Tech sur un service public national</small></span></div>
+      <div class="rrow" data-cat="impact"><span class="rper">fondation</span><span class="rmain"><b>Lab'ESS — Tunis</b><small>membre fondateur du lab post-révolution, avec l'IFT et la DSF</small></span></div>
+      <div class="rrow" data-cat="impact"><span class="rper">1er prix</span><span class="rmain"><b>Startup Weekend Metz</b><small>LinkART</small></span></div>
+      <div class="rrow" data-cat="form"><span class="rper">transmission</span><span class="rmain"><b>WebForce3 · Naïas · Nextformation · Philiance</b><small>formateur dev web, mobile &amp; droit multimédia</small></span></div>
+      <div class="rrow" data-cat="archi"><span class="rper">aujourd'hui</span><span class="rmain"><b>NoireBox · navette · cet agent</b><small>l'aboutissement : des outils qui prouvent ce qu'ils font</small></span></div>
+    </div>
+  </section>
+
+  <section id="preuves" data-num="05">
+    <p class="kicker rv" data-en="// proof, not promises">// preuves, pas promesses</p>
+    <h2 class="rv d1" data-en="Products in production, not slide decks.">Des produits en production, pas des slides.</h2>
+    <p class="sub rv d2" data-en="Two flagship open source projects, four more builds, and a public benchmark anyone can reproduce.">Deux projets open source phares, quatre autres constructions, un bench public que tout le monde peut refaire.</p>
+    <div class="grid2">
+      <div class="card product rv">
+        <p class="num">noirebox</p>
+        <h3 data-en="The flight data recorder for AI agents">La boîte noire des agents IA</h3>
+        <p data-en="Hash-chained journal, sealed receipts, key custody down to hardware, RFC 3161 timestamp anchoring — one seal covers a whole fleet of agents.">Journal chaîné par hash, receipts scellés, custody des clés jusqu'au matériel, ancrage horodatage RFC&nbsp;3161 — un seul sceau couvre toute une flotte d'agents.</p>
+        <p class="tags">open source · MIT · PyPI · 300+ tests</p>
+        <a class="plink" href="https://github.com/noirebox/noirebox">github.com/noirebox/noirebox →</a>
+      </div>
+      <div class="card product rv d1">
+        <p class="num">navette</p>
+        <h3 data-en="The browser for agents">Le navigateur pour agents</h3>
+        <p data-en="A tiny Rust binary drives the WebView your OS already ships. No Chromium, no download. And a public benchmark: out of 200 real URLs, only 82.5% are readable by an agent.">Un petit binaire Rust pilote la WebView déjà livrée par votre OS. Pas de Chromium, pas de téléchargement. Et un bench public&nbsp;: sur 200 URLs réelles, 82,5&nbsp;% seulement sont lisibles par un agent.</p>
+        <p class="tags">open source · bench tollbooth · dataset public</p>
+        <a class="plink" href="https://github.com/slabbdev/navette">github.com/slabbdev/navette →</a>
+      </div>
+    </div>
+    <div class="grid4">
+      <div class="card mini rv">
+        <p class="num">zerojour</p>
+        <p data-en="An advisories agent that only works because the content is structured. Measured with a 3-arm eval.">Agent d'advisories — ne fonctionne que parce que le contenu est structuré. Mesuré par un eval à 3 bras.</p>
+      </div>
+      <div class="card mini rv d1">
+        <p class="num">carte-blanche</p>
+        <p data-en="Spending mandates, sealed receipts, dispute-proof audits — AI agents that pay with PayPal.">Mandats de dépense, receipts scellés, audits incontestables — des agents qui payent avec PayPal.</p>
+      </div>
+      <div class="card mini rv d2">
+        <p class="num">starflotte</p>
+        <p data-en="20 navette browsers on free GitHub Actions runners. Mission lands in an issue, fleet reports back in the issue.">20 navette sur des runners GitHub Actions gratuits. Mission dans une issue, rapport dans l'issue.</p>
+      </div>
+      <div class="card mini rv d3">
+        <p class="num">grisematter</p>
+        <p data-en="A brain your agent can git clone — alive, wakes hourly, sealed with Ed25519.">Un cerveau que votre agent peut git cloner — vivant, réveil horaire, scellé Ed25519.</p>
+      </div>
+    </div>
+    <p class="also rv" data-en="also: pluginforge · openvolte · shortcast · sombrematter — <a href=&quot;https://github.com/slabbdev&quot;>everything is on github.com/slabbdev</a>">aussi&nbsp;: pluginforge · openvolte · shortcast · sombrematter — <a href="https://github.com/slabbdev">tout est sur github.com/slabbdev</a></p>
+    <p class="reperes rv" data-en="highlights: daily.dev squad « proofagents » · tollbooth benchmark — top active discussion on daily.dev, 08/10/2026">repères&nbsp;: squad daily.dev «&nbsp;proofagents&nbsp;» · bench tollbooth — top discussion daily.dev, 08/10/2026</p>
+  </section>
+
+  <section id="ecrits" data-num="06">
+    <p class="kicker rv" data-en="// writing">// écrits</p>
+    <h2 class="rv d1" data-en="25 articles, published, commented, attacked.">25 articles, publiés, commentés, attaqués.</h2>
+    <p class="sub rv d2" data-en="In English — agent security, proof, compliance. The kind of articles that end with a patch.">En anglais — sécurité des agents, preuve, conformité. Le genre d'articles qui se terminent par un correctif.</p>
+    <div class="articles rv">
+      <div class="article">
+        <a class="atitle" href="https://dev.to/slabb/a-hash-chain-proves-the-ordering-four-attacks-prove-its-not-enough-59oe">A hash chain proves the ordering. Four attacks prove it's not enough.</a>
+        <span class="ameta" data-en="10.10.2026 · 20 reactions · 64 comments">10.10.2026 · 20 réactions · 64 commentaires</span>
+      </div>
+      <div class="article">
+        <a class="atitle" href="https://dev.to/slabb/docker-just-shipped-the-agent-wall-i-wanted-its-off-by-default-f18">Docker just shipped the agent wall I wanted. It's off by default.</a>
+        <span class="ameta" data-en="09.10.2026 · 24 reactions · 47 comments">09.10.2026 · 24 réactions · 47 commentaires</span>
+      </div>
+      <div class="article">
+        <a class="atitle" href="https://dev.to/slabb/my-agent-met-the-real-web-403s-challenges-and-the-coming-tollbooth-1h2g">My agent met the real web. 403s, challenges, and the coming tollbooth.</a>
+        <span class="ameta" data-en="08.10.2026 · 3 reactions · 10 comments">08.10.2026 · 3 réactions · 10 commentaires</span>
+      </div>
+      <div class="article">
+        <a class="atitle" href="https://dev.to/slabb/i-built-the-flight-data-recorder-for-ai-agents-38f6">I built the flight data recorder for AI agents.</a>
+        <span class="ameta" data-en="22.09.2026 · 6 reactions · 19 comments">22.09.2026 · 6 réactions · 19 commentaires</span>
+      </div>
+    </div>
+    <p class="also rv" data-en="<a href=&quot;https://dev.to/slabb&quot;>all 25 articles on dev.to/slabb →</a>"><a href="https://dev.to/slabb">les 25 articles sur dev.to/slabb →</a></p>
+  </section>
+
+  <section id="contact" class="contact" data-num="07">
+    <p class="kicker rv" data-en="// contact">// contact</p>
+    <h2 class="rv d1" data-en="A mission, an audit, an agent to tame?">Une mission, un audit, un agent à dompter&nbsp;?</h2>
+    <p class="sub rv d2" data-en="Write to me — I answer in French or English, fast and jargon-free.">Écrivez-moi — réponse en français ou en anglais, rapide et sans jargon.</p>
+    <a class="bigmail rv d3" href="mailto:github@slabb.dev">github@slabb.dev</a>
+    <div class="crow rv d4">
+      <a href="https://github.com/slabbdev">GitHub</a><span>/</span>
+      <a href="https://dev.to/slabb" data-en="Writing — dev.to/slabb">Écrits — dev.to/slabb</a>
+    </div>
+    <p class="loc rv d5" data-en="Épinal (Vosges), France — remote first, on-site across Grand Est.">Épinal (Vosges) — remote d'abord, Grand Est sur site.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>⬛ black boxes for systems nobody can fully trust</span>
+    <span data-en="slabb.dev — a static site, zero dependency, zero tracking · © 2026 Sam Labbe">slabb.dev — un site statique, zéro dépendance, zéro tracking · © 2026 Sam Labbe</span>
+    <span class="seal"><a href="verify.html" data-en="sealed build · sha256 + Ed25519 · verify →">site scellé · sha256 + Ed25519 · vérifier →</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var I18N={
+    title:{fr:document.title,en:"Sam Labbe — Full-stack lead dev · AI agent tamer · compliance by proof"},
+    desc:{fr:document.querySelector('meta[name="description"]').getAttribute("content"),en:"Full-stack lead dev since 2004, AI agent tamer in production, verifiable AI Act & GDPR compliance. Creator of NoireBox and navette."}
+  };
+  var en=false;
+  var btn=document.getElementById('langBtn');
+  btn.addEventListener('click',function(){
+    en=!en;
+    document.querySelectorAll('[data-en]').forEach(function(n){
+      if(en){ if(!n.getAttribute('data-fr')) n.setAttribute('data-fr',n.innerHTML); n.innerHTML=n.getAttribute('data-en'); }
+      else{ n.innerHTML=n.getAttribute('data-fr'); }
+    });
+    try{
+      document.title=en?I18N.title.en:I18N.title.fr;
+      document.querySelector('meta[name="description"]').setAttribute('content',en?I18N.desc.en:I18N.desc.fr);
+      document.documentElement.lang=en?'en':'fr';
+    }catch(e){}
+    btn.textContent=en?'FR':'EN';
+    btn.setAttribute('aria-pressed',en?'true':'false');
+  });
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('vis'); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var DATA=[{"d":"developer.mozilla.org","c":"docs","o":"ok","m":1957,"t":"JavaScript | MDN","b":0,"p":false},{"d":"developer.mozilla.org","c":"docs","o":"ok","m":115,"t":"CSS: Cascading Style Sheets | MDN","b":0,"p":false},{"d":"developer.mozilla.org","c":"docs","o":"ok","m":155,"t":"Web APIs | MDN","b":0,"p":false},{"d":"docs.python.org","c":"docs","o":"ok","m":606,"t":"The Python Tutorial — Python 3.14.8 documentation","b":0,"p":false},{"d":"docs.python.org","c":"docs","o":"ok","m":66,"t":"asyncio — Asynchronous I/O — Python 3.14.8 documentation","b":0,"p":false},{"d":"docs.python.org","c":"docs","o":"ok","m":268,"t":"3. Data model — Python 3.14.8 documentation","b":0,"p":false},{"d":"react.dev","c":"docs","o":"ok","m":1096,"t":"Quick Start – React","b":0,"p":false},{"d":"react.dev","c":"docs","o":"ok","m":386,"t":"useState – React","b":0,"p":false},{"d":"nextjs.org","c":"docs","o":"ok","m":851,"t":"Next.js Docs | Next.js","b":0,"p":false},{"d":"vuejs.org","c":"docs","o":"ok","m":891,"t":"Introduction | Vue.js","b":0,"p":false},{"d":"svelte.dev","c":"docs","o":"ok","m":319,"t":"Introduction • SvelteKit Docs","b":0,"p":false},{"d":"astro.build","c":"docs","o":"ok","m":466,"t":"Page not found | Astro","b":0,"p":false},{"d":"vitejs.dev","c":"docs","o":"ok","m":1643,"t":"Getting Started | Vite","b":0,"p":false},{"d":"rust-lang.org","c":"docs","o":"ok","m":855,"t":"Learn Rust - Rust Programming Language","b":0,"p":false},{"d":"doc.rust-lang.org","c":"docs","o":"ok","m":308,"t":"Installation - The Rust Programming Language","b":0,"p":false},{"d":"go.dev","c":"docs","o":"ok","m":1399,"t":"Documentation - The Go Programming Language","b":0,"p":false},{"d":"go.dev","c":"docs","o":"empty-js-gate","m":815,"t":"A Tour of Go","b":0,"p":false},{"d":"nodejs.org","c":"docs","o":"ok","m":1169,"t":"File system | Node.js v26.11.1 Documentation","b":0,"p":false},{"d":"typescriptlang.org","c":"docs","o":"ok","m":735,"t":"TypeScript: Handbook - The TypeScript Handbook","b":0,"p":false},{"d":"docs.docker.com","c":"docs","o":"ok","m":969,"t":"Get started | Docker Docs","b":0,"p":false},{"d":"kubernetes.io","c":"docs","o":"ok","m":882,"t":"Kubernetes Documentation | Kubernetes","b":0,"p":false},{"d":"postgresql.org","c":"docs","o":"ok","m":778,"t":"PostgreSQL: Documentation: 18: Part I. Tutorial","b":0,"p":false},{"d":"redis.io","c":"docs","o":"ok","m":1627,"t":"Docs","b":0,"p":false},{"d":"sqlite.org","c":"docs","o":"ok","m":1481,"t":"SQLite Documentation","b":0,"p":false},{"d":"nginx.org","c":"docs","o":"ok","m":268,"t":"nginx documentation","b":0,"p":false},{"d":"git-scm.com","c":"docs","o":"ok","m":349,"t":"Git","b":0,"p":false},{"d":"docs.github.com","c":"docs","o":"ok","m":958,"t":"GitHub Actions documentation - GitHub Docs","b":0,"p":false},{"d":"docs.aws.amazon.com","c":"docs","o":"ok","m":2460,"t":"What is AWS Lambda? - AWS Lambda","b":0,"p":false},{"d":"cloud.google.com","c":"docs","o":"ok","m":2037,"t":"Documentation Google Cloud  |  Google Cloud Documentation","b":0,"p":false},{"d":"learn.microsoft.com","c":"docs","o":"ok","m":2062,"t":".NET documentation - .NET | Microsoft Learn","b":0,"p":false},{"d":"getbootstrap.com","c":"docs","o":"ok","m":635,"t":"Get started with Bootstrap · Bootstrap v5.3","b":0,"p":false},{"d":"tailwindcss.com","c":"docs","o":"ok","m":790,"t":"Installing Tailwind CSS with Vite - Tailwind CSS","b":0,"p":false},{"d":"webpack.js.org","c":"docs","o":"ok","m":826,"t":"Concepts | webpack","b":0,"p":false},{"d":"jestjs.io","c":"docs","o":"ok","m":1202,"t":"Getting Started · Jest","b":0,"p":false},{"d":"docs.pytest.org","c":"docs","o":"ok","m":411,"t":"pytest documentation","b":0,"p":false},{"d":"numpy.org","c":"docs","o":"ok","m":970,"t":"NumPy documentation — NumPy v2.5 Manual","b":0,"p":false},{"d":"pandas.pydata.org","c":"docs","o":"ok","m":1013,"t":"User Guide — pandas 3.0.6 documentation","b":0,"p":false},{"d":"threejs.org","c":"docs","o":"ok","m":2187,"t":"three.js docs","b":0,"p":false},{"d":"php.net","c":"docs","o":"ok","m":1049,"t":"PHP: Preface - Manual","b":0,"p":false},{"d":"guides.rubyonrails.org","c":"docs","o":"ok","m":2176,"t":"Getting Started with Rails — Ruby on Rails Guides","b":0,"p":false},{"d":"reuters.com","c":"news","o":"empty-js-gate","m":868,"t":"reuters.com","b":10,"p":false},{"d":"apnews.com","c":"news","o":"ok","m":20306,"t":"Associated Press News: Breaking News, Latest Headlines and V","b":10,"p":false},{"d":"bbc.com","c":"news","o":"ok","m":1202,"t":"BBC News - Breaking news, video and the latest top stories f","b":10,"p":false},{"d":"nytimes.com","c":"news","o":"ok","m":3658,"t":"The New York Times - Breaking News, US News, World News and ","b":10,"p":false},{"d":"washingtonpost.com","c":"news","o":"ok","m":14910,"t":"The Washington Post - Breaking news and latest headlines, U.","b":10,"p":false},{"d":"theguardian.com","c":"news","o":"ok","m":1089,"t":"Latest news, sport and opinion from the Guardian","b":10,"p":false},{"d":"lemonde.fr","c":"news","o":"ok","m":1173,"t":"Le Monde.fr - Actualités et Infos en France et dans le monde","b":10,"p":false},{"d":"lefigaro.fr","c":"news","o":"ok","m":574,"t":"Le Figaro - Avant de poursuivre votre lecture ...","b":10,"p":false},{"d":"cbc.ca","c":"news","o":"ok","m":4645,"t":"CBC News - Latest Canada, World, Entertainment and Business ","b":10,"p":false},{"d":"aljazeera.com","c":"news","o":"challenge","m":3187,"t":"Breaking News, World News and Video from Al Jazeera","b":10,"p":false},{"d":"cnbc.com","c":"news","o":"ok","m":8929,"t":"International Business, World News & Global Stock Market Ana","b":10,"p":false},{"d":"bloomberg.com","c":"news","o":"ok","m":16681,"t":"Bloomberg Europe","b":10,"p":false},{"d":"ft.com","c":"news","o":"ok","m":2048,"t":"Home - Financial Times","b":10,"p":false},{"d":"economist.com","c":"news","o":"empty-js-gate","m":853,"t":"economist.com","b":9,"p":false},{"d":"wsj.com","c":"news","o":"empty-js-gate","m":622,"t":"wsj.com","b":9,"p":false},{"d":"npr.org","c":"news","o":"ok","m":6685,"t":"News: U.S. and World News Headlines : NPR","b":10,"p":false},{"d":"politico.com","c":"news","o":"challenge","m":8103,"t":"Politics, Policy, Political News - POLITICO","b":0,"p":false},{"d":"theatlantic.com","c":"news","o":"ok","m":754,"t":"Un instant…","b":10,"p":false},{"d":"wired.com","c":"news","o":"ok","m":4201,"t":"WIRED - The Latest in Technology, Science, Culture and Busin","b":10,"p":false},{"d":"techcrunch.com","c":"news","o":"ok","m":11511,"t":"TechCrunch | Startup and Technology News","b":10,"p":false},{"d":"theverge.com","c":"news","o":"ok","m":5614,"t":"The Verge","b":10,"p":false},{"d":"arstechnica.com","c":"news","o":"ok","m":5824,"t":"Ars Technica - Serving the Technologist since 1998. News, re","b":9,"p":false},{"d":"engadget.com","c":"news","o":"ok","m":2143,"t":"Engadget | Technology News & Expert Reviews","b":0,"p":false},{"d":"variety.com","c":"news","o":"ok","m":4196,"t":"Variety - Entertainment news, film reviews, awards, film fes","b":10,"p":false},{"d":"hollywoodreporter.com","c":"news","o":"ok","m":3814,"t":"The Hollywood Reporter – Movie news, TV news, awards news, l","b":10,"p":false},{"d":"espn.com","c":"news","o":"ok","m":5218,"t":"ESPN United Kingdom - Serving Sports Fans. Anytime. Anywhere","b":5,"p":false},{"d":"cnn.com","c":"news","o":"ok","m":7462,"t":"Breaking News, Latest News and Videos | CNN","b":10,"p":false},{"d":"abcnews.go.com","c":"news","o":"ok","m":6527,"t":"ABC News - Breaking News, Latest News and Videos","b":5,"p":false},{"d":"cbsnews.com","c":"news","o":"ok","m":1792,"t":"U.S. News: Latest news, breaking news, today's news stories ","b":10,"p":false},{"d":"nbcnews.com","c":"news","o":"ok","m":14077,"t":"NBC News - Breaking Headlines and Video Reports on World, U.","b":10,"p":false},{"d":"time.com","c":"news","o":"challenge","m":8122,"t":"TIME | Current & Breaking News | National & World Updates","b":0,"p":false},{"d":"newsweek.com","c":"news","o":"ok","m":4991,"t":"Newsweek - Latest Breaking News, US, World, Politics, Busine","b":10,"p":false},{"d":"forbes.com","c":"news","o":"ok","m":1839,"t":"Forbes","b":0,"p":false},{"d":"inc.com","c":"news","o":"ok","m":1901,"t":"Inc. | Tech and Business News for Entrepreneurs and Leaders","b":10,"p":false},{"d":"fastcompany.com","c":"news","o":"ok","m":6101,"t":"Fast Company | Business News, Innovation, Technology, Work L","b":10,"p":false},{"d":"axios.com","c":"news","o":"ok","m":4229,"t":"Axios - Breaking news, U.S. news and politics, and local new","b":10,"p":false},{"d":"semafor.com","c":"news","o":"ok","m":2584,"t":"Semafor - An intelligent, transparent global news platform f","b":10,"p":false},{"d":"theintercept.com","c":"news","o":"ok","m":826,"t":"The Intercept","b":6,"p":true},{"d":"propublica.org","c":"news","o":"ok","m":3804,"t":"ProPublica — Investigative Journalism and News in the Public","b":0,"p":false},{"d":"rtbf.be","c":"news","o":"ok","m":2358,"t":"RTBF le site de la Radio Télévision Belge Francophone","b":10,"p":false},{"d":"amazon.com","c":"e-commerce","o":"ok","m":1330,"t":"Amazon.com","b":10,"p":false},{"d":"ebay.com","c":"e-commerce","o":"ok","m":455,"t":"Error Page | eBay","b":10,"p":false},{"d":"etsy.com","c":"e-commerce","o":"ok","m":4435,"t":"Etsy - Achetez des cadeaux faits main, vintage, personnalisé","b":0,"p":false},{"d":"walmart.com","c":"e-commerce","o":"ok","m":3386,"t":"Walmart | Save Money. Live better.","b":0,"p":false},{"d":"target.com","c":"e-commerce","o":"ok","m":16316,"t":"Target : Expect More. Pay Less.","b":0,"p":false},{"d":"bestbuy.com","c":"e-commerce","o":"ok","m":1824,"t":"Best Buy International: Select your Country - Best Buy","b":0,"p":false},{"d":"wayfair.com","c":"e-commerce","o":"ok","m":2760,"t":"Wayfair.com - Online Home Store for Furniture, Decor, Outdoo","b":0,"p":false},{"d":"ikea.com","c":"e-commerce","o":"ok","m":7953,"t":"Shop Affordable Home Furnishings & Home Goods - IKEA","b":0,"p":false},{"d":"homedepot.com","c":"e-commerce","o":"challenge","m":136,"t":"Access Denied","b":0,"p":false},{"d":"lowes.com","c":"e-commerce","o":"ok","m":16424,"t":"Lowe’s Home Improvement","b":0,"p":false},{"d":"costco.com","c":"e-commerce","o":"empty-js-gate","m":449,"t":"","b":0,"p":false},{"d":"newegg.com","c":"e-commerce","o":"ok","m":6226,"t":"PC Parts, Computers, Workstations & AI PCs | Newegg","b":10,"p":false},{"d":"bhphotovideo.com","c":"e-commerce","o":"ok","m":2603,"t":"B&H Photo Video Digital Cameras, Photography, Computers","b":0,"p":false},{"d":"apple.com","c":"e-commerce","o":"ok","m":1400,"t":"Buy iPhone - Apple","b":0,"p":false},{"d":"microsoft.com","c":"e-commerce","o":"ok","m":1883,"t":"Page cannot be found","b":0,"p":false},{"d":"samsung.com","c":"e-commerce","o":"ok","m":2147,"t":"Samsung US | Mobile | TV | Home Electronics | Home Appliance","b":10,"p":false},{"d":"shop.nordstrom.com","c":"e-commerce","o":"ok","m":2283,"t":"Nordstrom Online & in Store: Shoes, Jewelry, Clothing, Makeu","b":0,"p":false},{"d":"macys.com","c":"e-commerce","o":"empty-js-gate","m":1081,"t":"","b":0,"p":false},{"d":"zappos.com","c":"e-commerce","o":"ok","m":3250,"t":"Shoes, Sneakers, Boots, & Clothing + FREE SHIPPING | Zappos.","b":0,"p":false},{"d":"asos.com","c":"e-commerce","o":"ok","m":5316,"t":"ASOS | Online shopping for the Latest Clothes & Fashion","b":0,"p":false},{"d":"zalando.fr","c":"e-commerce","o":"empty-js-gate","m":30014,"t":"","b":0,"p":false},{"d":"fr.shein.com","c":"e-commerce","o":"ok","m":459,"t":"Un instant…","b":0,"p":false},{"d":"temu.com","c":"e-commerce","o":"ok","m":2125,"t":"Temu France | Explore the Latest Clothing, Beauty, Home, Jew","b":0,"p":false},{"d":"aliexpress.com","c":"e-commerce","o":"ok","m":7271,"t":"AliExpress France - Livraison gratuite et économisez plus - ","b":0,"p":false},{"d":"banggood.com","c":"e-commerce","o":"ok","m":2539,"t":"Banggood : Global Leading Online Shop for Gadgets and Fashio","b":0,"p":false},{"d":"flipkart.com","c":"e-commerce","o":"ok","m":4696,"t":"Online Shopping India Mobile, Cameras, Lifestyle & more Onli","b":0,"p":false},{"d":"myntra.com","c":"e-commerce","o":"ok","m":3502,"t":"Online Shopping for Women, Men, Kids Fashion & Lifestyle - M","b":0,"p":false},{"d":"noon.com","c":"e-commerce","o":"ok","m":2294,"t":"noon Online Shopping UAE - Electronics, Mobiles, Fashion, Ap","b":0,"p":false},{"d":"jumia.ma","c":"e-commerce","o":"ok","m":765,"t":"Un instant…","b":2,"p":false},{"d":"mercadolibre.com.mx","c":"e-commerce","o":"ok","m":3907,"t":"Mercado Libre México - Envíos Gratis en el día","b":4,"p":false},{"d":"alibaba.com","c":"e-commerce","o":"ok","m":7938,"t":"Alibaba - la plus grande plateforme de commerce B2B en ligne","b":10,"p":false},{"d":"stockx.com","c":"e-commerce","o":"ok","m":1416,"t":"StockX: Sneakers, Streetwear, Trading Cards, Handbags, Watch","b":0,"p":false},{"d":"fanatics.com","c":"e-commerce","o":"challenge","m":992,"t":"Access Denied","b":0,"p":false},{"d":"guitarguitar.co.uk","c":"e-commerce","o":"ok","m":1881,"t":"GUITARGUITAR | Guitar Shop & Musical Instrument Store","b":0,"p":false},{"d":"thomann.de","c":"e-commerce","o":"ok","m":2968,"t":"Acheter des instruments de musique en ligne chez le leader d","b":10,"p":false},{"d":"pccasegear.com","c":"e-commerce","o":"ok","m":498,"t":"Un instant…","b":0,"p":false},{"d":"mouser.com","c":"e-commerce","o":"empty-js-gate","m":1387,"t":"mouser.com","b":0,"p":false},{"d":"digikey.com","c":"e-commerce","o":"ok","m":409,"t":"Un instant…","b":0,"p":false},{"d":"grainger.com","c":"e-commerce","o":"empty-js-gate","m":852,"t":"grainger.com","b":0,"p":false},{"d":"webstaurantstore.com","c":"e-commerce","o":"ok","m":3759,"t":"WebstaurantStore: Commercial Supplies & Restaurant Equipment","b":0,"p":false},{"d":"github.com","c":"dev-tools","o":"ok","m":1690,"t":"GitHub · Le changement est constant. GitHub vous permet de g","b":5,"p":false},{"d":"github.com","c":"dev-tools","o":"ok","m":1409,"t":"Trending repositories on GitHub today · GitHub","b":5,"p":false},{"d":"gitlab.com","c":"dev-tools","o":"ok","m":1801,"t":"GitLab : l'ingénierie logicielle agentique maîtrisée","b":0,"p":false},{"d":"npmjs.com","c":"dev-tools","o":"ok","m":942,"t":"npm | Home","b":0,"p":false},{"d":"pypi.org","c":"dev-tools","o":"ok","m":394,"t":"PyPI · L'Index des paquets Python","b":0,"p":false},{"d":"crates.io","c":"dev-tools","o":"empty-js-gate","m":794,"t":"crates.io: Rust Package Registry","b":0,"p":false},{"d":"rubygems.org","c":"dev-tools","o":"ok","m":1518,"t":"RubyGems.org | your community gem host","b":0,"p":false},{"d":"packagist.org","c":"dev-tools","o":"ok","m":410,"t":"Packagist.org","b":0,"p":false},{"d":"central.sonatype.com","c":"dev-tools","o":"ok","m":1994,"t":"Maven Central","b":0,"p":false},{"d":"stackoverflow.com","c":"dev-tools","o":"challenge","m":324,"t":"Just a moment...","b":0,"p":false},{"d":"serverfault.com","c":"dev-tools","o":"empty-js-gate","m":162,"t":"","b":0,"p":false},{"d":"stackexchange.com","c":"dev-tools","o":"ok","m":1194,"t":"Hot Questions - Stack Exchange","b":0,"p":false},{"d":"hub.docker.com","c":"dev-tools","o":"ok","m":3684,"t":"Docker Hub Container Image Library | App Containerization","b":0,"p":false},{"d":"readthedocs.org","c":"dev-tools","o":"ok","m":1313,"t":"Full featured documentation deployment platform - Read the D","b":10,"p":false},{"d":"dev.to","c":"dev-tools","o":"ok","m":3029,"t":"DEV Community","b":0,"p":false},{"d":"medium.com","c":"dev-tools","o":"ok","m":1730,"t":"The most insightful stories about Programming - Medium","b":10,"p":false},{"d":"hashnode.com","c":"dev-tools","o":"ok","m":2438,"t":"Hashnode — The Best Blogging Platform for Builders in Tech","b":0,"p":false},{"d":"news.ycombinator.com","c":"dev-tools","o":"ok","m":966,"t":"Hacker News","b":0,"p":false},{"d":"codepen.io","c":"dev-tools","o":"challenge","m":1084,"t":"CodePen: Online Code Editor and Front End Web Developer Comm","b":0,"p":false},{"d":"jsfiddle.net","c":"dev-tools","o":"ok","m":1454,"t":"JSFiddle - React, Tailwind, and code Playground","b":0,"p":false},{"d":"replit.com","c":"dev-tools","o":"ok","m":405,"t":"Un instant…","b":10,"p":false},{"d":"codesandbox.io","c":"dev-tools","o":"ok","m":1471,"t":"CodeSandbox: Instant Cloud Development Environments","b":0,"p":false},{"d":"vercel.com","c":"dev-tools","o":"challenge","m":999,"t":"Vercel Documentation","b":0,"p":false},{"d":"netlify.com","c":"dev-tools","o":"ok","m":1822,"t":"Netlify Documentation | Netlify Docs","b":0,"p":false},{"d":"railway.app","c":"dev-tools","o":"ok","m":1389,"t":"Railway Docs","b":0,"p":false},{"d":"render.com","c":"dev-tools","o":"challenge","m":2815,"t":"Docs + Quickstarts | Render","b":0,"p":false},{"d":"fly.io","c":"dev-tools","o":"ok","m":1778,"t":"Fly.io developer documentation - Fly.io","b":0,"p":false},{"d":"heroku.com","c":"dev-tools","o":"ok","m":3038,"t":"Heroku | Platform as a Service (PaaS) & App Hosting Platform","b":0,"p":false},{"d":"digitalocean.com","c":"dev-tools","o":"challenge","m":755,"t":"AI-Native Cloud | DigitalOcean","b":0,"p":false},{"d":"jetbrains.com","c":"dev-tools","o":"ok","m":3700,"t":"The Java and Kotlin IDE for You and Your Agents","b":0,"p":false},{"d":"code.visualstudio.com","c":"dev-tools","o":"ok","m":1901,"t":"Documentation for Visual Studio Code","b":0,"p":false},{"d":"marketplace.visualstudio.com","c":"dev-tools","o":"ok","m":1519,"t":"Extensions for Visual Studio family of products | Visual Stu","b":0,"p":false},{"d":"caniuse.com","c":"dev-tools","o":"ok","m":1962,"t":"Can I use... Support tables for HTML5, CSS3, etc","b":0,"p":false},{"d":"developer.apple.com","c":"dev-tools","o":"ok","m":2338,"t":"Featured | Apple Developer Documentation","b":0,"p":false},{"d":"developer.android.com","c":"dev-tools","o":"ok","m":2836,"t":"Développer pour Android  |  Android Developers","b":0,"p":false},{"d":"docs.rs","c":"dev-tools","o":"ok","m":690,"t":"serde - Rust","b":0,"p":false},{"d":"pkg.go.dev","c":"dev-tools","o":"ok","m":1815,"t":"Standard library - Go Packages","b":0,"p":false},{"d":"libraries.io","c":"dev-tools","o":"ok","m":2957,"t":"Libraries.io - security & maintenance data for open source s","b":0,"p":false},{"d":"jsdelivr.com","c":"dev-tools","o":"ok","m":483,"t":"jsDelivr - A free, fast, and reliable CDN for JS and open so","b":0,"p":false},{"d":"unpkg.com","c":"dev-tools","o":"ok","m":1268,"t":"UNPKG","b":0,"p":false},{"d":"x.com","c":"social","o":"ok","m":1388,"t":"X. C'est ce qu'il se passe / X","b":10,"p":false},{"d":"facebook.com","c":"social","o":"empty-js-gate","m":1203,"t":"Facebook","b":10,"p":false},{"d":"instagram.com","c":"social","o":"ok","m":1297,"t":"Instagram","b":10,"p":false},{"d":"linkedin.com","c":"social","o":"ok","m":969,"t":"LinkedIn : s’identifier ou s’inscrire","b":10,"p":false},{"d":"tiktok.com","c":"social","o":"empty-js-gate","m":4310,"t":"TikTok - Make Your Day","b":8,"p":false},{"d":"pinterest.com","c":"social","o":"empty-js-gate","m":1741,"t":"Pinterest - France","b":10,"p":false},{"d":"reddit.com","c":"social","o":"ok","m":435,"t":"","b":10,"p":false},{"d":"youtube.com","c":"social","o":"empty-js-gate","m":3731,"t":"YouTube","b":0,"p":false},{"d":"twitch.tv","c":"social","o":"empty-js-gate","m":1625,"t":"Twitch","b":0,"p":false},{"d":"discord.com","c":"social","o":"ok","m":1781,"t":"Discord - Group Chat That’s All Fun & Games","b":10,"p":false},{"d":"telegram.org","c":"social","o":"ok","m":548,"t":"Telegram Messenger","b":0,"p":false},{"d":"threads.net","c":"social","o":"empty-js-gate","m":1299,"t":"Threads • Se connecter","b":10,"p":false},{"d":"bsky.app","c":"social","o":"empty-js-gate","m":3149,"t":"Bluesky","b":0,"p":false},{"d":"mastodon.social","c":"social","o":"empty-js-gate","m":473,"t":"Mastodon","b":1,"p":false},{"d":"lemmy.world","c":"social","o":"ok","m":1336,"t":"Un instant…","b":0,"p":false},{"d":"tumblr.com","c":"social","o":"ok","m":1431,"t":"Tumblr","b":10,"p":false},{"d":"flickr.com","c":"social","o":"ok","m":1668,"t":"Flickr | The best place to be a photographer online.","b":10,"p":false},{"d":"vk.com","c":"social","o":"empty-js-gate","m":3076,"t":"VK | Bienvenue!","b":0,"p":false},{"d":"weibo.com","c":"social","o":"empty-js-gate","m":4105,"t":"Sina Visitor System","b":10,"p":false},{"d":"quora.com","c":"social","o":"ok","m":1761,"t":"Quora - Un lieu pour partager le savoir et mieux comprendre ","b":10,"p":false},{"d":"goodreads.com","c":"social","o":"ok","m":2862,"t":"Goodreads | Meet your next favorite book","b":2,"p":false},{"d":"letterboxd.com","c":"social","o":"empty-js-gate","m":30009,"t":"","b":6,"p":false},{"d":"bandcamp.com","c":"social","o":"ok","m":4262,"t":"Bandcamp","b":10,"p":false},{"d":"soundcloud.com","c":"social","o":"ok","m":2021,"t":"Discover the top streamed music and songs online on Soundclo","b":10,"p":false},{"d":"open.spotify.com","c":"social","o":"ok","m":2925,"t":"Spotify - Lecteur web : de la musique pour tout le monde","b":8,"p":false},{"d":"mixcloud.com","c":"social","o":"ok","m":517,"t":"Un instant…","b":0,"p":false},{"d":"strava.com","c":"social","o":"ok","m":5036,"t":"Strava | Application running, vélo et randonnée - Entraîneme","b":3,"p":false},{"d":"behance.net","c":"social","o":"ok","m":1306,"t":"Search Projects :: Photos, videos, logos, illustrations and ","b":7,"p":false},{"d":"dribbble.com","c":"social","o":"challenge","m":1626,"t":"Dribbble - Discover the World’s Top Designers & Creative Pro","b":0,"p":false},{"d":"imgur.com","c":"social","o":"ok","m":3091,"t":"Imgur: The magic of the Internet","b":0,"p":false},{"d":"9gag.com","c":"social","o":"ok","m":1619,"t":"9GAG - Best Funny Memes and Breaking News","b":0,"p":false},{"d":"knowyourmeme.com","c":"social","o":"ok","m":447,"t":"Un instant…","b":0,"p":false},{"d":"boredpanda.com","c":"social","o":"ok","m":6749,"t":"Bored Panda - The Only Magazine For Pandas","b":1,"p":false},{"d":"duolingo.com","c":"social","o":"ok","m":3524,"t":"Duolingo","b":0,"p":false},{"d":"meetup.com","c":"social","o":"ok","m":2361,"t":"Meetup | Trouvez des groupes locaux, des événements et des a","b":10,"p":false},{"d":"eventbrite.com","c":"social","o":"ok","m":1128,"t":"Eventbrite - Discover the Best Local Events & Things to Do","b":10,"p":false},{"d":"yelp.com","c":"social","o":"empty-js-gate","m":15219,"t":"","b":0,"p":false},{"d":"trustpilot.com","c":"social","o":"ok","m":484,"t":"Verifying Connection","b":10,"p":false},{"d":"stackshare.io","c":"social","o":"ok","m":140,"t":"Vercel Security Checkpoint","b":0,"p":false},{"d":"alternativeto.net","c":"social","o":"challenge","m":1743,"t":"AlternativeTo - Crowdsourced software recommendations | Alte","b":0,"p":false}];
+  var LBL={ok:['200 lisible','readable'], 'empty-js-gate':['JS-gate (page vide sans JS)','JS-gate (empty page without JS)'], challenge:['challenge (captcha / JS)','challenge (captcha / JS)']};
+  var CAT={docs:'docs',news:'presse','e-commerce':'e-commerce','dev-tools':'outils dev',social:'social'};
+  var P='';
+  var root=document.getElementById('lab');
+  function q(id){return document.getElementById(P+id)}
+  /* --- chaîne noirebox --- */
+  var LOGS=[
+    {id:'01',ts:'2026-10-17T08:14:02Z',a:"agent.init(scope='factures_lecture')"},
+    {id:'02',ts:'2026-10-17T08:14:05Z',a:"mandat.autoriser(plafond='150.00_EUR')"},
+    {id:'03',ts:'2026-10-17T08:14:09Z',a:"receipt.sceller(anchor='RFC3161_OK')"}
+  ];
+  var cur=JSON.parse(JSON.stringify(LOGS)), base=null;
+  function hex(d){return Array.prototype.map.call(new Uint8Array(d),function(b){return b.toString(16).padStart(2,'0')}).join('')}
+  function fnv(t){var h1=0xdeadbeef^t.length,h2=0x41c6ce57^t.length,i,c;for(i=0;i<t.length;i++){c=t.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return (h2>>>0).toString(16)+(h1>>>0).toString(16)}
+  function sha(t){
+    if(window.crypto&&crypto.subtle&&window.isSecureContext!==false){
+      try{return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(d){return hex(d).slice(0,16)})}
+      catch(e){}
+    }
+    return Promise.resolve(fnv(t).slice(0,16));
+  }
+  function chain(ls){
+    var prev='genesis', pr=Promise.resolve(), out=[];
+    ls.forEach(function(l){ pr=pr.then(function(){ return sha(prev+'|'+l.ts+'|'+l.a).then(function(h){ out.push({p:prev,h:h}); prev=h; }); }); });
+    return pr.then(function(){return out});
+  }
+  function renderChain(){
+    var prep=base?Promise.resolve():chain(LOGS).then(function(b){base=b});
+    prep.then(function(){ return chain(cur); }).then(function(cc){
+      var box=q('chain'); box.innerHTML='';
+      var broken=false;
+      cur.forEach(function(l,i){
+        var bad=cc[i].h!==base[i].h; if(bad)broken=true;
+        var d=document.createElement('div'); d.className='chainln'+(bad?' bad':'');
+        var r1=document.createElement('div'); r1.className='crow1';
+        r1.innerHTML='<span>#'+l.id+' · '+l.ts+'</span><span>'+(bad?'⚠ HASH_MISMATCH':'✓ scellé')+'</span>';
+        var pay=document.createElement('div');
+        if(i===1){
+          var inp=document.createElement('input'); inp.className='chainin'; inp.value=l.a;
+          inp.setAttribute('aria-label','contenu de l\'entrée 02');
+          inp.addEventListener('input',function(e){cur[1].a=e.target.value;renderChain()});
+          pay.appendChild(inp);
+        } else { pay.textContent=l.a; }
+        var h=document.createElement('div'); h.className='chash';
+        h.innerHTML='<span>prev: '+cc[i].p.slice(0,10)+'…</span><b>sha256: '+cc[i].h+'…</b>';
+        d.appendChild(r1); d.appendChild(pay); d.appendChild(h); box.appendChild(d);
+      });
+      var en=document.documentElement.lang==='en';
+      var b=q('chainbadge');
+      b.textContent=broken?(en?'CHAIN_BROKEN · TAMPER DETECTED':'CHAÎNE ROMPUE · ALTÉRATION DÉTECTÉE'):(en?'VALID SEAL · SHA-256':'SCEAU VALIDE · SHA-256');
+      b.className='lbadge'+(broken?' bad':'');
+    });
+  }
+  q('tamper').addEventListener('click',function(){cur[1].a="mandat.autoriser(plafond='99999.00_EUR') // altéré";renderChain()});
+  q('restore').addEventListener('click',function(){cur=JSON.parse(JSON.stringify(LOGS));renderChain()});
+  renderChain();
+  /* --- matrice 200 URLs réelles --- */
+  var st={o:'all',c:'all'};
+  var chips=[
+    {k:'all',n:'Tous (200)',en:'All (200)'},
+    {k:'ok',n:'165 lisibles',en:'165 readable',cls:'ok'},
+    {k:'empty-js-gate',n:'23 JS-gate',en:'23 JS-gate',cls:'gate'},
+    {k:'challenge',n:'12 challenges',en:'12 challenges',cls:'chal'},
+    {k:'bots',n:'73 bannissent les bots IA',en:'73 ban AI bots'}
+  ];
+  var cats=['all','docs','news','e-commerce','dev-tools','social'];
+  var chipBox=q('chips');
+  function mkchip(g,grp){
+    var b=document.createElement('button'); b.type='button'; b.className='chip on'; b.setAttribute('data-k',g.k);
+    b.innerHTML=(g.cls?'<span class="dot" style="background:var('+(g.cls==='ok'?'--accent':'--l'+g.cls)+')"></span>':'')+ (grp==='o'?'<span data-en="'+g.en+'">'+g.n+'</span>':'<span>'+g.n+'</span>');
+    b.addEventListener('click',function(){
+      blip(1800);
+      st[grp]=g.k;
+      chipBox.querySelectorAll('button').forEach(function(x){ if(x.getAttribute('data-grp')===grp) x.classList.toggle('on',x===b); });
+      apply();
+    });
+    b.setAttribute('data-grp',grp);
+    return b;
+  }
+  chips.forEach(function(g){chipBox.appendChild(mkchip(g,'o'))});
+  cats.forEach(function(c){
+    var n=c==='all'?200:DATA.filter(function(r){return r.c===c}).length;
+    chipBox.appendChild(mkchip({k:c,n:(c==='all'?'toutes catégories':CAT[c])+' ('+n+')',en:(c==='all'?'all categories':c)+' ('+n+')'},'c'));
+  });
+  var mx=q('matrix'), ro=q('readout');
+  DATA.forEach(function(r,i){
+    var c=document.createElement('div');
+    c.className='mcell '+(r.o==='ok'?'':(r.o==='empty-js-gate'?'gate':'chal'));
+    c.addEventListener('mouseenter',function(){
+      ro.textContent=r.d+' · '+(document.documentElement.lang==='en'?LBL[r.o][1]:LBL[r.o][0])+' · '+r.m+' ms · « '+r.t+' »'+(r.b?' · '+r.b+' bots IA bannis':'')+(r.p?' · paywall':'');
+    });
+    c.addEventListener('click',function(){
+      blip(2200);
+      var inp=document.getElementById('taskInput'),frm=document.getElementById('taskForm'),dm=document.getElementById('demo');
+      if(!inp||inp.disabled){ if(dm)dm.scrollIntoView({behavior:'smooth'}); if(window.playReplayFor)setTimeout(function(){window.playReplayFor(r.d)},450); return; }
+      inp.value='Inspecte https://'+r.d+' avec navette : dis-moi ce que ce site est et à quoi il sert, puis scelle ta conclusion.';
+      dm.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      setTimeout(function(){frm.requestSubmit()},350);
+    });
+    c.title='cliquer = envoyer l\'agent inspecter '+r.d;
+    mx.appendChild(c);
+  });
+  function apply(){
+    var cells=mx.children;
+    DATA.forEach(function(r,i){
+      var okO = st.o==='all' || (st.o==='bots'? r.b>0 : r.o===st.o);
+      var okC = st.c==='all' || r.c===st.c;
+      cells[i].classList.toggle('dim', !(okO&&okC));
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  fetch('manifest.json').then(function(r){return r.json()}).then(function(m){var el=document.getElementById('pillhead');if(el)el.textContent=m.head.slice(0,8)}).catch(function(){});
+  var t=document.getElementById('pagename');
+  if(t&&t.dataset.txt&&!reduced){
+    var fin=t.dataset.txt,CH='0123456789abcdef',f=0;
+    (function dec(){f++;var p=f/40,o='';for(var j=0;j<fin.length;j++){var c=fin[j];o+=(c===' '||j<p*fin.length)?c:CH[Math.floor(Math.random()*16)]}t.textContent=o;if(p<1)requestAnimationFrame(dec);else t.textContent=fin})();
+  }
+  function fmt(v,dec,suf){var s=dec?v.toFixed(1).replace('.',dec):String(Math.round(v));return s+(suf||'')}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;io.unobserve(e.target);
+      var b=e.target,t=parseFloat(b.dataset.cnt),dec=b.dataset.dec,suf=b.dataset.suf||'';
+      if(reduced){b.textContent=fmt(t,dec,suf);return}
+      var st=performance.now();
+      (function fr(n){var p=Math.min(1,(n-st)/900),v=t*(1-Math.pow(1-p,3));b.textContent=fmt(v,dec,suf);if(p<1)requestAnimationFrame(fr)})(st);
+    })},{threshold:.4});
+    document.querySelectorAll('[data-cnt]').forEach(function(b){io.observe(b)});
+  }
+})();
+</script>
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ids=['hl0','hl1','hl2','hl3','hl4'];
+  var mx=0,my=0,n=0,busy=false;
+  function hex(d){return Array.prototype.map.call(new Uint8Array(d),function(b){return b.toString(16).padStart(2,'0')}).join('')}
+  function show(inp,h){
+    for(var i=ids.length-1;i>0;i--){
+      var a=document.getElementById(ids[i]),b=document.getElementById(ids[i-1]);
+      if(a&&b){a.textContent=b.textContent;a.style.opacity=String(1-i*0.18)}
+    }
+    var f=document.getElementById(ids[0]);
+    if(f){f.textContent='sha256('+inp+') = '+h.slice(0,28)+'…';f.style.opacity='1'}
+  }
+  function push(){
+    if(busy)return;busy=true;n++;
+    var inp=mx+','+my+'·'+n+'·'+Date.now();
+    if(window.crypto&&crypto.subtle){
+      crypto.subtle.digest('SHA-256',new TextEncoder().encode(inp)).then(function(d){show(inp,hex(d));busy=false}).catch(function(){busy=false});
+    }else{show(inp,'(webcrypto indisponible ici)');busy=false}
+  }
+  document.addEventListener('pointermove',function(e){mx=Math.round(e.clientX);my=Math.round(e.clientY)});
+  if(reduced){document.addEventListener('click',push)}else{push();setInterval(push,650)}
+})();
+</script>
+<script>
+var __sfxOn=false,__actx=null;
+function blip(f){
+  if(!__sfxOn)return;
+  try{
+    __actx=__actx||new (window.AudioContext||window.webkitAudioContext)();
+    var o=__actx.createOscillator(),g=__actx.createGain(),t=__actx.currentTime;
+    o.type='square';o.frequency.value=f||1800;
+    g.gain.setValueAtTime(0.022,t);g.gain.exponentialRampToValueAtTime(0.0001,t+0.05);
+    o.connect(g).connect(__actx.destination);o.start(t);o.stop(t+0.06);
+  }catch(e){}
+}
+(function(){
+  var b=document.getElementById('sfxBtn');
+  b.addEventListener('click',function(){
+    __sfxOn=!__sfxOn;
+    b.setAttribute('aria-pressed',__sfxOn?'true':'false');
+    b.style.color=__sfxOn?'var(--accent)':'';
+    b.style.borderColor=__sfxOn?'var(--accent)':'';
+    if(__sfxOn){ try{__actx=__actx||new (window.AudioContext||window.webkitAudioContext)();__actx.resume&&__actx.resume();}catch(e){} blip(2400); }
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var API=((document.querySelector('meta[name="slabb-api"]')||{}).content||'').replace(/\/$/,'');
+  var chat=document.getElementById('chat'),form=document.getElementById('taskForm'),
+      input=document.getElementById('taskInput'),send=document.getElementById('sendBtn'),
+      jentries=document.getElementById('jentries'),jhead=document.getElementById('jhead'),
+      offline=document.getElementById('demoOffline');
+  function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e}
+  function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function scroll(){chat.scrollTop=chat.scrollHeight}
+  function bubble(role,text){var m=el('div','msg '+role);m.textContent=text;chat.appendChild(m);scroll();return m}
+  function ev(html){var d=el('div','ev',html);chat.appendChild(d);scroll();return d}
+  function clearSpin(){chat.querySelectorAll('.ev .spin').forEach(function(x){var pp=x.closest('.ev');if(pp)pp.remove()})}
+  function render(evd){
+    if(evd.type==='tool_call'){
+      ev('⚙ <b>'+esc(evd.tool)+'</b>('+esc(JSON.stringify(evd.args||{}))+')');
+      chat.appendChild(el('div','ev','<span class="spin"></span>'));scroll();return;
+    }
+    clearSpin();
+    if(evd.type==='tool_result'){
+      var rr=evd.result||{};
+      ev('✓ <b>'+esc(evd.tool)+'</b> — '+esc(rr.title||rr.sealed||'ok')+(rr.chars?' · '+rr.chars+' caractères':'')+
+         (rr.excerpt?'<details><summary>extrait</summary><pre>'+esc(rr.excerpt.slice(0,700))+'</pre></details>':''));
+    }else if(evd.type==='sealed'){
+      ev('⬛ scellé — <b>'+esc(evd.head)+'…</b> « '+esc(evd.text)+' »'); if(online)refreshJournal();
+    }else if(evd.type==='answer'){
+      bubble('agent',evd.text);
+    }else if(evd.type==='receipt'){
+      ev('⬛ <b>run scellé</b> — head '+esc(evd.head)+'… · '+evd.entries+' entrées'); if(online)refreshJournal();
+    }else if(evd.type==='error'){
+      ev('⚠ '+esc(evd.message));
+    }
+    scroll();
+  }
+  function renderEntries(es,label){
+    jhead.textContent=label;
+    jentries.innerHTML='';
+    es.slice(-14).reverse().forEach(function(e){
+      var d=el('div','jentry'+(e.event==='seal'?' seal':''));
+      d.innerHTML='<span class="ts">'+esc((e.ts||'').slice(11,19))+'Z</span> '+esc(e.event||'')+
+        (e.text?' — '+esc(e.text).slice(0,90):'')+(e.task?' — « '+esc(e.task).slice(0,60)+' »':'')+(e.head?' — head '+esc(e.head.slice(0,10))+'…':'');
+      jentries.appendChild(d);
+    });
+  }
+  async function refreshJournal(){
+    try{var j=await (await fetch(API+'/api/journal')).json();renderEntries(j.entries,'head '+j.head.slice(0,16)+'… · '+j.entries.length+' entrées · Ed25519');}catch(e){}
+  }
+  async function loadSnapshot(){
+    try{
+      var t=await (await fetch('journal.jsonl')).text();
+      var es=t.split('\n').filter(Boolean).map(function(l){return JSON.parse(l)});
+      renderEntries(es,'instantané réel · '+es.length+' entrées · Ed25519');
+    }catch(e){ jhead.textContent='journal indisponible ici'; }
+  }
+  var online=false,running=false,REPLAY=null;
+  function wait(ms){return new Promise(function(r){setTimeout(r,reduced?0:ms)})}
+  async function playReplay(run,hint){
+    if(running||!run)return;running=true;send.disabled=true;
+    bubble('user',run.task);
+    ev('⟲ <b>rediffusion</b> — run réel enregistré le '+esc((REPLAY&&REPLAY.recorded_at||'').slice(0,10))+' · vrais appels navette, vrais hash'+(hint?' · '+esc(hint):''));
+    for(var i=0;i<run.events.length;i++){
+      var e=run.events[i];
+      await wait(e.type==='tool_result'?1100:e.type==='answer'?500:e.type==='mode'?150:650);
+      if(e.type==='mode'){ev('agent : <b>'+esc(e.mode)+'</b>');continue;}
+      render(e);
+    }
+    running=false;
+  }
+  window.playReplayFor=function(domain){
+    if(!REPLAY){ev('⟲ rediffusion indisponible (replay.json manquant)');return;}
+    var run=null;
+    for(var i=0;i<REPLAY.runs.length;i++){ if(REPLAY.runs[i].task.indexOf(domain)>=0){run=REPLAY.runs[i];break;} }
+    var hint='';
+    if(!run){run=REPLAY.runs[Math.floor(Math.random()*REPLAY.runs.length)];hint='pour inspecter '+domain+' en direct : npm start';}
+    playReplay(run,hint);
+  };
+  function setupOffline(){
+    offline.style.display='block';
+    offline.innerHTML='<b style="color:var(--fg);font-weight:500">Hébergement statique : le serveur de l\'agent n\'est pas allumé ici.</b> Ci-dessous, la <b style="color:var(--accent);font-weight:500">rediffusion de runs réels</b> — vrais appels navette, vrais hash, rien de simulé. Cliquez une mission. Pour le direct : <code>npm start</code> dans le dossier du site, ou une API distante (README).';
+    input.disabled=true;input.placeholder='en direct : npm start — ici, rediffusion de runs réels (cliquez une mission ci-dessus)';send.disabled=true;
+    loadSnapshot();
+    fetch('replay.json').then(function(r){return r.json()}).then(function(j){REPLAY=j;}).catch(function(){});
+  }
+  fetch(API+'/api/health').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(h){
+    online=true;refreshJournal();
+    ev('⬛ agent : <b>'+esc(h.model)+'</b> · navette '+(h.navette?'en ligne':'hors ligne')+' · journal '+h.entries+' entrées, head '+esc(h.head)+'…');
+  }).catch(setupOffline);
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(running||!online)return;
+    var task=input.value.trim();if(!task)return;
+    blip(2000);running=true;send.disabled=true;
+    bubble('user',task);input.value='';
+    var sp=ev('<span class="spin"></span> l\'agent réfléchit…');
+    try{
+      var res=await fetch(API+'/api/agent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({task:task})});
+      var reader=res.body.getReader(),dec=new TextDecoder(),buf='';
+      for(;;){
+        var r=await reader.read();if(r.done)break;
+        buf+=dec.decode(r.value,{stream:true});
+        var i;
+        while((i=buf.indexOf('\n\n'))>=0){
+          var chunk=buf.slice(0,i);buf=buf.slice(i+2);
+          if(chunk.indexOf('data: ')!==0)continue;
+          var evd=JSON.parse(chunk.slice(6));sp.remove();
+          if(evd.type==='mode'){ev('agent : <b>'+esc(evd.mode)+'</b>');continue;}
+          if(evd.type==='accepted')continue;
+          render(evd);
+        }
+      }
+    }catch(err){ev('⚠ '+esc(String(err)));}
+    running=false;send.disabled=false;input.focus();
+  });
+  document.querySelectorAll('[data-task]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-task');
+      blip(2000);
+      if(online){input.value=t;form.requestSubmit();return;}
+      if(!REPLAY){ev('⟲ rediffusion en cours de chargement…');return;}
+      var run=null;for(var i=0;i<REPLAY.runs.length;i++){if(REPLAY.runs[i].task===t){run=REPLAY.runs[i];break;}}
+      playReplay(run||REPLAY.runs[0]);
+    });
+  });
+})();
+</script>
+
+<div id="audit" role="dialog" aria-label="Audit cryptographique du sceau">
+  <div class="ahead">
+    <span data-en="// seal audit — live">// audit du sceau — en direct</span>
+    <span style="display:flex;gap:8px;align-items:center">
+      <button class="lbtn" id="auditRun" type="button" data-en="[ recheck ]">[ revérifier ]</button>
+      <a class="lbtn" href="verify.html" data-en="[ full page → ]">[ page complète → ]</a>
+      <button class="lbtn" id="auditClose" type="button">[ esc ]</button>
+    </span>
+  </div>
+  <div class="abody" id="auditBody" aria-live="polite"><span class="text-dim" style="color:var(--muted)">…</span></div>
+  <div class="afoot">SHA-256 par fichier · chaîne « slabb.dev-genesis » · signature Ed25519 · hors-bande : python3 verify.py</div>
+</div>
+
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* croix de grille aux intersections */
+  document.querySelectorAll('main > section').forEach(function(sec){
+    var l=document.createElement('span');l.className='cx l';l.textContent='+';l.setAttribute('aria-hidden','true');
+    var r=document.createElement('span');r.className='cx r';r.textContent='+';r.setAttribute('aria-hidden','true');
+    sec.appendChild(l);sec.appendChild(r);
+  });
+  /* registre filtrable */
+  var cats=[['all','Tout','All'],['archi','Architecture & full-stack','Architecture & full-stack'],['secu','Sécurité & pentest','Security & pentest'],['impact','Impact public','Public impact'],['form','Transmission','Teaching']];
+  var box=document.getElementById('regChips');
+  if(box){
+    cats.forEach(function(c,i){
+      var b=document.createElement('button');b.type='button';b.className='chip'+(i===0?' on':'');
+      b.innerHTML='<span data-en="'+c[2]+'">'+c[1]+'</span>';
+      b.addEventListener('click',function(){
+        blip(1600);
+        box.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x===b)});
+        document.querySelectorAll('.rrow').forEach(function(r){r.classList.toggle('hide',c[0]!=='all'&&r.getAttribute('data-cat')!==c[0])});
+      });
+      box.appendChild(b);
+    });
+  }
+  /* tiroir d'audit cryptographique */
+  var dr=document.getElementById('audit'),body=document.getElementById('auditBody'),pill=document.getElementById('sealPill');
+  var enc=new TextEncoder(),ran=false;
+  function hex(buf){return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('')}
+  function sha(buf){return crypto.subtle.digest('SHA-256',buf).then(hex)}
+  function b64bin(x){var b=atob(x),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
+  function spki(raw){var o=new Uint8Array(12+raw.length);o.set([0x30,0x2a,0x30,0x05,0x06,0x03,0x2b,0x65,0x70,0x03,0x21,0x00],0);o.set(raw,12);return o}
+  function row(name,h,ok){var d=document.createElement('div');d.className='arow';d.innerHTML='<span>'+name+'</span><span class="h">'+h.slice(0,14)+'…</span><span class="'+(ok?'aok':'abad')+'">'+(ok?'PASS':'FAIL')+'</span>';body.appendChild(d);return ok}
+  function chain(files){
+    var p=Promise.resolve(enc.encode('slabb.dev-genesis'));
+    files.forEach(function(f){p=p.then(function(prev){return crypto.subtle.digest('SHA-256',prev).then(function(d){return enc.encode(hex(d)+f.name+f.sha256)})})});
+    return p.then(function(last){return crypto.subtle.digest('SHA-256',last).then(hex)});
+  }
+  function runAudit(){
+    body.innerHTML='<div style="color:var(--muted)">lecture de manifest.json…</div>';
+    var all=true;
+    fetch('manifest.json').then(function(r){return r.json()}).then(function(man){
+      body.innerHTML='<div style="color:var(--muted);margin-bottom:8px">construit le '+man.built_at+' · '+man.files.length+' fichiers</div>';
+      var q=Promise.resolve();
+      man.files.forEach(function(f){q=q.then(function(){return fetch(f.name).then(function(r){return r.arrayBuffer()}).then(sha).then(function(h){all=row(f.name,h,h===f.sha256)&&all})})});
+      return q.then(function(){return chain(man.files)}).then(function(h){
+        all=row('tête de chaîne',h,h===man.head)&&all;
+        return crypto.subtle.importKey('spki',spki(b64bin(man.pubkey)),{name:'Ed25519'},false,['verify']).then(function(k){
+          return crypto.subtle.verify({name:'Ed25519'},k,b64bin(man.sig),enc.encode(man.head));
+        }).then(function(ok){all=row('signature Ed25519',man.head,ok)&&all},function(){all=row('signature Ed25519 (navigateur sans Ed25519 → verify.py)',man.head,false)&&all});
+      }).then(function(){
+        var v=document.createElement('div');v.style.cssText='margin-top:14px;font-size:.86rem;color:'+(all?'var(--accent)':'var(--lbad)');
+        v.textContent=all?'INTÈGRE — rien n\'a bougé depuis la construction scellée. fingerprint '+man.fingerprint:'COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.';
+        body.appendChild(v);
+        blip(all?2600:600);
+      });
+    }).catch(function(e){body.innerHTML='<div class="abad">manifest.json inaccessible ici ('+e+') — l\'audit tourne sur le site déployé ou via verify.py</div>'});
+  }
+  function openDr(){dr.classList.add('open');blip(1400);if(!ran){ran=true;runAudit()}}
+  function closeDr(){dr.classList.remove('open')}
+  if(pill){pill.addEventListener('click',function(e){e.preventDefault();dr.classList.contains('open')?closeDr():openDr()})}
+  document.getElementById('auditClose').addEventListener('click',closeDr);
+  document.getElementById('auditRun').addEventListener('click',function(){ran=true;runAudit()});
+  window.addEventListener('keydown',function(e){
+    if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;
+    if(e.key==='v'||e.key==='V'){e.preventDefault();dr.classList.contains('open')?closeDr():openDr()}
+    else if(e.key==='Escape')closeDr();
+  });
+})();
+</script>
+
+</body>
+</html>

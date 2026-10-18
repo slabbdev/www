@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Labbe — informatique sans jargon · sites, IA, RGPD, dépannage</title>
+<meta name="description" content="Un site qui rame, un logiciel qui vous embête, des questions sur l'IA ou le RGPD ? Sam Labbe règle ça — en français, sans jargon, avec des preuves.">
+<meta property="og:title" content="Sam Labbe — informatique sans jargon">
+<meta property="og:description" content="Sites, IA, RGPD, dépannage. En français clair, avec des preuves.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0b0d'/%3E%3Crect x='20' y='20' width='24' height='24' rx='4' fill='%237de8a9'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0a0b0d; --surface:#121417; --fg:#e9eae7; --dim:#9aa0a6; --line:#23262b;
+  --accent:#7de8a9;
+  --muted:#525860;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65}
+::selection{background:var(--accent);color:#08110c}
+a{color:var(--fg);text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+.kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.09em;color:var(--accent);margin-bottom:18px}
+
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,11,13,.88);backdrop-filter:blur(10px);z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{font-family:var(--mono);font-size:.95rem}
+.brand span{color:var(--dim)}
+.barright{display:flex;align-items:center;gap:24px}
+nav{display:flex;gap:24px}
+nav a{font-family:var(--mono);font-size:.82rem;color:var(--dim);transition:color .15s}
+nav a:hover{color:var(--accent)}
+.lang{background:none;border:1px solid var(--line);color:var(--dim);font-family:var(--mono);font-size:.74rem;padding:6px 13px;border-radius:999px;cursor:pointer;transition:color .15s,border-color .15s}
+.lang:hover{color:var(--accent);border-color:var(--accent)}
+
+.hero{padding:96px 0 72px}
+.hero h1{font-size:clamp(2.4rem,6.5vw,3.7rem);font-weight:500;letter-spacing:-.02em;margin-bottom:22px}
+.lede{max-width:680px;font-size:1.12rem;color:var(--dim);margin-bottom:26px}
+.lede strong{color:var(--fg);font-weight:500}
+.meta{font-family:var(--mono);font-size:.8rem;color:var(--dim)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:26px 20px 26px 0}
+.stat + .stat{padding-left:24px;border-left:1px solid var(--line)}
+.stat b{display:block;font-family:var(--mono);font-size:1.7rem;font-weight:500;color:var(--accent)}
+.stat small{display:block;color:var(--dim);font-size:.82rem;line-height:1.45;margin-top:4px}
+
+section{padding:80px 0 0;position:relative}
+h2{font-size:1.55rem;font-weight:500;letter-spacing:-.01em;margin-bottom:8px}
+.sub{color:var(--dim);max-width:640px;margin-bottom:36px}
+
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:#3a3f46;transform:translateY(-2px)}
+.num{font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-bottom:14px}
+.card h3{font-size:1.05rem;font-weight:500;margin-bottom:10px}
+.card p{color:var(--dim);font-size:.94rem}
+.product .num{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:.74rem;color:var(--dim);margin-top:18px}
+.plink{display:inline-block;font-family:var(--mono);font-size:.8rem;margin-top:10px;border-bottom:1px solid var(--line);transition:border-color .15s,color .15s}
+.plink:hover{color:var(--accent);border-color:var(--accent)}
+
+.contact{padding-bottom:96px}
+.bigmail{display:inline-block;font-family:var(--mono);font-size:clamp(1.15rem,3.4vw,1.7rem);color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:4px;margin:10px 0 26px;transition:background .15s}
+.bigmail:hover{background:rgba(125,232,169,.08)}
+.crow{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+.crow a{color:var(--dim);transition:color .15s}
+.crow a:hover{color:var(--accent)}
+.crow span{color:#3a3f46}
+.loc{color:var(--dim);font-size:.9rem;margin-top:26px}
+
+footer{border-top:1px solid var(--line);margin-top:80px}
+.foot{padding:30px 0 40px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.24s}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .card,.bigmail{transition:none}
+}
+
+@media (max-width:820px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:22px 0}
+  .stat + .stat{padding-left:0;border-left:none}
+  .stat:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .grid2{grid-template-columns:1fr}
+  .hero{padding:64px 0 48px}
+  section{padding-top:56px}
+  nav{gap:16px}
+}
+.foot a,.seal a{border-bottom:1px solid var(--line);transition:color .15s,border-color .15s}
+.foot a:hover,.seal a:hover{color:var(--accent);border-color:var(--accent)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:60;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+section[data-num]::before{content:attr(data-num);position:absolute;top:-16px;right:0;font-family:var(--mono);font-size:clamp(3.4rem,9vw,6rem);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);pointer-events:none}
+.pill{font-family:var(--mono);font-size:.72rem;color:var(--dim);border:1px solid var(--line);padding:6px 13px;border-radius:999px;transition:color .15s,border-color .15s}.pill b{color:var(--accent);font-weight:400}.pill:hover{color:var(--accent);border-color:var(--accent)}
+.tick{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0}.tick-in{display:flex;width:max-content;animation:tick 32s linear infinite}.tick-in span{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;white-space:nowrap}@keyframes tick{to{transform:translateX(-50%)}}@media (prefers-reduced-motion: reduce){.tick-in{animation:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">slabb<span>.dev</span></a>
+    <div class="barright">
+      <nav>
+        <a href="#travail" data-en="services">ce que je fais</a>
+        <a href="#preuves" data-en="proof">preuves</a>
+        <a href="#contact" data-en="contact">contact</a>
+      </nav>
+      <a class="pill" href="verify.html" data-en="sealed · Ed25519 ✓">scellé · Ed25519 ✓</a>
+      <button class="lang" id="langBtn" type="button" aria-pressed="false" aria-label="Changer de langue / Switch language">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="kicker rv" data-en="expert developer · 20 years of experience · épinal (vosges), france">développeur expert · 20 ans de métier · épinal (vosges)</p>
+    <h1 class="rv d1">Sam Labbe</h1>
+    <p class="lede rv d2" data-en="A slow website, software that annoys you, questions about AI or GDPR? <strong>I sort it out</strong> — in plain words, with proof to show for it.">Un site qui rame, un logiciel qui vous embête, des questions sur l'IA ou le RGPD ? <strong>Je règle ça</strong> — en français, sans jargon, avec des preuves à la clé.</p>
+    <p class="meta rv d3" data-en="remote anywhere · on site across the Vosges and Grand Est">remote partout · se déplace dans les Vosges et le Grand Est</p>
+  </section>
+
+  <div class="tick" aria-hidden="true"><div class="tick-in"><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span></div></div>
+  <div class="stats rv">
+    <div class="stat"><b data-cnt="20" data-suf="+">20+</b><small data-en="years of experience<br>across every industry">années de métier<br>tous secteurs</small></div>
+    <div class="stat"><b data-cnt="8" data-suf="+">8+</b><small data-en="public projects anyone<br>can inspect online">projets publics que<br>n'importe qui peut vérifier</small></div>
+    <div class="stat"><b data-cnt="2">2</b><small data-en="regulations handled<br>(AI Act, GDPR)">réglementations apprivoisées<br>(AI Act, RGPD)</small></div>
+    <div class="stat"><b>0</b><small data-en="jargon,<br>promised">jargon,<br>promis</small></div>
+  </div>
+
+  <section id="travail" data-num="01">
+    <p class="kicker rv" data-en="// what i do for you">// ce que je fais pour vous</p>
+    <h2 class="rv d1" data-en="Concretely, here is where I can help:">Concrètement, je peux vous aider sur :</h2>
+    <p class="sub rv d2" data-en="Four classic situations. Yours probably looks like one of them.">Quatre cas de figure classiques. Le vôtre ressemble sûrement à l'un d'eux.</p>
+    <div class="grid2">
+      <div class="card rv">
+        <p class="num">01</p>
+        <h3 data-en="Your website, your app">Votre site, votre appli</h3>
+        <p data-en="Build, repair, modernize. A fast website, an internal tool that saves you time, a mobile app — delivered, explained, maintained.">Créer, réparer, moderniser. Un site rapide, un outil interne qui vous fait gagner du temps, une appli mobile — livré, expliqué, entretenu.</p>
+      </div>
+      <div class="card rv d1">
+        <p class="num">02</p>
+        <h3 data-en="AI without the smoke">L'IA sans fumée</h3>
+        <p data-en="Everyone talks about AI. I tell you what it can genuinely do for your business, what it can't — and I build it if it's worth it.">Tout le monde vous parle d'IA. Je vous dis ce qu'elle peut vraiment faire pour votre activité, ce qu'elle ne peut pas faire — et je le construis si ça vaut le coup.</p>
+      </div>
+      <div class="card rv d2">
+        <p class="num">03</p>
+        <h3 data-en="GDPR &amp; the AI Act, handled">RGPD &amp; AI Act, réglé</h3>
+        <p data-en="Both laws apply to you. I bring your business into compliance, with written proof you can show if anyone ever checks.">Ces deux lois vous concernent. Je mets votre activité en règle, avec des preuves écrites que vous pouvez montrer en cas de contrôle.</p>
+      </div>
+      <div class="card rv d3">
+        <p class="num">04</p>
+        <h3 data-en="When things break">Quand ça casse</h3>
+        <p data-en="Outage, hack, lost data, a previous provider gone missing? I diagnose, I repair, I secure — and I explain what happened, in plain words.">Panne, piratage, données perdues, un ex-prestataire introuvable ? Je diagnostique, je répare, je sécurise — et je vous explique ce qui s'est passé, en clair.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="preuves" data-num="02">
+    <p class="kicker rv" data-en="// proof, not promises">// des preuves, pas des promesses</p>
+    <h2 class="rv d1" data-en="My work is public. Judge for yourself.">Mon travail est public. Jugez sur pièce.</h2>
+    <p class="sub rv d2" data-en="Two examples, translated into plain words. The curious can click through to the technical detail.">Deux exemples, traduits en clair. Les curieux peuvent cliquer vers le détail technique.</p>
+    <div class="grid2">
+      <div class="card product rv">
+        <p class="num">noirebox</p>
+        <h3 data-en="The “black box” for AI">La « boîte noire » pour les IA</h3>
+        <p data-en="Like in airplanes: it records everything an AI does, so it can be proven later — what it read, what it decided, why. Used by professionals, published as open source.">Comme dans les avions : elle enregistre tout ce qu'une IA fait, pour pouvoir le prouver ensuite — ce qu'elle a lu, ce qu'elle a décidé, pourquoi. Utilisée par des professionnels, publiée en open source.</p>
+        <p class="tags">open source · MIT · 300+ tests</p>
+        <a class="plink" href="https://github.com/noirebox/noirebox">voir le projet (en anglais) →</a>
+      </div>
+      <div class="card product rv d1">
+        <p class="num">navette</p>
+        <h3 data-en="A browser built for AI">Un navigateur construit pour les IA</h3>
+        <p data-en="A lighter browser designed for AI programs. With it, I tested 200 real websites: about 1 in 6 blocks or hampers AI access. Measuring beats guessing.">Un navigateur plus léger, conçu pour les programmes d'IA. Avec, j'ai testé 200 sites réels : environ 1 sur 6 bloque ou complique la vie des IA. Mesurer vaut mieux que deviner.</p>
+        <p class="tags">open source · 200 sites testés · résultats publics</p>
+        <a class="plink" href="https://github.com/slabbdev/navette">voir le projet (en anglais) →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" data-num="03">
+    <p class="kicker rv" data-en="// contact">// contact</p>
+    <h2 class="rv d1" data-en="Shall we talk?">On en parle ?</h2>
+    <p class="sub rv d2" data-en="A first chat to see if I can help — by phone, on a video call, or over a coffee in Épinal. No strings attached.">Un premier échange pour voir si je peux vous aider — au téléphone, en visio, ou autour d'un café à Épinal. Sans engagement.</p>
+    <a class="bigmail rv d3" href="mailto:github@slabb.dev">github@slabb.dev</a>
+    <div class="crow rv d3">
+      <a href="https://github.com/slabbdev">GitHub</a><span>/</span>
+      <a href="https://dev.to/slabb" data-en="my writing (in English)">mes écrits (en anglais)</a>
+    </div>
+    <p class="loc rv" data-en="Épinal (Vosges), France — remote anywhere, on site across Grand Est.">Épinal (Vosges) — remote partout, sur site dans le Grand Est.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>⬛ black boxes for systems nobody can fully trust</span>
+    <span data-en="slabb.dev — a static site, zero dependency, zero tracking · © 2026 Sam Labbe">slabb.dev — un site statique, zéro dépendance, zéro tracking · © 2026 Sam Labbe</span>
+    <span class="seal"><a href="verify.html" data-en="sealed build · sha256 + Ed25519 · verify →">site scellé · sha256 + Ed25519 · vérifier →</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var m=document.querySelector('meta[name="description"]');
+  var I18N={title:{fr:document.title,en:"Sam Labbe — IT without the jargon · websites, AI, GDPR, repairs"}};
+  if(m) I18N.desc={fr:m.getAttribute('content'),en:"A slow website, software that annoys you, questions about AI or GDPR? Sam Labbe sorts it out — in plain words, with proof."};
+  var en=false;
+  var btn=document.getElementById('langBtn');
+  btn.addEventListener('click',function(){
+    en=!en;
+    document.querySelectorAll('[data-en]').forEach(function(n){
+      if(en){ if(!n.getAttribute('data-fr')) n.setAttribute('data-fr',n.innerHTML); n.innerHTML=n.getAttribute('data-en'); }
+      else{ n.innerHTML=n.getAttribute('data-fr'); }
+    });
+    try{
+      document.title=en?I18N.title.en:I18N.title.fr;
+      if(I18N.desc) document.querySelector('meta[name="description"]').setAttribute('content',en?I18N.desc.en:I18N.desc.fr);
+      document.documentElement.lang=en?'en':'fr';
+    }catch(e){}
+    btn.textContent=en?'FR':'EN';
+    btn.setAttribute('aria-pressed',en?'true':'false');
+  });
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('vis'); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  fetch('manifest.json').then(function(r){return r.json()}).then(function(m){var el=document.getElementById('pillhead');if(el)el.textContent=m.head.slice(0,8)}).catch(function(){});
+  var t=document.getElementById('pagename');
+  if(t&&t.dataset.txt&&!reduced){
+    var fin=t.dataset.txt,CH='0123456789abcdef',f=0;
+    (function dec(){f++;var p=f/40,o='';for(var j=0;j<fin.length;j++){var c=fin[j];o+=(c===' '||j<p*fin.length)?c:CH[Math.floor(Math.random()*16)]}t.textContent=o;if(p<1)requestAnimationFrame(dec);else t.textContent=fin})();
+  }
+  function fmt(v,dec,suf){var s=dec?v.toFixed(1).replace('.',dec):String(Math.round(v));return s+(suf||'')}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;io.unobserve(e.target);
+      var b=e.target,t=parseFloat(b.dataset.cnt),dec=b.dataset.dec,suf=b.dataset.suf||'';
+      if(reduced){b.textContent=fmt(t,dec,suf);return}
+      var st=performance.now();
+      (function fr(n){var p=Math.min(1,(n-st)/900),v=t*(1-Math.pow(1-p,3));b.textContent=fmt(v,dec,suf);if(p<1)requestAnimationFrame(fr)})(st);
+    })},{threshold:.4});
+    document.querySelectorAll('[data-cnt]').forEach(function(b){io.observe(b)});
+  }
+})();
+</script>
+</body>
+</html>

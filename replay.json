@@ -1,0 +1,183 @@
+{
+ "recorded_at": "2026-10-18T19:28:41+00:00",
+ "note": "Runs réels — GLM-4.5-flash (free) + navette (binaire Rust) + journal chaîné. Rejoués tels quels sur hébergement statique.",
+ "runs": [
+  {
+   "task": "Va lire https://example.com et dis-moi de quoi il s'agit",
+   "events": [
+    {
+     "type": "mode",
+     "mode": "glm-4.5-flash (z.ai, free)"
+    },
+    {
+     "type": "tool_call",
+     "tool": "navette_navigate",
+     "args": {
+      "url": "https://example.com"
+     }
+    },
+    {
+     "type": "tool_result",
+     "tool": "navette_navigate",
+     "result": {
+      "ok": true,
+      "tool": "navette_navigate",
+      "url": "https://example.com",
+      "title": "Example Domain",
+      "chars": 957,
+      "excerpt": "L’usage de ce domaine est réservé à des exemples de documentation, sans autorisation préalable. Il ne s’agit pas d’un service ; son utilisation à des fins de test ou de surveillance est à éviter.\n\nThis domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.\n\nهذا النطاق مُخصص للاستخدام في أمثلة التوثيق دون الحاجة إلى إذن. هذه ليست خدمة، يُرجى تجنب الاعتماد عليها لأغراض الاختبار والمراقبة.\n\n该域名仅用于文档示例，无需获得许可。这并非一项服务，请勿将其用于测试和监控目的。\n\nДанный домен предназначен для использования в примерах документации без необходимости получения предварительного разрешения. Это не сервис; не рекомендуется его использование для тестирования и мониторинга.\n\nEste dominio está destinado al uso en ejemplos de documentación sin necesidad de permiso. Esto no es un servicio; evitar utilizarlo para realizar pruebas o monitoreos.\n[Learn more](https://iana.org/help/example-domains)"
+     }
+    },
+    {
+     "type": "tool_call",
+     "tool": "noirebox_note",
+     "args": {
+      "text": "Le domaine example.com est un espace réservé aux exemples de documentation, sans fonctionnalité réelle."
+     }
+    },
+    {
+     "type": "sealed",
+     "text": "Le domaine example.com est un espace réservé aux exemples de documentation, sans fonctionnalité réelle.",
+     "head": "dbf0ace433f0"
+    },
+    {
+     "type": "tool_result",
+     "tool": "noirebox_note",
+     "result": {
+      "ok": true,
+      "sealed": true,
+      "head": "dbf0ace433f0",
+      "n": 3
+     }
+    },
+    {
+     "type": "answer",
+     "text": "\nC'est un domaine d'exemple utilisé dans la documentation technique. Il est réservé aux démonstrations et ne constitue pas un service réel."
+    },
+    {
+     "type": "receipt",
+     "head": "dbf0ace433f0",
+     "entries": 4
+    }
+   ]
+  },
+  {
+   "task": "Lis https://github.com/slabbdev/navette et résume-moi ce qu'est navette en deux phrases",
+   "events": [
+    {
+     "type": "mode",
+     "mode": "glm-4.5-flash (z.ai, free)"
+    },
+    {
+     "type": "tool_call",
+     "tool": "navette_navigate",
+     "args": {
+      "url": "https://github.com/slabbdev/navette"
+     }
+    },
+    {
+     "type": "tool_result",
+     "tool": "navette_navigate",
+     "result": {
+      "ok": true,
+      "tool": "navette_navigate",
+      "url": "https://github.com/slabbdev/navette",
+      "title": "GitHub - slabbdev/navette: The browser for agents — one tiny Rust binary driving the WebView your OS already ships. No Chromium, no download. · GitHub",
+      "chars": 21761,
+      "excerpt": "[Skip to content](https://github.com/slabbdev/navette#start-of-content)\n\n## Navigation Menu\n[](https://github.com/)\n[Sign in](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fslabbdev%2Fnavette)\nAppearance settings\n- Platform\n- Solutions\n- Resources\n- Open Source\n- Enterprise\n- Pricing\nSearch\n/\n[Sign in](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fslabbdev%2Fnavette)\n[Sign up](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=slabbdev%2Fnavette)\nAppearance settings\nReload\nReload\nReload\nDismiss alert\n- slabbdev\n- navette\n\n## Repository navigation\n- \n- Code\n- Issues\n- Pull requests\n- Actions\n- Projects\n- Wiki\n- Security and quality\n- Insights\nitems\n[](https://github.com/slabbdev/navette)\n[navette](https://github.com/slabbdev/navette)\nPublic\n- Notifications\n- Fork1 (1)\n- Star6 (6)\n\n## About\n\nThe browser for agents — one tiny Rust binary driving the WebView your OS already ships. No Chromium, no download.\n[slabbdev.github.io/navette/](https://slabbdev.github.io/navette/)\n\n### Topics\n[agent-browser](https://github.com/topics/agent-browser)\n[ai-agents](https://github.com/topics/ai-agents)\n[automation](https://github.com/topics/automation)\n[browser-automation](https://github.com/topics/browser-automation)\n[headless-browser](https://github.com/topics/headless-browser)\n[llm-tools](https://github.com/topics/llm-tools)\n[macos](https://github.com/topics/macos)\n[mc"
+     }
+    },
+    {
+     "type": "tool_call",
+     "tool": "noirebox_note",
+     "args": {
+      "text": "Navette est un navigateur minimaliste en Rust pour agents IA utilisant le WebView natif, sans Chromium ni installation."
+     }
+    },
+    {
+     "type": "sealed",
+     "text": "Navette est un navigateur minimaliste en Rust pour agents IA utilisant le WebView natif, sans Chromium ni installation.",
+     "head": "144a1942ef7f"
+    },
+    {
+     "type": "tool_result",
+     "tool": "noirebox_note",
+     "result": {
+      "ok": true,
+      "sealed": true,
+      "head": "144a1942ef7f",
+      "n": 7
+     }
+    },
+    {
+     "type": "answer",
+     "text": "\nNavette est un navigateur conçu pour les agents IA, un petit binaire Rust qui exploite le WebView natif de votre système sans nécessiter de Chromium ou de téléchargement. Il offre une solution légère et intégrée pour l'automatisation et les interactions web par les agents intelligents."
+    },
+    {
+     "type": "receipt",
+     "head": "144a1942ef7f",
+     "entries": 8
+    }
+   ]
+  },
+  {
+   "task": "Ouvre https://news.ycombinator.com et cite le premier titre de la page",
+   "events": [
+    {
+     "type": "mode",
+     "mode": "glm-4.5-flash (z.ai, free)"
+    },
+    {
+     "type": "tool_call",
+     "tool": "navette_navigate",
+     "args": {
+      "url": "https://news.ycombinator.com"
+     }
+    },
+    {
+     "type": "tool_result",
+     "tool": "navette_navigate",
+     "result": {
+      "ok": true,
+      "tool": "navette_navigate",
+      "url": "https://news.ycombinator.com",
+      "title": "Hacker News",
+      "chars": 16483,
+      "excerpt": "[](https://news.ycombinator.com/)\n[Hacker News](https://news.ycombinator.com/news)\n[new](https://news.ycombinator.com/newest)\n[past](https://news.ycombinator.com/front)\n[comments](https://news.ycombinator.com/newcomments)\n[ask](https://news.ycombinator.com/ask)\n[show](https://news.ycombinator.com/show)\n[jobs](https://news.ycombinator.com/jobs)\n[submit](https://news.ycombinator.com/submit)\n[login](https://news.ycombinator.com/login?goto=news)\n1.\n[](https://news.ycombinator.com/vote?id=50144005&how=up&goto=news)\n[HOA's are making the home crisis worse](https://hoaspy.com/hoa/fl/florida-hoa-housing-crisis.html)\n[hoaspy.com](https://news.ycombinator.com/from?site=hoaspy.com)\n61 points\n[lovewins](https://news.ycombinator.com/user?id=lovewins)\n[47 minutes ago](https://news.ycombinator.com/item?id=50144005)\n[hide](https://news.ycombinator.com/hide?id=50144005&goto=news)\n[36 comments](https://news.ycombinator.com/item?id=50144005)\n2.\n[](https://news.ycombinator.com/vote?id=50141076&how=up&goto=news)\n[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)\n[github.com/vikolliver](https://news.ycombinator.com/from?site=github.com/vikolliver)\n262 points\n[RobotToaster](https://news.ycombinator.com/user?id=RobotToaster)\n[5 hours ago](https://news.ycombinator.com/item?id=50141076)\n[hide](https://news.ycombinator.com/hide?id=50141076&goto=news)\n[38 comments](https://news.ycombinator.com/item?id=50141076)\n3.\n[](https://news.ycombinator.com/vote?id=50142573&how=up&goto=news)\n[Someone b"
+     }
+    },
+    {
+     "type": "tool_call",
+     "tool": "noirebox_note",
+     "args": {
+      "text": "Premier titre de Hacker News : \"HOA's are making the home crisis worse\""
+     }
+    },
+    {
+     "type": "sealed",
+     "text": "Premier titre de Hacker News : \"HOA's are making the home crisis worse\"",
+     "head": "11cdf8fdd86c"
+    },
+    {
+     "type": "tool_result",
+     "tool": "noirebox_note",
+     "result": {
+      "ok": true,
+      "sealed": true,
+      "head": "11cdf8fdd86c",
+      "n": 11
+     }
+    },
+    {
+     "type": "answer",
+     "text": "\nLe premier titre de la page Hacker News est : \"HOA's are making the home crisis worse\""
+    },
+    {
+     "type": "receipt",
+     "head": "11cdf8fdd86c",
+     "entries": 12
+    }
+   ]
+  }
+ ]
+}

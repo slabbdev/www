@@ -1,0 +1,12 @@
+{"ts":"2026-10-18T19:28:06.449Z","event":"run_start","task":"Va lire https://example.com et dis-moi de quoi il s'agit","mode":"glm-4.5-flash (z.ai, free)"}
+{"ts":"2026-10-18T19:28:09.975Z","event":"navette_read","url":"https://example.com","chars":957}
+{"ts":"2026-10-18T19:28:15.335Z","event":"agent_note","text":"Le domaine example.com est un espace réservé aux exemples de documentation, sans fonctionnalité réelle."}
+{"ts":"2026-10-18T19:28:17.486Z","event":"seal","head":"dbf0ace433f069d325f061f54401e45e66f2814c2439dc8a610e2c96d8a5f9b8","sig":"ptTlEtjCIRyOnwku99yqU3H6uY2+j7Vs1ipUe7H1+oL3+70dMPwVzuMOc1Byzgwy8mgLj3tWZZHPtMBI2LFrAw=="}
+{"ts":"2026-10-18T19:28:17.570Z","event":"run_start","task":"Lis https://github.com/slabbdev/navette et résume-moi ce qu'est navette en deux phrases","mode":"glm-4.5-flash (z.ai, free)"}
+{"ts":"2026-10-18T19:28:22.448Z","event":"navette_read","url":"https://github.com/slabbdev/navette","chars":21761}
+{"ts":"2026-10-18T19:28:29.972Z","event":"agent_note","text":"Navette est un navigateur minimaliste en Rust pour agents IA utilisant le WebView natif, sans Chromium ni installation."}
+{"ts":"2026-10-18T19:28:32.952Z","event":"seal","head":"144a1942ef7f1f52ffb7220f3a1b2f38b9066f4f3eaab34fa696eb6ac16207ea","sig":"cWHDvpMYW1QmHd1KacPBvyMuiolw30ogo1P2JPZG4T/MVc8ii4XGrsQX7gcyI94kODRiuTX2D0Pbp1zBWpcNAg=="}
+{"ts":"2026-10-18T19:28:33.071Z","event":"run_start","task":"Ouvre https://news.ycombinator.com et cite le premier titre de la page","mode":"glm-4.5-flash (z.ai, free)"}
+{"ts":"2026-10-18T19:28:35.992Z","event":"navette_read","url":"https://news.ycombinator.com","chars":16483}
+{"ts":"2026-10-18T19:28:39.764Z","event":"agent_note","text":"Premier titre de Hacker News : \"HOA's are making the home crisis worse\""}
+{"ts":"2026-10-18T19:28:41.762Z","event":"seal","head":"11cdf8fdd86c4dc4376b80077902e8822f65cdaadb14e52c8631491d322e177a","sig":"1J49HjR2VRFv3rJsJJG9cxL7UCDpKjkdr9R9b3SDYeEyN6wZSKlZGcCA4hP6rAZyNDcJubhOrkhMhTcrqI0tAw=="}
