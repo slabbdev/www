@@ -226,6 +226,17 @@ h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
 }
 section.hero{padding-left:29px;padding-right:29px}
 @media (max-width:820px){section.hero{padding-left:0;padding-right:0}.stats{margin:0;padding:0}}
+/* frise chronologique */
+.tl{position:relative;margin-left:96px;border-left:1px solid var(--line)}
+.tlrow{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--line)}
+.tlrow:last-child{border-bottom:none}
+.tlrow::before{content:"";position:absolute;left:-5px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent);transition:background .15s}
+.tlrow:hover::before{background:var(--accent)}
+.tlrow.hide{display:none}
+.tly{position:absolute;left:-116px;top:15px;width:88px;text-align:right;font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.tlrow b{display:block;font-weight:500;font-size:.98rem}
+.tlrow small{color:var(--dim);font-size:.85rem}
+@media (max-width:820px){.tl{margin-left:8px}.tly{position:static;display:block;text-align:left;width:auto;margin-bottom:2px;color:var(--accent)}}
 </style>
 </head>
 <body>
@@ -257,7 +268,7 @@ section.hero{padding-left:29px;padding-right:29px}
     <div class="hero-grid">
       <div>
         <p class="lede rv d2" data-en="Developer since 2004, lead across front end, back end and mobile. Today: AI agent systems heading to production, <strong>and the proof they can be trusted</strong>. Code can be verified — commitments should be too.">Développeur depuis 2004, lead tech front, back et mobile. Aujourd'hui : des systèmes d'agents IA qui partent en production, <strong>et les preuves qu'on peut leur faire confiance</strong>. Le code se vérifie — les engagements aussi.</p>
-        <p class="meta rv d3" data-en="based in Épinal (Vosges), France · remote first · travels worldwide · FR / EN">basé à Épinal (Vosges) · remote first · déplacements worldwide · FR / EN</p>
+        <p class="meta rv d3" data-en="based in the Vosges, France · remote first · travels worldwide · FR / EN">basé dans les Vosges · remote first · déplacements worldwide · FR / EN</p>
       </div>
       <div class="hbox rv d3">
         <p class="hcap" data-en="right now, in your browser — real SHA-256 of your cursor. nothing leaves this page.">en ce moment, dans votre navigateur — la vraie SHA-256 de votre curseur. rien ne quitte cette page.</p>
@@ -388,18 +399,22 @@ section.hero{padding-left:29px;padding-right:29px}
     <h2 class="rv d1" data-en="“An OVNI,” some say. “A bridge,” say the facts.">« Un OVNI », disent certains. « Un pont », disent les faits.</h2>
     <p class="sub rv d2" data-en="Twenty years on the ground: offensive security, senior production, public impact, teaching — all the way to tools that prove themselves. Filter.">Vingt ans de terrain : sécurité offensive, production senior, impact public, transmission — jusqu'aux outils qui se prouvent eux-mêmes. Filtrez.</p>
     <div class="chips rv d3" id="regChips"></div>
-    <div class="reg rv d3">
-      <div class="rrow" data-cat="archi"><span class="rper">2004</span><span class="rmain"><b>Les premières lignes</b><small>web, back, mobile — tout commence</small></span></div>
-      <div class="rrow" data-cat="secu"><span class="rper">2008 — 2018</span><span class="rmain"><b>Ethical hacking &amp; pentest</b><small>près de 10 ans, offensive et défensive · #owasp #blueteam #hds</small></span></div>
-      <div class="rrow" data-cat="archi"><span class="rper">15+ ans</span><span class="rmain"><b>graphicNAIVETY / tinyjsapp studio</b><small>l'atelier — artisanat full-stack · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis #kibana #sentry #azure</small></span></div>
-      <div class="rrow" data-cat="archi"><span class="rper">production</span><span class="rmain"><b>Bilendi Technology (ex-Elma)</b><small>production senior</small></span></div>
-      <div class="rrow" data-cat="archi"><span class="rper">production</span><span class="rmain"><b>MGEL</b><small>production senior</small></span></div>
-      <div class="rrow" data-cat="archi"><span class="rper">lead</span><span class="rmain"><b>CODUSTEL</b><small>Team Lead</small></span></div>
-      <div class="rrow" data-cat="impact"><span class="rper">service public</span><span class="rmain"><b>Histologe — beta.gouv.fr</b><small>Lead Tech sur un service public national</small></span></div>
-      <div class="rrow" data-cat="impact"><span class="rper">fondation</span><span class="rmain"><b>Lab'ESS — Tunis</b><small>membre fondateur du lab post-révolution, avec l'IFT et la DSF</small></span></div>
-      <div class="rrow" data-cat="impact"><span class="rper">1er prix</span><span class="rmain"><b>Startup Weekend Metz</b><small>LinkART</small></span></div>
-      <div class="rrow" data-cat="form"><span class="rper">transmission</span><span class="rmain"><b>WebForce3 · Naïas · Nextformation · Philiance</b><small>formateur dev web, mobile &amp; droit multimédia</small></span></div>
-      <div class="rrow" data-cat="archi"><span class="rper">aujourd'hui</span><span class="rmain"><b>NoireBox · navette · cet agent</b><small>l'aboutissement : des outils qui prouvent ce qu'ils font</small></span></div>
+    <div class="tl rv d3">
+      <div class="tlrow" data-cat="archi"><span class="tly">2004</span><b>Les premières lignes de code</b><small>web, back, mobile — tout commence</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2008 → 2025</span><b>graphicNAIVETY || WebSolutions — Lorraine</b><small>développeur &amp; designer full-stack, puis pentester · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis</small></div>
+      <div class="tlrow" data-cat="secu"><span class="tly">2008 → 2018</span><b>Ethical hacker &amp; pentester</b><small>dix ans de tests d'intrusion et de sécurité des systèmes — #owasp #blueteam #hds</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2012</span><b>Lab'ESS — Tunis</b><small>service civique en Tunisie post-révolution : co-fondateur du lab avec DSF</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2013</span><b>Festival Solid'A Rythmik</b><small>directeur de festival — 2 000+ spectateurs</small></div>
+      <div class="tlrow" data-cat="secu"><span class="tly">2015 → 2016</span><b>GDG Nancy — Google Developers Group</b><small>invité par Google à fonder l'antenne de Nancy — lead ethical hacker du groupe</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2016 → 2017</span><b>LiiNKART</b><small>startup de vente d'art en ligne, née au Startup Weekend Metz — 1er prix</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2018</span><b>CODUSTEL — international</b><small>Web Development Team Lead</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2018 → 2020</span><b>MGEL — Nancy</b><small>développement full-stack pour la mutuelle</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2019 → 2025</span><b>Groupe Eco Energie France</b><small>développeur full-stack du groupe, puis Lead Tech/Dev (2024 → 2025)</small></div>
+      <div class="tlrow" data-cat="form"><span class="tly">2019 → 2021</span><b>Formateur dev web, mobile &amp; droit multimédia</b><small>Simplon.co · Naïas · WebForce3 · Nextformation · Philiance — Nantes, Strasbourg, Nancy</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2021 → 2022</span><b>Histologe — beta.gouv.fr</b><small>Lead Tech/Dev d'un service public national de signalement du logement</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2022 → 2023</span><b>Bilendi Technology (ex Elma)</b><small>Senior Full-Stack, équipe distribuée, full remote</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2025 → 2026</span><b>Avinim Groupe</b><small>Lead Full-Stack d'un groupe multi-sociétés, trajectoire CTO — SI, CRM, facturation, agents IA</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2026 →</span><b>Indépendant — S//ABB · NoireBox · navette · cet agent</b><small>l'aboutissement : des outils qui prouvent ce qu'ils font · membre de l'AI Alliance</small></div>
     </div>
   </section>
 
@@ -442,7 +457,7 @@ section.hero{padding-left:29px;padding-right:29px}
       </div>
     </div>
     <p class="also rv" data-en="also: pluginforge · openvolte · shortcast · sombrematter — <a href=&quot;https://github.com/slabbdev&quot;>everything is on github.com/slabbdev</a>">aussi&nbsp;: pluginforge · openvolte · shortcast · sombrematter — <a href="https://github.com/slabbdev">tout est sur github.com/slabbdev</a></p>
-    <p class="reperes rv" data-en="highlights: daily.dev squad « proofagents » · tollbooth benchmark — top active discussion on daily.dev, 08/10/2026">repères&nbsp;: squad daily.dev «&nbsp;proofagents&nbsp;» · bench tollbooth — top discussion daily.dev, 08/10/2026</p>
+    <p class="reperes rv" data-en="highlights: AI Alliance member · daily.dev squad « proofagents » · tollbooth benchmark — top active discussion on daily.dev, 08/10/2026">repères&nbsp;: membre de l'AI Alliance · squad daily.dev «&nbsp;proofagents&nbsp;» · bench tollbooth — top discussion daily.dev, 08/10/2026</p>
   </section>
 
   <section id="ecrits" data-num="06">
@@ -479,7 +494,7 @@ section.hero{padding-left:29px;padding-right:29px}
       <a href="https://github.com/slabbdev">GitHub</a><span>/</span>
       <a href="https://dev.to/slabb" data-en="Writing — dev.to/slabb">Écrits — dev.to/slabb</a>
     </div>
-    <p class="loc rv d5" data-en="Based in Épinal (Vosges), France — remote first, I travel anywhere in the world.">Basé à Épinal (Vosges) — remote first, déplacements partout dans le monde.</p>
+    <p class="loc rv d5" data-en="Based in the Vosges, France — remote first, I travel anywhere in the world.">Basé dans les Vosges — remote first, déplacements partout dans le monde.</p>
   </section>
 
 </main>
@@ -870,7 +885,7 @@ function blip(f){
       b.addEventListener('click',function(){
         blip(1600);
         box.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x===b)});
-        document.querySelectorAll('.rrow').forEach(function(r){r.classList.toggle('hide',c[0]!=='all'&&r.getAttribute('data-cat')!==c[0])});
+        document.querySelectorAll('.tlrow').forEach(function(r){r.classList.toggle('hide',c[0]!=='all'&&r.getAttribute('data-cat')!==c[0])});
       });
       box.appendChild(b);
     });

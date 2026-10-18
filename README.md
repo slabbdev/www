@@ -59,8 +59,8 @@ Deux journaux, deux rôles : `seal-journal.jsonl` = le journal du **sceau des fi
 
 ## Points à valider avant mise en ligne
 - **AI Alliance non mentionnée** : aucune trace publique vérifiable (rien sur GitHub) tant que Sam ne fournit pas de lien (profil howcani, paper #130). Ajout en 30 s dès qu'il existe.
-- « autour d'un café à Épinal » / « sans engagement » sur client.html : promesses commerciales à confirmer ou retirer.
-- Localisation « Épinal (Vosges) » — une ligne par page si ça change.
+- « autour d'un café dans les Vosges » / « sans engagement » sur client.html : promesses commerciales à confirmer ou retirer.
+- Localisation : « Vosges » uniquement, pas de ville (choix de Sam — vie privée).
 - Email public : `github@slabb.dev`.
 - Nom de boîte (S//ABB vs SLABB) volontairement absent.
 - Compteur « 25 articles » et les 4 vedettes : tirés de l'API dev.to du 17/10/2026 — rafraîchir de temps en temps.
