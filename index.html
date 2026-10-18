@@ -75,7 +75,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 <header>
   <div class="wrap bar">
     <a class="brand" href="#">slabb<span>.dev</span></a>
-    <a class="pill" href="verify.html"><span data-en="sealed">scellé</span> · <b id="pillhead">Ed25519</b> ✓</a>
+    <span style="display:flex;gap:12px;align-items:center"><a class="pill" href="verify.html"><span data-en="sealed">scellé</span> · <b id="pillhead">Ed25519</b> ✓</a><button class="pill" id="langBtn" type="button" aria-pressed="false" aria-label="Changer de langue / Switch language" style="background:none;cursor:pointer">EN</button></span>
   </div>
 </header>
 
@@ -84,7 +84,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   <div class="wrap">
     <div class="bootlog" id="boot" data-en="$ slabb.dev --init&lt;br&gt;&lt;span class='ok'&gt;✓&lt;/span&gt; 5 files hashed · SHA-256&lt;br&gt;&lt;span class='ok'&gt;✓&lt;/span&gt; chain valid · genesis slabb.dev-genesis&lt;br&gt;&lt;span class='ok'&gt;✓&lt;/span&gt; Ed25519 sealed — verify → verify.html"></div>
     <p class="kicker">avant d'entrer <small>· before entering</small></p>
-    <h1 id="title" data-txt="Vous êtes plutôt…">Vous êtes plutôt…</h1>
+    <h1 id="title" data-txt="Vous êtes plutôt…" data-en="Which one are you…">Vous êtes plutôt…</h1>
     <div class="doors">
       <a class="door" href="tech.html">
         <span class="ghost" aria-hidden="true">01</span>
@@ -118,7 +118,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 <footer>
   <div class="wrap foot">
     <span>⬛ black boxes for systems nobody can fully trust</span>
-    <span>peu importe la porte — du travail prouvé vous attend · © 2026 Sam Labbe</span>
+    <span data-en="whichever door — proven work awaits · © 2026 Sam Labbe">peu importe la porte — du travail prouvé vous attend · © 2026 Sam Labbe</span>
   </div>
 </footer>
 
@@ -185,6 +185,18 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
       }
     },66);
   }
+  /* toggle FR/EN + auto-détection */
+  var en=false,lb=document.getElementById('langBtn');
+  lb.addEventListener('click',function(){
+    en=!en;
+    document.querySelectorAll('[data-en]').forEach(function(n){
+      if(en){ if(!n.getAttribute('data-fr')) n.setAttribute('data-fr',n.innerHTML); n.innerHTML=n.getAttribute('data-en'); }
+      else{ n.innerHTML=n.getAttribute('data-fr'); }
+    });
+    document.documentElement.lang=en?'en':'fr';
+    lb.textContent=en?'FR':'EN';lb.setAttribute('aria-pressed',en?'true':'false');
+  });
+  if(!/^fr/i.test(navigator.language||'fr')) setTimeout(function(){lb.click()},1400);
   /* raccourcis clavier 1 / 2 */
   window.addEventListener('keydown',function(e){
     if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;

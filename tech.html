@@ -280,7 +280,7 @@ section.hero{padding-left:29px;padding-right:29px}
       </div>
     </div>
   </section>
-  <div class="tick" aria-hidden="true"><div class="tick-in"><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span></div></div>
+  <div class="tick" aria-hidden="true"><div class="tick-in"><span data-en="proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82.5% of the web readable · 200 urls · zero tracking · ⬛ black boxes · ">proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span><span data-en="proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82.5% of the web readable · 200 urls · zero tracking · ⬛ black boxes · ">proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span></div></div>
 
   <div class="stats rv">
     <div class="stat"><b data-cnt="20" data-suf="+">20+</b><small data-en="years of code, every seat<br>since 2004">années de code, tous postes<br>depuis 2004</small></div>
@@ -296,7 +296,7 @@ section.hero{padding-left:29px;padding-right:29px}
     <p class="sub rv d2" data-en="Left: a live SHA-256 hash chain — touch entry #02 and watch tampering propagate. Right: the 200 real URLs of the tollbooth bench, one cell each. Every number is measured, none invented.">À gauche : une chaîne de hash SHA-256 vivante — touchez l'entrée #02 et regardez l'altération se propager. À droite : les 200 URLs réelles du bench tollbooth, une cellule chacune. Chaque chiffre est mesuré, aucun inventé.</p>
     <div class="grid2">
       <div class="card product rv">
-        <p class="num">noirebox · simulateur</p>
+        <p class="num" data-en="noirebox · simulator">noirebox · simulateur</p>
         <h3 data-en="The journal nothing can betray">Le journal que rien ne trahit</h3>
         <p class="labcaption" data-en="Each line seals the hash of the previous one — real SHA-256, computed in your browser. Edit entry #02: the break propagates and the seal falls.">Chaque ligne scelle le hash de la précédente — vraie SHA-256, calculée dans votre navigateur. Modifiez l'entrée #02 : la rupture se propage et le sceau tombe.</p>
         <span class="lbadge" id="chainbadge" data-en="VALID SEAL · SHA-256">SCEAU VALIDE · SHA-256</span>
@@ -307,18 +307,18 @@ section.hero{padding-left:29px;padding-right:29px}
         </div>
         <div class="labrow">
           <a class="plink" href="https://github.com/noirebox/noirebox">github.com/noirebox →</a>
-          <a class="plink" href="verify.html">le sceau de ce site même →</a>
+          <a class="plink" href="verify.html" data-en="the seal of this very site →">le sceau de ce site même →</a>
         </div>
       </div>
       <div class="card product rv d1">
-        <p class="num">navette · bench tollbooth — données réelles</p>
+        <p class="num" data-en="navette · tollbooth bench — real data">navette · bench tollbooth — données réelles</p>
         <h3 data-en="200 real websites vs. an agent">200 sites réels face à un agent</h3>
         <p class="labcaption" data-en="Measured with navette on 08.10.2026. Filter, hover, check — then reproduce it yourself, the dataset is CC BY 4.0.">Mesuré avec navette le 08.10.2026. Filtrez, survolez, vérifiez — puis reproduisez : le dataset est CC BY 4.0.</p>
-        <span class="lbadge" id="badge">165 lisibles · 23 JS-gate · 12 challenges · 82,5 %</span>
+        <span class="lbadge" id="badge" data-en="165 readable · 23 JS-gate · 12 challenges · 82.5%">165 lisibles · 23 JS-gate · 12 challenges · 82,5 %</span>
         <div class="chips" id="chips"></div>
         <div class="matrix" id="matrix" aria-label="Les 200 URLs du bench tollbooth"></div>
-        <p class="readout" id="readout" aria-live="polite">survolez une cellule — chaque chiffre est mesuré, aucun inventé</p>
-        <p class="tags">73 sites bannissent ≥ 1 bot IA (robots.txt) · 1 paywall · 0 x402 · <a class="plink" href="https://github.com/slabbdev/navette">navette →</a></p>
+        <p class="readout" id="readout" aria-live="polite" data-en="hover a cell — every number is measured, none invented">survolez une cellule — chaque chiffre est mesuré, aucun inventé</p>
+        <p class="tags" data-en="73 sites ban ≥ 1 AI bot (robots.txt) · 1 paywall · 0 x402 · <a class=&quot;plink&quot; href=&quot;https://github.com/slabbdev/navette&quot;>navette →</a>">73 sites bannissent ≥ 1 bot IA (robots.txt) · 1 paywall · 0 x402 · <a class="plink" href="https://github.com/slabbdev/navette">navette →</a></p>
       </div>
     </div>
     </div>
@@ -327,15 +327,15 @@ section.hero{padding-left:29px;padding-right:29px}
   <section id="demo" data-num="02">
     <p class="kicker rv" data-en="// live demo — drive the agent">// démo — pilotez l'agent</p>
     <h2 class="rv d1" data-en="Give it a mission. Watch it work. Watch it prove it.">Donnez-lui une mission. Regardez-le travailler. Regardez-le le prouver.</h2>
-    <p class="sub rv d2" data-en="The agent (GLM-4.5-flash, a free model) thinks, calls navette_navigate to read a real web page, then seals its conclusion with noirebox_note. Everything is displayed here — including the hashes.">L'agent (<code>GLM-4.5-flash</code>, un modèle free) réfléchit, appelle <code>navette_navigate</code> pour lire une vraie page web, puis scelle sa conclusion avec <code>noirebox_note</code>. Tout s'affiche ici — y compris les hash. <strong style="color:var(--fg);font-weight:500">Astuce : cliquez n'importe quelle cellule de la matrice ci-dessus, l'agent ira l'inspecter.</strong></p>
+    <p class="sub rv d2" data-en="The agent (GLM-4.5-flash, a free model) thinks, calls navette_navigate to read a real web page, then seals its conclusion with noirebox_note. Everything is displayed here — including the hashes. <strong style=&quot;color:var(--fg);font-weight:500&quot;>Tip: click any cell of the matrix above — the agent will go and inspect it.</strong>">L'agent (<code>GLM-4.5-flash</code>, un modèle free) réfléchit, appelle <code>navette_navigate</code> pour lire une vraie page web, puis scelle sa conclusion avec <code>noirebox_note</code>. Tout s'affiche ici — y compris les hash. <strong style="color:var(--fg);font-weight:500">Astuce : cliquez n'importe quelle cellule de la matrice ci-dessus, l'agent ira l'inspecter.</strong></p>
     <div class="offline" id="demoOffline" data-en="The agent server is off — the rest of the site works without it. For the demo: <code>npm install &amp;&amp; npm start</code> in the site folder (it starts navette by itself). No data leaves anywhere while it is off.">Le serveur de l'agent est éteint — le reste du site marche sans lui. Pour la démo : <code>npm install &amp;&amp; npm start</code> dans le dossier du site (il démarre navette tout seul). Aucune donnée n'est envoyée nulle part tant qu'il est éteint.</div>
     <div class="demogrid">
       <div class="card">
         <div class="phead"><span data-en="MISSION">MISSION</span>
           <span style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="abtn" data-task="Va lire https://example.com et dis-moi de quoi il s'agit" style="padding:5px 12px;font-size:.7rem">example.com</button>
-            <button class="abtn" data-task="Lis https://github.com/slabbdev/navette et résume-moi ce qu'est navette en deux phrases" style="padding:5px 12px;font-size:.7rem" data-en="the navette repo">le repo navette</button>
-            <button class="abtn" data-task="Ouvre https://news.ycombinator.com et cite le premier titre de la page" style="padding:5px 12px;font-size:.7rem" data-en="today's HN">le HN du moment</button>
+            <button class="abtn" data-task="Va lire https://example.com et dis-moi de quoi il s'agit" data-task-en="Go read https://example.com and tell me what it is" style="padding:5px 12px;font-size:.7rem">example.com</button>
+            <button class="abtn" data-task="Lis https://github.com/slabbdev/navette et résume-moi ce qu'est navette en deux phrases" data-task-en="Read https://github.com/slabbdev/navette and summarize what navette is in two sentences" style="padding:5px 12px;font-size:.7rem" data-en="the navette repo">le repo navette</button>
+            <button class="abtn" data-task="Ouvre https://news.ycombinator.com et cite le premier titre de la page" data-task-en="Open https://news.ycombinator.com and quote the first headline on the page" style="padding:5px 12px;font-size:.7rem" data-en="today's HN">le HN du moment</button>
           </span>
         </div>
         <div class="pbody">
@@ -400,21 +400,21 @@ section.hero{padding-left:29px;padding-right:29px}
     <p class="sub rv d2" data-en="Twenty years on the ground: offensive security, senior production, public impact, teaching — all the way to tools that prove themselves. Filter.">Vingt ans de terrain : sécurité offensive, production senior, impact public, transmission — jusqu'aux outils qui se prouvent eux-mêmes. Filtrez.</p>
     <div class="chips rv d3" id="regChips"></div>
     <div class="tl rv d3">
-      <div class="tlrow" data-cat="archi"><span class="tly">2004</span><b>Les premières lignes de code</b><small>web, back, mobile — tout commence</small></div>
-      <div class="tlrow" data-cat="archi"><span class="tly">2008 → 2025</span><b>graphicNAIVETY || WebSolutions — Lorraine</b><small>développeur &amp; designer full-stack, puis pentester · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis</small></div>
-      <div class="tlrow" data-cat="secu"><span class="tly">2008 → 2018</span><b>Ethical hacker &amp; pentester</b><small>dix ans de tests d'intrusion et de sécurité des systèmes — #owasp #blueteam #hds</small></div>
-      <div class="tlrow" data-cat="impact"><span class="tly">2012</span><b>Lab'ESS — Tunis</b><small>service civique en Tunisie post-révolution : co-fondateur du lab avec DSF</small></div>
-      <div class="tlrow" data-cat="impact"><span class="tly">2013</span><b>Festival Solid'A Rythmik</b><small>directeur de festival — 2 000+ spectateurs</small></div>
-      <div class="tlrow" data-cat="secu"><span class="tly">2015 → 2016</span><b>GDG Nancy — Google Developers Group</b><small>invité par Google à fonder l'antenne de Nancy — lead ethical hacker du groupe</small></div>
-      <div class="tlrow" data-cat="impact"><span class="tly">2016 → 2017</span><b>LiiNKART</b><small>startup de vente d'art en ligne, née au Startup Weekend Metz — 1er prix</small></div>
-      <div class="tlrow" data-cat="archi"><span class="tly">2018</span><b>CODUSTEL — international</b><small>Web Development Team Lead</small></div>
-      <div class="tlrow" data-cat="archi"><span class="tly">2018 → 2020</span><b>MGEL — Nancy</b><small>développement full-stack pour la mutuelle</small></div>
-      <div class="tlrow" data-cat="archi"><span class="tly">2019 → 2025</span><b>Groupe Eco Energie France</b><small>développeur full-stack du groupe, puis Lead Tech/Dev (2024 → 2025)</small></div>
-      <div class="tlrow" data-cat="form"><span class="tly">2019 → 2021</span><b>Formateur dev web, mobile &amp; droit multimédia</b><small>Simplon.co · Naïas · WebForce3 · Nextformation · Philiance — Nantes, Strasbourg, Nancy</small></div>
-      <div class="tlrow" data-cat="impact"><span class="tly">2021 → 2022</span><b>Histologe — beta.gouv.fr</b><small>Lead Tech/Dev d'un service public national de signalement du logement</small></div>
-      <div class="tlrow" data-cat="archi"><span class="tly">2022 → 2023</span><b>Bilendi Technology (ex Elma)</b><small>Senior Full-Stack, équipe distribuée, full remote</small></div>
-      <div class="tlrow" data-cat="archi"><span class="tly">2025 → 2026</span><b>Avinim Groupe</b><small>Lead Full-Stack d'un groupe multi-sociétés, trajectoire CTO — SI, CRM, facturation, agents IA</small></div>
-      <div class="tlrow" data-cat="impact"><span class="tly">2026 →</span><b>Indépendant — S//ABB · NoireBox · navette · cet agent</b><small>l'aboutissement : des outils qui prouvent ce qu'ils font · membre de l'AI Alliance</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2004</span><b data-en="The first lines of code">Les premières lignes de code</b><small data-en="web, back end, mobile — where it all starts">web, back, mobile — tout commence</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2008 → 2025</span><b data-en="graphicNAIVETY || WebSolutions — Lorraine">graphicNAIVETY || WebSolutions — Lorraine</b><small data-en="full-stack developer &amp; designer, then pentester · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis">développeur &amp; designer full-stack, puis pentester · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis</small></div>
+      <div class="tlrow" data-cat="secu"><span class="tly">2008 → 2018</span><b data-en="Ethical hacker &amp; pentester">Ethical hacker &amp; pentester</b><small data-en="ten years of penetration testing and systems security — #owasp #blueteam #hds">dix ans de tests d'intrusion et de sécurité des systèmes — #owasp #blueteam #hds</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2012</span><b data-en="Lab'ESS — Tunis">Lab'ESS — Tunis</b><small data-en="civic service in post-revolution Tunisia: co-founder of the lab with DSF">service civique en Tunisie post-révolution : co-fondateur du lab avec DSF</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2013</span><b data-en="Solid'A Rythmik festival">Festival Solid'A Rythmik</b><small data-en="festival director — 2,000+ attendees">directeur de festival — 2 000+ spectateurs</small></div>
+      <div class="tlrow" data-cat="secu"><span class="tly">2015 → 2016</span><b data-en="Founded GDG Nancy (Google Developer Group)">Création du GDG Nancy (Google Developer Group)</b><small data-en="the group's lead ethical hacker">lead ethical hacker du groupe</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2016 → 2017</span><b data-en="LiiNKART">LiiNKART</b><small data-en="online art-sales startup, born at Startup Weekend Metz — 1st prize">startup de vente d'art en ligne, née au Startup Weekend Metz — 1er prix</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2018</span><b data-en="CODUSTEL — international">CODUSTEL — international</b><small data-en="Web Development Team Lead">Web Development Team Lead</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2018 → 2020</span><b data-en="MGEL — Nancy">MGEL — Nancy</b><small data-en="full-stack development for the mutual insurer">développement full-stack pour la mutuelle</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2019 → 2025</span><b data-en="Groupe Eco Energie France">Groupe Eco Energie France</b><small data-en="the group's full-stack developer, then Lead Tech/Dev (2024 → 2025)">développeur full-stack du groupe, puis Lead Tech/Dev (2024 → 2025)</small></div>
+      <div class="tlrow" data-cat="form"><span class="tly">2019 → 2021</span><b data-en="Trainer — web &amp; mobile development, multimedia law">Formateur dev web, mobile &amp; droit multimédia</b><small data-en="Simplon.co · Naïas · WebForce3 · Nextformation · Philiance — Nantes, Strasbourg, Nancy">Simplon.co · Naïas · WebForce3 · Nextformation · Philiance — Nantes, Strasbourg, Nancy</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2021 → 2022</span><b data-en="Histologe — beta.gouv.fr">Histologe — beta.gouv.fr</b><small data-en="Lead Tech/Dev of a national public service for housing reports">Lead Tech/Dev d'un service public national de signalement du logement</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2022 → 2023</span><b data-en="Bilendi Technology (ex Elma)">Bilendi Technology (ex Elma)</b><small data-en="Senior Full-Stack, distributed team, fully remote">Senior Full-Stack, équipe distribuée, full remote</small></div>
+      <div class="tlrow" data-cat="archi"><span class="tly">2025 → 2026</span><b data-en="Avinim Groupe">Avinim Groupe</b><small data-en="Lead Full-Stack of a multi-company group, CTO track — IS, CRM, billing, AI agents">Lead Full-Stack d'un groupe multi-sociétés, trajectoire CTO — SI, CRM, facturation, agents IA</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2026 →</span><b data-en="Independent — S//ABB · NoireBox · navette · this agent">Indépendant — S//ABB · NoireBox · navette · cet agent</b><small data-en="the culmination: tools that prove what they do · AI Alliance member">l'aboutissement : des outils qui prouvent ce qu'ils font · membre de l'AI Alliance</small></div>
     </div>
   </section>
 
@@ -434,7 +434,7 @@ section.hero{padding-left:29px;padding-right:29px}
         <p class="num">navette</p>
         <h3 data-en="The browser for agents">Le navigateur pour agents</h3>
         <p data-en="A tiny Rust binary drives the WebView your OS already ships. No Chromium, no download. And a public benchmark: out of 200 real URLs, only 82.5% are readable by an agent.">Un petit binaire Rust pilote la WebView déjà livrée par votre OS. Pas de Chromium, pas de téléchargement. Et un bench public&nbsp;: sur 200 URLs réelles, 82,5&nbsp;% seulement sont lisibles par un agent.</p>
-        <p class="tags">open source · bench tollbooth · dataset public</p>
+        <p class="tags" data-en="open source · tollbooth bench · public dataset">open source · bench tollbooth · dataset public</p>
         <a class="plink" href="https://github.com/slabbdev/navette">github.com/slabbdev/navette →</a>
       </div>
     </div>
@@ -529,6 +529,7 @@ section.hero{padding-left:29px;padding-right:29px}
     btn.textContent=en?'FR':'EN';
     btn.setAttribute('aria-pressed',en?'true':'false');
   });
+  if(!/^fr/i.test(navigator.language||'fr')) btn.click();
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
@@ -578,7 +579,7 @@ section.hero{padding-left:29px;padding-right:29px}
         var bad=cc[i].h!==base[i].h; if(bad)broken=true;
         var d=document.createElement('div'); d.className='chainln'+(bad?' bad':'');
         var r1=document.createElement('div'); r1.className='crow1';
-        r1.innerHTML='<span>#'+l.id+' · '+l.ts+'</span><span>'+(bad?'⚠ HASH_MISMATCH':'✓ scellé')+'</span>';
+        r1.innerHTML='<span>#'+l.id+' · '+l.ts+'</span><span>'+(bad?'⚠ HASH_MISMATCH':L('✓ scellé','✓ sealed'))+'</span>';
         var pay=document.createElement('div');
         if(i===1){
           var inp=document.createElement('input'); inp.className='chainin'; inp.value=l.a;
@@ -632,7 +633,7 @@ section.hero{padding-left:29px;padding-right:29px}
     var c=document.createElement('div');
     c.className='mcell '+(r.o==='ok'?'':(r.o==='empty-js-gate'?'gate':'chal'));
     c.addEventListener('mouseenter',function(){
-      ro.textContent=r.d+' · '+(document.documentElement.lang==='en'?LBL[r.o][1]:LBL[r.o][0])+' · '+r.m+' ms · « '+r.t+' »'+(r.b?' · '+r.b+' bots IA bannis':'')+(r.p?' · paywall':'');
+      ro.textContent=r.d+' · '+(document.documentElement.lang==='en'?LBL[r.o][1]:LBL[r.o][0])+' · '+r.m+' ms · « '+r.t+' »'+(r.b?' · '+r.b+L(' bots IA bannis',' AI bots banned'):'')+(r.p?' · paywall':'');
     });
     c.addEventListener('click',function(){
       blip(2200);
@@ -642,7 +643,7 @@ section.hero{padding-left:29px;padding-right:29px}
       dm.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
       setTimeout(function(){frm.requestSubmit()},350);
     });
-    c.title='cliquer = envoyer l\'agent inspecter '+r.d;
+    c.title=L('cliquer = envoyer l\'agent inspecter ','click = send the agent to inspect ')+r.d;
     mx.appendChild(c);
   });
   function apply(){
@@ -705,6 +706,7 @@ section.hero{padding-left:29px;padding-right:29px}
 </script>
 <script>
 var __sfxOn=false,__actx=null;
+function L(fr,en){return document.documentElement.lang==='en'?en:fr}
 function blip(f){
   if(!__sfxOn)return;
   try{
@@ -748,14 +750,14 @@ function blip(f){
     clearSpin();
     if(evd.type==='tool_result'){
       var rr=evd.result||{};
-      ev('✓ <b>'+esc(evd.tool)+'</b> — '+esc(rr.title||rr.sealed||'ok')+(rr.chars?' · '+rr.chars+' caractères':'')+
-         (rr.excerpt?'<details><summary>extrait</summary><pre>'+esc(rr.excerpt.slice(0,700))+'</pre></details>':''));
+      ev('✓ <b>'+esc(evd.tool)+'</b> — '+esc(rr.title||rr.sealed||'ok')+(rr.chars?' · '+rr.chars+' '+L('caractères','characters'):'')+
+         (rr.excerpt?'<details><summary>'+L('extrait','excerpt')+'</summary><pre>'+esc(rr.excerpt.slice(0,700))+'</pre></details>':''));
     }else if(evd.type==='sealed'){
-      ev('⬛ scellé — <b>'+esc(evd.head)+'…</b> « '+esc(evd.text)+' »'); if(online)refreshJournal();
+      ev('⬛ '+L('scellé','sealed')+' — <b>'+esc(evd.head)+'…</b> « '+esc(evd.text)+' »'); if(online)refreshJournal();
     }else if(evd.type==='answer'){
       bubble('agent',evd.text);
     }else if(evd.type==='receipt'){
-      ev('⬛ <b>run scellé</b> — head '+esc(evd.head)+'… · '+evd.entries+' entrées'); if(online)refreshJournal();
+      ev('⬛ <b>'+L('run scellé','run sealed')+'</b> — head '+esc(evd.head)+'… · '+evd.entries+' '+L('entrées','entries')); if(online)refreshJournal();
     }else if(evd.type==='error'){
       ev('⚠ '+esc(evd.message));
     }
@@ -772,47 +774,49 @@ function blip(f){
     });
   }
   async function refreshJournal(){
-    try{var j=await (await fetch(API+'/api/journal')).json();renderEntries(j.entries,'head '+j.head.slice(0,16)+'… · '+j.entries.length+' entrées · Ed25519');}catch(e){}
+    try{var j=await (await fetch(API+'/api/journal')).json();renderEntries(j.entries,'head '+j.head.slice(0,16)+'… · '+j.entries.length+' '+L('entrées','entries')+' · Ed25519');}catch(e){}
   }
   async function loadSnapshot(){
     try{
       var t=await (await fetch('journal.jsonl')).text();
       var es=t.split('\n').filter(Boolean).map(function(l){return JSON.parse(l)});
-      renderEntries(es,'instantané réel · '+es.length+' entrées · Ed25519');
-    }catch(e){ jhead.textContent='journal indisponible ici'; }
+      renderEntries(es,L('instantané réel','real snapshot')+' · '+es.length+' '+L('entrées','entries')+' · Ed25519');
+    }catch(e){ jhead.textContent=L('journal indisponible ici','journal unavailable here'); }
   }
   var online=false,running=false,REPLAY=null;
   function wait(ms){return new Promise(function(r){setTimeout(r,reduced?0:ms)})}
   async function playReplay(run,hint){
     if(running||!run)return;running=true;send.disabled=true;
     bubble('user',run.task);
-    ev('⟲ <b>rediffusion</b> — run réel enregistré le '+esc((REPLAY&&REPLAY.recorded_at||'').slice(0,10))+' · vrais appels navette, vrais hash'+(hint?' · '+esc(hint):''));
+    ev('⟲ <b>'+L('rediffusion','replay')+'</b>'+L(' — run réel enregistré le ',' — real run recorded on ')+esc((REPLAY&&REPLAY.recorded_at||'').slice(0,10))+L(' · vrais appels navette, vrais hash',' · real navette calls, real hashes')+(hint?' · '+esc(hint):''));
     for(var i=0;i<run.events.length;i++){
       var e=run.events[i];
       await wait(e.type==='tool_result'?1100:e.type==='answer'?500:e.type==='mode'?150:650);
-      if(e.type==='mode'){ev('agent : <b>'+esc(e.mode)+'</b>');continue;}
+      if(e.type==='mode'){ev(L('agent : ','agent: ')+'<b>'+esc(e.mode)+'</b>');continue;}
       render(e);
     }
     running=false;
   }
   window.playReplayFor=function(domain){
-    if(!REPLAY){ev('⟲ rediffusion indisponible (replay.json manquant)');return;}
+    if(!REPLAY){ev(L('⟲ rediffusion indisponible (replay.json manquant)','⟲ replay unavailable (replay.json missing)'));return;}
+    var want=document.documentElement.lang==='en'?'en':'fr';
+    var pool=REPLAY.runs.filter(function(x){return (x.lang||'fr')===want});if(!pool.length)pool=REPLAY.runs;
     var run=null;
-    for(var i=0;i<REPLAY.runs.length;i++){ if(REPLAY.runs[i].task.indexOf(domain)>=0){run=REPLAY.runs[i];break;} }
+    for(var i=0;i<pool.length;i++){ if(pool[i].task.indexOf(domain)>=0){run=pool[i];break;} }
     var hint='';
-    if(!run){run=REPLAY.runs[Math.floor(Math.random()*REPLAY.runs.length)];hint='pour inspecter '+domain+' en direct : npm start';}
+    if(!run){run=pool[Math.floor(Math.random()*pool.length)];hint=L('pour inspecter '+domain+' en direct : npm start','to inspect '+domain+' live: npm start');}
     playReplay(run,hint);
   };
   function setupOffline(){
     offline.style.display='block';
     offline.innerHTML='<b style="color:var(--fg);font-weight:500">Hébergement statique : le serveur de l\'agent n\'est pas allumé ici.</b> Ci-dessous, la <b style="color:var(--accent);font-weight:500">rediffusion de runs réels</b> — vrais appels navette, vrais hash, rien de simulé. Cliquez une mission. Pour le direct : <code>npm start</code> dans le dossier du site, ou une API distante (README).';
-    input.disabled=true;input.placeholder='en direct : npm start — ici, rediffusion de runs réels (cliquez une mission ci-dessus)';send.disabled=true;
+    input.disabled=true;input.placeholder=L('en direct : npm start — ici, rediffusion de runs réels (cliquez une mission ci-dessus)','live: npm start — here, replays of real runs (click a mission above)');send.disabled=true;
     loadSnapshot();
     fetch('replay.json').then(function(r){return r.json()}).then(function(j){REPLAY=j;}).catch(function(){});
   }
   fetch(API+'/api/health').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(h){
     online=true;refreshJournal();
-    ev('⬛ agent : <b>'+esc(h.model)+'</b> · navette '+(h.navette?'en ligne':'hors ligne')+' · journal '+h.entries+' entrées, head '+esc(h.head)+'…');
+    ev('⬛ '+L('agent : ','agent: ')+'<b>'+esc(h.model)+'</b> · navette '+(h.navette?L('en ligne','online'):L('hors ligne','offline'))+' · journal '+h.entries+' '+L('entrées','entries')+', head '+esc(h.head)+'…');
   }).catch(setupOffline);
   form.addEventListener('submit',async function(e){
     e.preventDefault();
@@ -820,7 +824,7 @@ function blip(f){
     var task=input.value.trim();if(!task)return;
     blip(2000);running=true;send.disabled=true;
     bubble('user',task);input.value='';
-    var sp=ev('<span class="spin"></span> l\'agent réfléchit…');
+    var sp=ev('<span class="spin"></span> '+L('l\'agent réfléchit…','the agent is thinking…'));
     try{
       var res=await fetch(API+'/api/agent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({task:task})});
       var reader=res.body.getReader(),dec=new TextDecoder(),buf='';
@@ -840,12 +844,13 @@ function blip(f){
     }catch(err){ev('⚠ '+esc(String(err)));}
     running=false;send.disabled=false;input.focus();
   });
+  var lb=document.getElementById('langBtn'); if(lb){lb.addEventListener('click',function(){setTimeout(function(){input.placeholder=L('ex. : va lire https://example.com et résume-le','e.g. go read https://example.com and summarize it')},0)})}
   document.querySelectorAll('[data-task]').forEach(function(b){
     b.addEventListener('click',function(){
-      var t=b.getAttribute('data-task');
+      var t=(document.documentElement.lang==='en'&&b.getAttribute('data-task-en'))||b.getAttribute('data-task');
       blip(2000);
       if(online){input.value=t;form.requestSubmit();return;}
-      if(!REPLAY){ev('⟲ rediffusion en cours de chargement…');return;}
+      if(!REPLAY){ev(L('⟲ rediffusion en cours de chargement…','⟲ replay still loading…'));return;}
       var run=null;for(var i=0;i<REPLAY.runs.length;i++){if(REPLAY.runs[i].task===t){run=REPLAY.runs[i];break;}}
       playReplay(run||REPLAY.runs[0]);
     });
@@ -863,7 +868,7 @@ function blip(f){
     </span>
   </div>
   <div class="abody" id="auditBody" aria-live="polite"><span class="text-dim" style="color:var(--muted)">…</span></div>
-  <div class="afoot">SHA-256 par fichier · chaîne « slabb.dev-genesis » · signature Ed25519 · hors-bande : python3 verify.py</div>
+  <div class="afoot" data-en="SHA-256 per file · “slabb.dev-genesis” chain · Ed25519 signature · out-of-band: python3 verify.py">SHA-256 par fichier · chaîne « slabb.dev-genesis » · signature Ed25519 · hors-bande : python3 verify.py</div>
 </div>
 
 <script>
@@ -904,24 +909,24 @@ function blip(f){
     return p.then(function(last){return crypto.subtle.digest('SHA-256',last).then(hex)});
   }
   function runAudit(){
-    body.innerHTML='<div style="color:var(--muted)">lecture de manifest.json…</div>';
+    body.innerHTML='<div style="color:var(--muted)">'+L('lecture de manifest.json…','reading manifest.json…')+'</div>';
     var all=true;
     fetch('manifest.json').then(function(r){return r.json()}).then(function(man){
-      body.innerHTML='<div style="color:var(--muted);margin-bottom:8px">construit le '+man.built_at+' · '+man.files.length+' fichiers</div>';
+      body.innerHTML='<div style="color:var(--muted);margin-bottom:8px">'+L('construit le ','built on ')+man.built_at+' · '+man.files.length+' '+L('fichiers','files')+'</div>';
       var q=Promise.resolve();
       man.files.forEach(function(f){q=q.then(function(){return fetch(f.name).then(function(r){return r.arrayBuffer()}).then(sha).then(function(h){all=row(f.name,h,h===f.sha256)&&all})})});
       return q.then(function(){return chain(man.files)}).then(function(h){
-        all=row('tête de chaîne',h,h===man.head)&&all;
+        all=row(L('tête de chaîne','chain head'),h,h===man.head)&&all;
         return crypto.subtle.importKey('spki',spki(b64bin(man.pubkey)),{name:'Ed25519'},false,['verify']).then(function(k){
           return crypto.subtle.verify({name:'Ed25519'},k,b64bin(man.sig),enc.encode(man.head));
-        }).then(function(ok){all=row('signature Ed25519',man.head,ok)&&all},function(){all=row('signature Ed25519 (navigateur sans Ed25519 → verify.py)',man.head,false)&&all});
+        }).then(function(ok){all=row('signature Ed25519',man.head,ok)&&all},function(){all=row(L('signature Ed25519 (navigateur sans Ed25519 → verify.py)','Ed25519 signature (browser lacks Ed25519 → verify.py)'),man.head,false)&&all});
       }).then(function(){
         var v=document.createElement('div');v.style.cssText='margin-top:14px;font-size:.86rem;color:'+(all?'var(--accent)':'var(--lbad)');
-        v.textContent=all?'INTÈGRE — rien n\'a bougé depuis la construction scellée. fingerprint '+man.fingerprint:'COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.';
+        v.textContent=all?L('INTÈGRE — rien n\'a bougé depuis la construction scellée. fingerprint ','INTACT — nothing has changed since the sealed build. fingerprint ')+man.fingerprint:L('COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.','COMPROMISED or corrupted — do not trust this deployment.');
         body.appendChild(v);
         blip(all?2600:600);
       });
-    }).catch(function(e){body.innerHTML='<div class="abad">manifest.json inaccessible ici ('+e+') — l\'audit tourne sur le site déployé ou via verify.py</div>'});
+    }).catch(function(e){body.innerHTML='<div class="abad">'+L('manifest.json inaccessible ici (','manifest.json unreachable here (')+e+L(') — l\'audit tourne sur le site déployé ou via verify.py',') — the audit runs on the deployed site or via verify.py')+'</div>'});
   }
   function openDr(){dr.classList.add('open');blip(1400);if(!ran){ran=true;runAudit()}}
   function closeDr(){dr.classList.remove('open')}

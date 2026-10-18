@@ -146,7 +146,7 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
     <p class="meta rv d3" data-en="remote anywhere · travels worldwide">remote partout · déplacements partout dans le monde</p>
   </section>
 
-  <div class="tick" aria-hidden="true"><div class="tick-in"><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span><span>proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span></div></div>
+  <div class="tick" aria-hidden="true"><div class="tick-in"><span data-en="proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82.5% of the web readable · 200 urls · zero tracking · ⬛ black boxes · ">proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span><span data-en="proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82.5% of the web readable · 200 urls · zero tracking · ⬛ black boxes · ">proof, not promises · sha-256 · ed25519 · rfc 3161 · noirebox · navette · 82,5 % du web lisible · 200 urls · zéro tracking · ⬛ black boxes · </span></div></div>
   <div class="stats rv">
     <div class="stat"><b data-cnt="20" data-suf="+">20+</b><small data-en="years of experience<br>across every industry">années de métier<br>tous secteurs</small></div>
     <div class="stat"><b data-cnt="8" data-suf="+">8+</b><small data-en="public projects anyone<br>can inspect online">projets publics que<br>n'importe qui peut vérifier</small></div>
@@ -192,14 +192,14 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
         <h3 data-en="The “black box” for AI">La « boîte noire » pour les IA</h3>
         <p data-en="Like in airplanes: it records everything an AI does, so it can be proven later — what it read, what it decided, why. Used by professionals, published as open source.">Comme dans les avions : elle enregistre tout ce qu'une IA fait, pour pouvoir le prouver ensuite — ce qu'elle a lu, ce qu'elle a décidé, pourquoi. Utilisée par des professionnels, publiée en open source.</p>
         <p class="tags">open source · MIT · 300+ tests</p>
-        <a class="plink" href="https://github.com/noirebox/noirebox">voir le projet (en anglais) →</a>
+        <a class="plink" href="https://github.com/noirebox/noirebox" data-en="see the project →">voir le projet (en anglais) →</a>
       </div>
       <div class="card product rv d1">
         <p class="num">navette</p>
         <h3 data-en="A browser built for AI">Un navigateur construit pour les IA</h3>
         <p data-en="A lighter browser designed for AI programs. With it, I tested 200 real websites: about 1 in 6 blocks or hampers AI access. Measuring beats guessing.">Un navigateur plus léger, conçu pour les programmes d'IA. Avec, j'ai testé 200 sites réels : environ 1 sur 6 bloque ou complique la vie des IA. Mesurer vaut mieux que deviner.</p>
-        <p class="tags">open source · 200 sites testés · résultats publics</p>
-        <a class="plink" href="https://github.com/slabbdev/navette">voir le projet (en anglais) →</a>
+        <p class="tags" data-en="open source · 200 sites tested · public results">open source · 200 sites testés · résultats publics</p>
+        <a class="plink" href="https://github.com/slabbdev/navette" data-en="see the project →">voir le projet (en anglais) →</a>
       </div>
     </div>
   </section>
@@ -247,6 +247,7 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
     btn.textContent=en?'FR':'EN';
     btn.setAttribute('aria-pressed',en?'true':'false');
   });
+  if(!/^fr/i.test(navigator.language||'fr')) btn.click();
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });

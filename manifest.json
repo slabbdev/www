@@ -1,33 +1,33 @@
 {
   "site": "slabb.dev",
   "format": "seal v1 — SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
-  "built_at": "2026-10-18T20:21:22+00:00",
+  "built_at": "2026-10-18T20:35:42+00:00",
   "genesis": "slabb.dev-genesis",
   "files": [
     {
       "name": "client.html",
-      "sha256": "b0512d7e93e522090ec146d074e6278f14aa35603bb6397ab43b5eb55d5ee439",
-      "bytes": 20016
+      "sha256": "4e1076002eecb7b14d7dc5425ad2609604d8d321c493fc542a39309ee3e31934",
+      "bytes": 20530
     },
     {
       "name": "index.html",
-      "sha256": "07444942613e6be7ee341bd80f39908fa380fde83c976b9bb4c06b3134c47504",
-      "bytes": 11098
+      "sha256": "e4fa3616508fe7f428f44512a32f8953d7992be695b36170dfac203151930545",
+      "bytes": 12048
     },
     {
       "name": "journal.jsonl",
-      "sha256": "2ed41cb03b4c14a635919d47446e5e70b4491632739feb871b9ff51d8dceb2d8",
-      "bytes": 1988
+      "sha256": "8b55a48d52cbe82175c8c927487fa9dfc83091a1fb14b91cde9f20b596e1dd43",
+      "bytes": 3853
     },
     {
       "name": "replay.json",
-      "sha256": "77af63e782fcf2a2d919a39bc136e71f75f7243489e43b9f29c75365a8fc17fc",
-      "bytes": 9208
+      "sha256": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76",
+      "bytes": 18013
     },
     {
       "name": "tech.html",
-      "sha256": "5e8daeda7260ee8897dd2a6cd6da1479689ffbb264403e4bd66f5462ad64d241",
-      "bytes": 90066
+      "sha256": "15cf45b6dec4c2e92c71f7c26ee4f01c9d611c0b331af1120d55339e1a840f7f",
+      "bytes": 94714
     },
     {
       "name": "verify.html",
@@ -40,8 +40,8 @@
       "bytes": 4845
     }
   ],
-  "head": "388e9eec88ad6bea304ef77db5ddc6725d4424c7259876e285df04618d961c51",
-  "sig": "+FfbHZvlJc/tqrzSde5hnlLeWOL78xO3rkatTL9DHLKSAxPkcXazoAjrVzdfvZOhlw2R+CGFLh/FQvJLpJexDg==",
+  "head": "8f4cb72c36e5278850b684c8e536840e59095621520ece48e70d4de81ed57a17",
+  "sig": "MpVgMvY6RVEa0UaTyP0PftAGQTnF2ClJsvbEdxKy0ejI6bbXAWZVeqPusBwxFQdQIIbT2rQkC4sLYZl65GsKDA==",
   "pubkey": "/LHmxPfkAyN10+Zoa5uXpYiPn8y6Cup4d1RVupbuUYs=",
   "fingerprint": "sha256:5d7e19291be7eb6b"
 }

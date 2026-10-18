@@ -1,6 +1,6 @@
 {
- "recorded_at": "2026-10-18T19:28:41+00:00",
- "note": "Runs réels — GLM-4.5-flash (free) + navette (binaire Rust) + journal chaîné. Rejoués tels quels sur hébergement statique.",
+ "recorded_at": "2026-10-18T20:28:14+00:00",
+ "note": "Real runs — GLM-4.5-flash (free) + navette (Rust binary) + hash-chained journal. Replayed as-is on static hosting. FR + EN.",
  "runs": [
   {
    "task": "Va lire https://example.com et dis-moi de quoi il s'agit",
@@ -59,7 +59,8 @@
      "head": "dbf0ace433f0",
      "entries": 4
     }
-   ]
+   ],
+   "lang": "fr"
   },
   {
    "task": "Lis https://github.com/slabbdev/navette et résume-moi ce qu'est navette en deux phrases",
@@ -118,7 +119,8 @@
      "head": "144a1942ef7f",
      "entries": 8
     }
-   ]
+   ],
+   "lang": "fr"
   },
   {
    "task": "Ouvre https://news.ycombinator.com et cite le premier titre de la page",
@@ -176,6 +178,165 @@
      "type": "receipt",
      "head": "11cdf8fdd86c",
      "entries": 12
+    }
+   ],
+   "lang": "fr"
+  },
+  {
+   "task": "Go read https://example.com and tell me what it is",
+   "lang": "en",
+   "events": [
+    {
+     "type": "mode",
+     "mode": "glm-4.5-flash (z.ai, free)"
+    },
+    {
+     "type": "tool_call",
+     "tool": "navette_navigate",
+     "args": {
+      "url": "https://example.com"
+     }
+    },
+    {
+     "type": "tool_result",
+     "tool": "navette_navigate",
+     "result": {
+      "ok": true,
+      "tool": "navette_navigate",
+      "url": "https://example.com",
+      "title": "Example Domain",
+      "chars": 957,
+      "excerpt": "L’usage de ce domaine est réservé à des exemples de documentation, sans autorisation préalable. Il ne s’agit pas d’un service ; son utilisation à des fins de test ou de surveillance est à éviter.\n\nThis domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.\n\nهذا النطاق مُخصص للاستخدام في أمثلة التوثيق دون الحاجة إلى إذن. هذه ليست خدمة، يُرجى تجنب الاعتماد عليها لأغراض الاختبار والمراقبة.\n\n该域名仅用于文档示例，无需获得许可。这并非一项服务，请勿将其用于测试和监控目的。\n\nДанный домен предназначен для использования в примерах документации без необходимости получения предварительного разрешения. Это не сервис; не рекомендуется его использование для тестирования и мониторинга.\n\nEste dominio está destinado al uso en ejemplos de documentación sin necesidad de permiso. Esto no es un servicio; evitar utilizarlo para realizar pruebas o monitoreos.\n[Learn more](https://iana.org/help/example-domains)"
+     }
+    },
+    {
+     "type": "tool_call",
+     "tool": "noirebox_note",
+     "args": {
+      "text": "example.com est le domaine standard officiel utilisé pour des exemples dans la documentation, n'est pas un service réel et doit être évité pour les tests et la surveillance."
+     }
+    },
+    {
+     "type": "sealed",
+     "text": "example.com est le domaine standard officiel utilisé pour des exemples dans la documentation, n'est pas un service réel et doit être évité pour les tests et la surveillance.",
+     "head": "5c9a9be768d2"
+    },
+    {
+     "type": "tool_result",
+     "tool": "noirebox_note",
+     "result": {
+      "ok": true,
+      "sealed": true,
+      "head": "5c9a9be768d2",
+      "n": 15
+     }
+    },
+    {
+     "type": "answer",
+     "text": "\nexample.com is the official \"Example Domain\" used for documentation and educational purposes. It's not a real service but a standardized domain intended for examples in documentation, available in multiple languages. The site explicitly warns against using it for testing or monitoring purposes."
+    },
+    {
+     "type": "receipt",
+     "head": "5c9a9be768d2",
+     "entries": 16
+    }
+   ]
+  },
+  {
+   "task": "Read https://github.com/slabbdev/navette and summarize what navette is in two sentences",
+   "lang": "en",
+   "events": [
+    {
+     "type": "mode",
+     "mode": "glm-4.5-flash (z.ai, free)"
+    },
+    {
+     "type": "tool_call",
+     "tool": "navette_navigate",
+     "args": {
+      "url": "https://github.com/slabbdev/navette"
+     }
+    },
+    {
+     "type": "tool_result",
+     "tool": "navette_navigate",
+     "result": {
+      "ok": true,
+      "tool": "navette_navigate",
+      "url": "https://github.com/slabbdev/navette",
+      "title": "GitHub - slabbdev/navette: The browser for agents — one tiny Rust binary driving the WebView your OS already ships. No Chromium, no download. · GitHub",
+      "chars": 21761,
+      "excerpt": "[Skip to content](https://github.com/slabbdev/navette#start-of-content)\n\n## Navigation Menu\n[](https://github.com/)\n[Sign in](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fslabbdev%2Fnavette)\nAppearance settings\n- Platform\n- Solutions\n- Resources\n- Open Source\n- Enterprise\n- Pricing\nSearch\n/\n[Sign in](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fslabbdev%2Fnavette)\n[Sign up](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=slabbdev%2Fnavette)\nAppearance settings\nReload\nReload\nReload\nDismiss alert\n- slabbdev\n- navette\n\n## Repository navigation\n- \n- Code\n- Issues\n- Pull requests\n- Actions\n- Projects\n- Wiki\n- Security and quality\n- Insights\nitems\n[](https://github.com/slabbdev/navette)\n[navette](https://github.com/slabbdev/navette)\nPublic\n- Notifications\n- Fork1 (1)\n- Star6 (6)\n\n## About\n\nThe browser for agents — one tiny Rust binary driving the WebView your OS already ships. No Chromium, no download.\n[slabbdev.github.io/navette/](https://slabbdev.github.io/navette/)\n\n### Topics\n[agent-browser](https://github.com/topics/agent-browser)\n[ai-agents](https://github.com/topics/ai-agents)\n[automation](https://github.com/topics/automation)\n[browser-automation](https://github.com/topics/browser-automation)\n[headless-browser](https://github.com/topics/headless-browser)\n[llm-tools](https://github.com/topics/llm-tools)\n[macos](https://github.com/topics/macos)\n[mc"
+     }
+    },
+    {
+     "type": "answer",
+     "text": "\nNavette is a lightweight browser specifically designed for AI agents, built as a single small Rust binary that leverages the WebView technology already available in operating systems. It provides a browser solution without requiring Chromium or additional downloads, making it ideal for automated web interactions and AI tool integration."
+    },
+    {
+     "type": "receipt",
+     "head": "4a32290c2161",
+     "entries": 19
+    }
+   ]
+  },
+  {
+   "task": "Open https://news.ycombinator.com and quote the first headline on the page",
+   "lang": "en",
+   "events": [
+    {
+     "type": "mode",
+     "mode": "glm-4.5-flash (z.ai, free)"
+    },
+    {
+     "type": "tool_call",
+     "tool": "navette_navigate",
+     "args": {
+      "url": "https://news.ycombinator.com"
+     }
+    },
+    {
+     "type": "tool_result",
+     "tool": "navette_navigate",
+     "result": {
+      "ok": true,
+      "tool": "navette_navigate",
+      "url": "https://news.ycombinator.com",
+      "title": "Hacker News",
+      "chars": 16624,
+      "excerpt": "[](https://news.ycombinator.com/)\n[Hacker News](https://news.ycombinator.com/news)\n[new](https://news.ycombinator.com/newest)\n[past](https://news.ycombinator.com/front)\n[comments](https://news.ycombinator.com/newcomments)\n[ask](https://news.ycombinator.com/ask)\n[show](https://news.ycombinator.com/show)\n[jobs](https://news.ycombinator.com/jobs)\n[submit](https://news.ycombinator.com/submit)\n[login](https://news.ycombinator.com/login?goto=news)\n1.\n[](https://news.ycombinator.com/vote?id=50142573&how=up&goto=news)\n[Someone behind the software](https://karrisaarinen.com/posts/someone-behind-the-software/)\n[karrisaarinen.com](https://news.ycombinator.com/from?site=karrisaarinen.com)\n178 points\n[tosh](https://news.ycombinator.com/user?id=tosh)\n[3 hours ago](https://news.ycombinator.com/item?id=50142573)\n[hide](https://news.ycombinator.com/hide?id=50142573&goto=news)\n[67 comments](https://news.ycombinator.com/item?id=50142573)\n2.\n[](https://news.ycombinator.com/vote?id=50144066&how=up&goto=news)\n[Free Pascal compiler now supports dynamic packages](https://www.getlazarus.org/dynamic/)\n[getlazarus.org](https://news.ycombinator.com/from?site=getlazarus.org)\n38 points\n[sysrpl](https://news.ycombinator.com/user?id=sysrpl)\n[1 hour ago](https://news.ycombinator.com/item?id=50144066)\n[hide](https://news.ycombinator.com/hide?id=50144066&goto=news)\n[9 comments](https://news.ycombinator.com/item?id=50144066)\n3.\n[](https://news.ycombinator.com/vote?id=50141076&how=up&goto=news)\n[RepRapMicron](ht"
+     }
+    },
+    {
+     "type": "tool_call",
+     "tool": "noirebox_note",
+     "args": {
+      "text": "Premier headline sur Hacker News : \"Someone behind the software\""
+     }
+    },
+    {
+     "type": "sealed",
+     "text": "Premier headline sur Hacker News : \"Someone behind the software\"",
+     "head": "fcb3238b6b78"
+    },
+    {
+     "type": "tool_result",
+     "tool": "noirebox_note",
+     "result": {
+      "ok": true,
+      "sealed": true,
+      "head": "fcb3238b6b78",
+      "n": 22
+     }
+    },
+    {
+     "type": "answer",
+     "text": "\nThe first headline on Hacker News is: \"Someone behind the software\""
+    },
+    {
+     "type": "receipt",
+     "head": "fcb3238b6b78",
+     "entries": 23
     }
    ]
   }

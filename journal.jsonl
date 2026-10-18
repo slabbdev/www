@@ -10,3 +10,14 @@
 {"ts":"2026-10-18T19:28:35.992Z","event":"navette_read","url":"https://news.ycombinator.com","chars":16483}
 {"ts":"2026-10-18T19:28:39.764Z","event":"agent_note","text":"Premier titre de Hacker News : \"HOA's are making the home crisis worse\""}
 {"ts":"2026-10-18T19:28:41.762Z","event":"seal","head":"11cdf8fdd86c4dc4376b80077902e8822f65cdaadb14e52c8631491d322e177a","sig":"1J49HjR2VRFv3rJsJJG9cxL7UCDpKjkdr9R9b3SDYeEyN6wZSKlZGcCA4hP6rAZyNDcJubhOrkhMhTcrqI0tAw=="}
+{"ts":"2026-10-18T20:27:47.676Z","event":"run_start","task":"Go read https://example.com and tell me what it is","mode":"glm-4.5-flash (z.ai, free)"}
+{"ts":"2026-10-18T20:27:50.975Z","event":"navette_read","url":"https://example.com","chars":957}
+{"ts":"2026-10-18T20:27:55.797Z","event":"agent_note","text":"example.com est le domaine standard officiel utilisé pour des exemples dans la documentation, n'est pas un service réel et doit être évité pour les tests et la surveillance."}
+{"ts":"2026-10-18T20:27:58.682Z","event":"seal","head":"5c9a9be768d2b9fabe8bf5a0506716054ed61df38db951902252dd97f70fd73a","sig":"KHDxTjhJX/jztivLoO3xr0hWK0YG3bRHaZ7ui6ywtocxfWGfI0Y9p/CHQgOXpgs7nr23GE9aLr+TtQqKExw4Bw=="}
+{"ts":"2026-10-18T20:27:58.772Z","event":"run_start","task":"Read https://github.com/slabbdev/navette and summarize what navette is in two sentences","mode":"glm-4.5-flash (z.ai, free)"}
+{"ts":"2026-10-18T20:28:04.822Z","event":"navette_read","url":"https://github.com/slabbdev/navette","chars":21761}
+{"ts":"2026-10-18T20:28:07.953Z","event":"seal","head":"4a32290c2161fc03a6b371bba80bec92db20a761cb11c4bca8d3175939e8ba07","sig":"3dRwLFjkdTqVnzV5GhvMEkojoI38Ye1nXck0cfcYMPqRleudNgoHIWYoWkBKf3u4lnVeZD8v02WEs1Xcjw65Dw=="}
+{"ts":"2026-10-18T20:28:08.041Z","event":"run_start","task":"Open https://news.ycombinator.com and quote the first headline on the page","mode":"glm-4.5-flash (z.ai, free)"}
+{"ts":"2026-10-18T20:28:10.873Z","event":"navette_read","url":"https://news.ycombinator.com","chars":16624}
+{"ts":"2026-10-18T20:28:13.087Z","event":"agent_note","text":"Premier headline sur Hacker News : \"Someone behind the software\""}
+{"ts":"2026-10-18T20:28:14.655Z","event":"seal","head":"fcb3238b6b78640e48e97a759c326720827b8725e4f69746a68a8f52bad74628","sig":"BSx56zy1pocXAIL3tZZ/pVRNtd9SJwMUOTE9hg7Vil1Cib7B7HYegPxyseNFDpYEtGXnnC76wyAcWlibHmKCBA=="}
