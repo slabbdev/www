@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — slabb.dev</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0b0d'/%3E%3Crect x='20' y='20' width='24' height='24' rx='4' fill='%237de8a9'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0b0d;--fg:#e9eae7;--dim:#9aa0a6;--muted:#525860;--line:#23262b;--accent:#7de8a9;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;line-height:1.6}
+.k{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-size:clamp(3rem,12vw,7rem);font-weight:500;letter-spacing:-.04em;line-height:1;color:transparent;-webkit-text-stroke:1px var(--line)}
+p{color:var(--dim);max-width:46ch;margin:18px auto 28px}
+a.b{font-family:var(--mono);font-size:.85rem;color:var(--accent);border:1px solid var(--accent);padding:10px 18px;border-radius:999px;text-decoration:none;display:inline-block;margin:0 6px 10px}
+a.b:hover{background:rgba(125,232,169,.08)}
+.f{position:fixed;bottom:18px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+</style>
+</head>
+<body>
+  <p class="k" data-en="// not found">// introuvable</p>
+  <h1>404</h1>
+  <p data-en="This page does not exist — or has moved. Nothing here is hidden: everything is sealed and public.">Cette page n'existe pas — ou a changé d'adresse. Rien n'est caché ici : tout est scellé et public.</p>
+  <div>
+    <a class="b" href="index.html" data-en="front door →">porte d'entrée →</a>
+    <a class="b" href="tech.html" data-en="the tech page →">la page tech →</a>
+    <a class="b" href="verify.html" data-en="verify the site →">vérifier le site →</a>
+  </div>
+  <span class="f">⬛ black boxes for systems nobody can fully trust</span>
+<script>
+(function(){
+  if(!/^fr/i.test(navigator.language||'fr')){
+    document.querySelectorAll('[data-en]').forEach(function(n){n.innerHTML=n.getAttribute('data-en')});
+    document.documentElement.lang='en';document.title='404 — slabb.dev';
+  }
+})();
+</script>
+</body>
+</html>

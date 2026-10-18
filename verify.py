@@ -109,6 +109,10 @@ assert verify(
 
 
 def main():
+    import os
+    FR = (os.environ.get("LANG", "fr") or "fr").lower().startswith("fr")
+    def T(fr, en):
+        return fr if FR else en
     base = sys.argv[1] if len(sys.argv) > 1 else "https://slabb.dev"
     base = base.rstrip("/")
 
@@ -121,20 +125,20 @@ def main():
     try:
         man = json.loads(fetch("manifest.json"))
     except Exception as e:
-        sys.exit(f"manifest.json illisible : {e}")
+        sys.exit(T(f"manifest.json illisible : {e}", f"manifest.json unreadable: {e}"))
 
     ok = True
     print(f"site        {man.get('site')}  (format : {man.get('format')})")
-    print(f"construit   {man.get('built_at')}")
+    print(T("construit   ", "built       ") + str(man.get("built_at")))
     print("")
-    print("fichiers")
+    print(T("fichiers", "files"))
     for f in man["files"]:
         h = hashlib.sha256(fetch(f["name"])).hexdigest()
         good = h == f["sha256"]
         ok = ok and good
         print(f"  {'PASS' if good else 'FAIL'}  {f['name']:<14} {h[:16]}…")
         if not good:
-            print(f"        attendu {f['sha256']}")
+            print(T("        attendu ", "        expected ") + f["sha256"])
 
     head = hashlib.sha256(b"slabb.dev-genesis").hexdigest()
     for f in man["files"]:
@@ -142,7 +146,7 @@ def main():
     chain_ok = head == man["head"]
     ok = ok and chain_ok
     print("")
-    print(f"chaîne      {'PASS' if chain_ok else 'FAIL'}  head {head[:16]}…")
+    print(T("chaîne      ", "chain       ") + ("PASS" if chain_ok else "FAIL") + f"  head {head[:16]}…")
 
     try:
         pk = base64.b64decode(man["pubkey"])
@@ -151,10 +155,10 @@ def main():
     except Exception:
         sig_ok = False
     ok = ok and sig_ok
-    print(f"signature   {'PASS' if sig_ok else 'FAIL'}  Ed25519 sur la tête de chaîne")
-    print(f"fingerprint {man.get('fingerprint')}  ← comparez-le à une copie hors-bande (release GitHub, post dev.to)")
+    print(("signature   ") + ("PASS" if sig_ok else "FAIL") + T("  Ed25519 sur la tête de chaîne", "  Ed25519 over the chain head"))
+    print(f"fingerprint {man.get('fingerprint')}  " + T("← comparez-le à une copie hors-bande (release GitHub, post dev.to)", "← compare it with an out-of-band copy (GitHub release, dev.to post)"))
     print("")
-    print("VERDICT : " + ("INTÈGRE — rien n'a bougé depuis la construction signée." if ok else "COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement."))
+    print(T("VERDICT : ", "VERDICT: ") + (T("INTÈGRE — rien n'a bougé depuis la construction signée.", "INTACT — nothing has changed since the signed build.") if ok else T("COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.", "COMPROMISED or corrupted — do not trust this deployment.")))
     sys.exit(0 if ok else 1)
 
 

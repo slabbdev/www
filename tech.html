@@ -249,7 +249,6 @@ section.hero{padding-left:29px;padding-right:29px}
         <a href="#travail" data-en="work">travail</a>
         <a href="#registre" data-en="registry">registre</a>
         <a href="#preuves" data-en="proof">preuves</a>
-        <a href="#demo" data-en="demo">démo</a>
         <a href="#ecrits" data-en="writing">écrits</a>
         <a href="#contact" data-en="contact">contact</a>
       </nav>
@@ -324,7 +323,7 @@ section.hero{padding-left:29px;padding-right:29px}
     </div>
   </section>
 
-  <section id="demo" data-num="02">
+  <section id="demo" hidden>
     <p class="kicker rv" data-en="// live demo — drive the agent">// démo — pilotez l'agent</p>
     <h2 class="rv d1" data-en="Give it a mission. Watch it work. Watch it prove it.">Donnez-lui une mission. Regardez-le travailler. Regardez-le le prouver.</h2>
     <p class="sub rv d2" data-en="The agent (GLM-4.5-flash, a free model) thinks, calls navette_navigate to read a real web page, then seals its conclusion with noirebox_note. Everything is displayed here — including the hashes. <strong style=&quot;color:var(--fg);font-weight:500&quot;>Tip: click any cell of the matrix above — the agent will go and inspect it.</strong>">L'agent (<code>GLM-4.5-flash</code>, un modèle free) réfléchit, appelle <code>navette_navigate</code> pour lire une vraie page web, puis scelle sa conclusion avec <code>noirebox_note</code>. Tout s'affiche ici — y compris les hash. <strong style="color:var(--fg);font-weight:500">Astuce : cliquez n'importe quelle cellule de la matrice ci-dessus, l'agent ira l'inspecter.</strong></p>
@@ -356,7 +355,7 @@ section.hero{padding-left:29px;padding-right:29px}
     </div>
   </section>
 
-  <section id="travail" data-num="03">
+  <section id="travail" data-num="02">
     <p class="kicker rv" data-en="// what i do">// ce que je fais</p>
     <h2 class="rv d1" data-en="Six trades, one requirement: it has to be verifiable.">Six métiers, une exigence&nbsp;: que ce soit vérifiable.</h2>
     <p class="sub rv d2" data-en="From the lead seat to regulatory compliance, the same approach: prove it, don't promise it.">Du poste de lead à la conformité réglementaire, la même approche&nbsp;: on prouve, on ne promet pas.</p>
@@ -394,7 +393,7 @@ section.hero{padding-left:29px;padding-right:29px}
     </div>
   </section>
 
-  <section id="registre" data-num="04">
+  <section id="registre" data-num="03">
     <p class="kicker rv" data-en="// career registry — 2004 → today">// registre — 2004 → aujourd'hui</p>
     <h2 class="rv d1" data-en="“An OVNI,” some say. “A bridge,” say the facts.">« Un OVNI », disent certains. « Un pont », disent les faits.</h2>
     <p class="sub rv d2" data-en="Twenty years on the ground: offensive security, senior production, public impact, teaching — all the way to tools that prove themselves. Filter.">Vingt ans de terrain : sécurité offensive, production senior, impact public, transmission — jusqu'aux outils qui se prouvent eux-mêmes. Filtrez.</p>
@@ -418,7 +417,7 @@ section.hero{padding-left:29px;padding-right:29px}
     </div>
   </section>
 
-  <section id="preuves" data-num="05">
+  <section id="preuves" data-num="04">
     <p class="kicker rv" data-en="// proof, not promises">// preuves, pas promesses</p>
     <h2 class="rv d1" data-en="Products in production, not slide decks.">Des produits en production, pas des slides.</h2>
     <p class="sub rv d2" data-en="Two flagship open source projects, four more builds, and a public benchmark anyone can reproduce.">Deux projets open source phares, quatre autres constructions, un bench public que tout le monde peut refaire.</p>
@@ -460,7 +459,7 @@ section.hero{padding-left:29px;padding-right:29px}
     <p class="reperes rv" data-en="highlights: AI Alliance member · daily.dev squad « proofagents » · tollbooth benchmark — top active discussion on daily.dev, 08/10/2026">repères&nbsp;: membre de l'AI Alliance · squad daily.dev «&nbsp;proofagents&nbsp;» · bench tollbooth — top discussion daily.dev, 08/10/2026</p>
   </section>
 
-  <section id="ecrits" data-num="06">
+  <section id="ecrits" data-num="05">
     <p class="kicker rv" data-en="// writing">// écrits</p>
     <h2 class="rv d1" data-en="25 articles, published, commented, attacked.">25 articles, publiés, commentés, attaqués.</h2>
     <p class="sub rv d2" data-en="In English — agent security, proof, compliance. The kind of articles that end with a patch.">En anglais — sécurité des agents, preuve, conformité. Le genre d'articles qui se terminent par un correctif.</p>
@@ -485,7 +484,7 @@ section.hero{padding-left:29px;padding-right:29px}
     <p class="also rv" data-en="<a href=&quot;https://dev.to/slabb&quot;>all 25 articles on dev.to/slabb →</a>"><a href="https://dev.to/slabb">les 25 articles sur dev.to/slabb →</a></p>
   </section>
 
-  <section id="contact" class="contact" data-num="07">
+  <section id="contact" class="contact" data-num="06">
     <p class="kicker rv" data-en="// contact">// contact</p>
     <h2 class="rv d1" data-en="A mission, an audit, an agent to tame?">Une mission, un audit, un agent à dompter&nbsp;?</h2>
     <p class="sub rv d2" data-en="Write to me — I answer in French or English, fast and jargon-free.">Écrivez-moi — réponse en français ou en anglais, rapide et sans jargon.</p>
@@ -551,9 +550,9 @@ section.hero{padding-left:29px;padding-right:29px}
   function q(id){return document.getElementById(P+id)}
   /* --- chaîne noirebox --- */
   var LOGS=[
-    {id:'01',ts:'2026-10-17T08:14:02Z',a:"agent.init(scope='factures_lecture')"},
-    {id:'02',ts:'2026-10-17T08:14:05Z',a:"mandat.autoriser(plafond='150.00_EUR')"},
-    {id:'03',ts:'2026-10-17T08:14:09Z',a:"receipt.sceller(anchor='RFC3161_OK')"}
+    {id:'01',ts:'2026-10-17T08:14:02Z',a:"agent.init(scope='invoices:read')"},
+    {id:'02',ts:'2026-10-17T08:14:05Z',a:"mandate.authorize(limit='150.00_EUR')"},
+    {id:'03',ts:'2026-10-17T08:14:09Z',a:"receipt.seal(anchor='RFC3161_OK')"}
   ];
   var cur=JSON.parse(JSON.stringify(LOGS)), base=null;
   function hex(d){return Array.prototype.map.call(new Uint8Array(d),function(b){return b.toString(16).padStart(2,'0')}).join('')}
@@ -583,7 +582,7 @@ section.hero{padding-left:29px;padding-right:29px}
         var pay=document.createElement('div');
         if(i===1){
           var inp=document.createElement('input'); inp.className='chainin'; inp.value=l.a;
-          inp.setAttribute('aria-label','contenu de l\'entrée 02');
+          inp.setAttribute('aria-label',L('contenu de l\'entrée 02','entry 02 payload'));
           inp.addEventListener('input',function(e){cur[1].a=e.target.value;renderChain()});
           pay.appendChild(inp);
         } else { pay.textContent=l.a; }
@@ -597,7 +596,7 @@ section.hero{padding-left:29px;padding-right:29px}
       b.className='lbadge'+(broken?' bad':'');
     });
   }
-  q('tamper').addEventListener('click',function(){cur[1].a="mandat.autoriser(plafond='99999.00_EUR') // altéré";renderChain()});
+  q('tamper').addEventListener('click',function(){cur[1].a="mandate.authorize(limit='99999.00_EUR') // tampered";renderChain()});
   q('restore').addEventListener('click',function(){cur=JSON.parse(JSON.stringify(LOGS));renderChain()});
   renderChain();
   /* --- matrice 200 URLs réelles --- */
@@ -637,13 +636,14 @@ section.hero{padding-left:29px;padding-right:29px}
     });
     c.addEventListener('click',function(){
       blip(2200);
+      var dmo=document.getElementById('demo'); if(!dmo||dmo.hidden) return;
       var inp=document.getElementById('taskInput'),frm=document.getElementById('taskForm'),dm=document.getElementById('demo');
       if(!inp||inp.disabled){ if(dm)dm.scrollIntoView({behavior:'smooth'}); if(window.playReplayFor)setTimeout(function(){window.playReplayFor(r.d)},450); return; }
       inp.value='Inspecte https://'+r.d+' avec navette : dis-moi ce que ce site est et à quoi il sert, puis scelle ta conclusion.';
       dm.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
       setTimeout(function(){frm.requestSubmit()},350);
     });
-    c.title=L('cliquer = envoyer l\'agent inspecter ','click = send the agent to inspect ')+r.d;
+    c.title=r.d;
     mx.appendChild(c);
   });
   function apply(){
@@ -736,6 +736,7 @@ function blip(f){
       input=document.getElementById('taskInput'),send=document.getElementById('sendBtn'),
       jentries=document.getElementById('jentries'),jhead=document.getElementById('jhead'),
       offline=document.getElementById('demoOffline');
+  if(!chat||document.getElementById('demo').hidden) return;
   function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e}
   function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function scroll(){chat.scrollTop=chat.scrollHeight}

@@ -17,7 +17,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 import os
-FILES = ["client.html", "index.html", "replay.json", "tech.html", "verify.html", "verify.py"]
+FILES = ["404.html", "client.html", "index.html", "replay.json", "tech.html", "verify.html", "verify.py"]
 FILES += [f for f in os.environ.get("SEAL_EXTRA", "").split(",") if f]
 FILES.sort()
 GENESIS = "slabb.dev-genesis"

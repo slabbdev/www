@@ -64,6 +64,8 @@ footer{border-top:1px solid var(--line);margin-top:72px}
 .foot{padding:26px 0 36px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .foot a{border-bottom:1px solid var(--line);transition:color .15s,border-color .15s}
 .foot a:hover{color:var(--accent);border-color:var(--accent)}
+.lang{background:none;border:1px solid var(--line);color:var(--dim);font-family:var(--mono);font-size:.74rem;padding:6px 13px;border-radius:999px;cursor:pointer;transition:color .15s,border-color .15s}
+.lang:hover{color:var(--accent);border-color:var(--accent)}
 @media (max-width:820px){.hero{padding:56px 0 40px}.vrow{flex-wrap:wrap}.vhash{width:100%;order:3}}
 </style>
 </head>
@@ -72,18 +74,18 @@ footer{border-top:1px solid var(--line);margin-top:72px}
 <header>
   <div class="wrap bar">
     <a class="brand" href="index.html">slabb<span>.dev</span></a>
-    <span class="tag">le site mange son propre dog food</span>
+    <span style="display:flex;gap:12px;align-items:center"><span class="tag" data-en="this site eats its own dog food">le site mange son propre dog food</span><button class="lang" id="langBtn" type="button" aria-pressed="false" aria-label="Changer de langue / Switch language">EN</button></span>
   </div>
 </header>
 
 <main class="wrap">
 
   <div class="hero">
-    <p class="kicker">// vérification</p>
-    <h1>Ce site se vérifie.</h1>
-    <p class="lede">« Trust me » n'est pas une preuve. Chaque fichier de ce site est haché en <strong>SHA-256</strong>, les haches sont chaînées <strong>façon journal noirebox</strong>, et la tête de chaîne est signée <strong>Ed25519</strong>. Le bouton refait tout, chez vous, dans votre navigateur.</p>
-    <button class="vbtn" id="go" type="button">Vérifier maintenant</button>
-    <p class="vnote">local uniquement — aucun envoi réseau, aucune donnée collectée. juste des hash.</p>
+    <p class="kicker" data-en="// verification">// vérification</p>
+    <h1 data-en="This site verifies itself.">Ce site se vérifie.</h1>
+    <p class="lede" data-en="“Trust me” is not proof. Every file of this site is hashed with <strong>SHA-256</strong>, the hashes are chained <strong>noirebox-journal style</strong>, and the chain head is signed with <strong>Ed25519</strong>. The button redoes all of it, on your machine, in your browser.">« Trust me » n'est pas une preuve. Chaque fichier de ce site est haché en <strong>SHA-256</strong>, les haches sont chaînées <strong>façon journal noirebox</strong>, et la tête de chaîne est signée <strong>Ed25519</strong>. Le bouton refait tout, chez vous, dans votre navigateur.</p>
+    <button class="vbtn" id="go" type="button" data-en="Verify now">Vérifier maintenant</button>
+    <p class="vnote" data-en="local only — no network upload, no data collected. just hashes.">local uniquement — aucun envoi réseau, aucune donnée collectée. juste des hash.</p>
     <div id="results" aria-live="polite">
       <p class="rt" id="rt"></p>
       <div id="rows"></div>
@@ -92,28 +94,33 @@ footer{border-top:1px solid var(--line);margin-top:72px}
   </div>
 
   <section>
-    <h2>L'empreinte de la clé</h2>
-    <div class="fpbox">sha256:5d7e19291be7eb6b<small>C'est le pin out-of-band : si quelqu'un contrôlait tout ce site (hébergeur, DNS, dépôt), seule cette empreinte, comparée à une copie publiée ailleurs, trahirait la substitution. Le principe est le même que pour un receipt noirebox.</small></div>
+    <h2 data-en="The key fingerprint">L'empreinte de la clé</h2>
+    <div class="fpbox">sha256:5d7e19291be7eb6b<small data-en="This is the out-of-band pin: if someone controlled this whole site (host, DNS, repository), only this fingerprint, compared with a copy published elsewhere, would reveal the substitution. Same principle as a noirebox receipt.">C'est le pin out-of-band : si quelqu'un contrôlait tout ce site (hébergeur, DNS, dépôt), seule cette empreinte, comparée à une copie publiée ailleurs, trahirait la substitution. Le principe est le même que pour un receipt noirebox.</small></div>
   </section>
 
   <section>
-    <h2>Le rituel paranoïaque (hors navigateur)</h2>
-    <p class="desc">Pour ne pas me croire sur parole, refaites le calcul sans navigateur et sans moi. Un seul fichier, stdlib Python, aucune dépendance :</p>
-    <pre><code># contre ce site en ligne
+    <h2 data-en="The paranoid ritual (outside the browser)">Le rituel paranoïaque (hors navigateur)</h2>
+    <p class="desc" data-en="Don't take my word for it: redo the computation without a browser and without me. One file, Python stdlib, zero dependencies:">Pour ne pas me croire sur parole, refaites le calcul sans navigateur et sans moi. Un seul fichier, stdlib Python, aucune dépendance :</p>
+    <pre><code data-en="# against the live site
+curl -sO https://slabb.dev/verify.py
+python3 verify.py https://slabb.dev
+
+# or on a local clone
+python3 verify.py ."># contre ce site en ligne
 curl -sO https://slabb.dev/verify.py
 python3 verify.py https://slabb.dev
 
 # ou sur un clone local
 python3 verify.py .</code></pre>
-    <p class="desc">verify.py re-hash chaque fichier, recompose la chaîne depuis <code>slabb.dev-genesis</code>, vérifie la signature Ed25519, et affiche un verdict franc.</p>
+    <p class="desc" data-en="verify.py re-hashes every file, rebuilds the chain from <code>slabb.dev-genesis</code>, checks the Ed25519 signature, and prints a blunt verdict.">verify.py re-hash chaque fichier, recompose la chaîne depuis <code>slabb.dev-genesis</code>, vérifie la signature Ed25519, et affiche un verdict franc.</p>
   </section>
 
   <section>
-    <h2>Ce que ça prouve — et ce que ça ne prouve pas</h2>
+    <h2 data-en="What it proves — and what it doesn't">Ce que ça prouve — et ce que ça ne prouve pas</h2>
     <ul class="honest">
-      <li><b>Ça prouve :</b> ces fichiers n'ont pas été modifiés d'un octet depuis la construction scellée (date dans manifest.json, journal public dans seal-journal.jsonl).</li>
-      <li><b>Ça ne prouve pas :</b> qui a écrit le contenu, ni que le contenu est vrai. Ça, les preuves sont ailleurs — les dépôts GitHub, le bench public, les articles.</li>
-      <li><b>La limite assumée :</b> manifest.json voyage avec le site. La signature protège contre la corruption et le tampering extérieur ; contre le remplacement total, seul le pin hors-bande ci-dessus protège.</li>
+      <li data-en="<b>It proves:</b> these files have not been modified by a single byte since the sealed build (date in manifest.json, public journal in seal-journal.jsonl)."><b>Ça prouve :</b> ces fichiers n'ont pas été modifiés d'un octet depuis la construction scellée (date dans manifest.json, journal public dans seal-journal.jsonl).</li>
+      <li data-en="<b>It does not prove:</b> who wrote the content, nor that the content is true. That evidence lives elsewhere — the GitHub repositories, the public benchmark, the articles."><b>Ça ne prouve pas :</b> qui a écrit le contenu, ni que le contenu est vrai. Ça, les preuves sont ailleurs — les dépôts GitHub, le bench public, les articles.</li>
+      <li data-en="<b>The accepted limit:</b> manifest.json travels with the site. The signature protects against corruption and external tampering; against full replacement, only the out-of-band pin above protects."><b>La limite assumée :</b> manifest.json voyage avec le site. La signature protège contre la corruption et le tampering extérieur ; contre le remplacement total, seul le pin hors-bande ci-dessus protège.</li>
     </ul>
   </section>
 
@@ -122,11 +129,26 @@ python3 verify.py .</code></pre>
 <footer>
   <div class="wrap foot">
     <span>⬛ black boxes for systems nobody can fully trust</span>
-    <span><a href="index.html">porte d'entrée</a> · un site statique, zéro dépendance, zéro tracking · © 2026 Sam Labbe</span>
+    <span data-en="<a href=&quot;index.html&quot;>front door</a> · a static site, zero dependency, zero tracking · © 2026 Sam Labbe"><a href="index.html">porte d'entrée</a> · un site statique, zéro dépendance, zéro tracking · © 2026 Sam Labbe</span>
   </div>
 </footer>
 
 <script>
+function L(fr,en){return document.documentElement.lang==='en'?en:fr}
+(function(){
+  var en=false,lb=document.getElementById('langBtn');
+  var T={fr:document.title,en:'Verification — slabb.dev is sealed'};
+  lb.addEventListener('click',function(){
+    en=!en;
+    document.querySelectorAll('[data-en]').forEach(function(n){
+      if(en){ if(!n.getAttribute('data-fr')) n.setAttribute('data-fr',n.innerHTML); n.innerHTML=n.getAttribute('data-en'); }
+      else{ n.innerHTML=n.getAttribute('data-fr'); }
+    });
+    document.documentElement.lang=en?'en':'fr';document.title=en?T.en:T.fr;
+    lb.textContent=en?'FR':'EN';lb.setAttribute('aria-pressed',en?'true':'false');
+  });
+  if(!/^fr/i.test(navigator.language||'fr')) lb.click();
+})();
 (function(){
   var btn=document.getElementById('go');
   var results=document.getElementById('results');
@@ -158,7 +180,7 @@ python3 verify.py .</code></pre>
 
   btn.addEventListener('click',function(){
     btn.disabled=true;
-    btn.textContent='Vérification…';
+    btn.textContent=L('Vérification…','Verifying…');
     results.style.display='block';
     rows.innerHTML='';
     vsum.textContent='';
@@ -166,7 +188,7 @@ python3 verify.py .</code></pre>
     var allOk=true;
 
     fetch('manifest.json').then(function(r){ return r.json(); }).then(function(man){
-      rt.textContent='manifest.json — construit le '+man.built_at+' · format : '+man.format;
+      rt.textContent='manifest.json — '+L('construit le ','built on ')+man.built_at+' · format : '+man.format;
       var p=Promise.resolve();
       man.files.forEach(function(f){
         p=p.then(function(){
@@ -177,26 +199,26 @@ python3 verify.py .</code></pre>
       });
       return p.then(function(){
         return chain(man.files).then(function(h){
-          allOk=row('tête de chaîne',h,h===man.head) && allOk;
+          allOk=row(L('tête de chaîne','chain head'),h,h===man.head) && allOk;
           return crypto.subtle.importKey('spki',b64der(man.pubkey),{name:'Ed25519'},false,['verify']).then(function(key){
             return crypto.subtle.verify({name:'Ed25519'},key,b64bin(man.sig),enc.encode(man.head));
           }).then(function(okSig){
             allOk=row('signature Ed25519',man.head,okSig) && allOk;
           },function(){
-            allOk=row('signature Ed25519 (via openssl si votre navigateur est ancien)',man.head,false) && allOk;
+            allOk=row(L('signature Ed25519 (via openssl si votre navigateur est ancien)','Ed25519 signature (use openssl if your browser is old)'),man.head,false) && allOk;
           });
         });
       });
     }).then(function(){
-      vsum.textContent=allOk?'INTÈGRE — rien n\'a bougé depuis la construction scellée.':'COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.';
+      vsum.textContent=allOk?L('INTÈGRE — rien n\'a bougé depuis la construction scellée.','INTACT — nothing has changed since the sealed build.'):L('COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.','COMPROMISED or corrupted — do not trust this deployment.');
       vsum.className='vsum '+(allOk?'pass':'fail');
       btn.disabled=false;
-      btn.textContent='Re-vérifier';
+      btn.textContent=L('Re-vérifier','Verify again');
     }).catch(function(e){
-      vsum.textContent='Erreur : '+e+' — utilisez verify.py hors navigateur.';
+      vsum.textContent=L('Erreur : ','Error: ')+e+L(' — utilisez verify.py hors navigateur.',' — use verify.py outside the browser.');
       vsum.className='vsum fail';
       btn.disabled=false;
-      btn.textContent='Réessayer';
+      btn.textContent=L('Réessayer','Retry');
     });
   });
 
