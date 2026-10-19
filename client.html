@@ -118,6 +118,7 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
   section,section.hero{margin-left:0;margin-right:0;padding-left:0;padding-right:0}
   .stats{margin:0;padding:0}
 }
+.punch{font-family:var(--mono);font-size:clamp(1rem,2.2vw,1.25rem);color:var(--accent);margin:-10px 0 26px;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -141,7 +142,8 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
 
   <section class="hero">
     <p class="kicker rv" data-en="expert developer · 20 years of experience · vosges, france">développeur expert · 20 ans de métier · vosges</p>
-    <h1 class="rv d1">Sam Labbe</h1>
+    <h1 class="rv d1" id="pagename" data-txt="Sam LABBE">Sam LABBE</h1>
+    <p class="punch rv d1" id="punch" data-en="Occupation? Secret agent.">Métier ? Agent secret.</p>
     <p class="lede rv d2" data-en="A slow website, software that annoys you, questions about AI or GDPR? <strong>I sort it out</strong> — in plain words, with proof to show for it.">Un site qui rame, un logiciel qui vous embête, des questions sur l'IA ou le RGPD ? <strong>Je règle ça</strong> — en français, sans jargon, avec des preuves à la clé.</p>
     <p class="meta rv d3" data-en="remote anywhere · travels worldwide">remote partout · déplacements partout dans le monde</p>
   </section>
@@ -268,6 +270,8 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
     var fin=t.dataset.txt,CH='0123456789abcdef',f=0;
     (function dec(){f++;var p=f/40,o='';for(var j=0;j<fin.length;j++){var c=fin[j];o+=(c===' '||j<p*fin.length)?c:CH[Math.floor(Math.random()*16)]}t.textContent=o;if(p<1)requestAnimationFrame(dec);else t.textContent=fin})();
   }
+  var pu=document.getElementById('punch');
+  if(pu&&!reduced){ setTimeout(function(){ var fin2=pu.textContent,CH2='0123456789abcdef',f2=0;(function d2(){f2++;var p=f2/44,o='';for(var j=0;j<fin2.length;j++){var c=fin2[j];o+=(c===' '||j<p*fin2.length)?c:CH2[Math.floor(Math.random()*16)]}pu.textContent=o;if(p<1)requestAnimationFrame(d2);else pu.textContent=fin2})(); },650); }
   function fmt(v,dec,suf){var s=dec?v.toFixed(1).replace('.',dec):String(Math.round(v));return s+(suf||'')}
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){

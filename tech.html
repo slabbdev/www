@@ -237,6 +237,7 @@ section.hero{padding-left:29px;padding-right:29px}
 .tlrow b{display:block;font-weight:500;font-size:.98rem}
 .tlrow small{color:var(--dim);font-size:.85rem}
 @media (max-width:820px){.tl{margin-left:8px}.tly{position:static;display:block;text-align:left;width:auto;margin-bottom:2px;color:var(--accent)}}
+.punch{font-family:var(--mono);font-size:clamp(1rem,2.2vw,1.25rem);color:var(--accent);margin:-10px 0 26px;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -263,7 +264,8 @@ section.hero{padding-left:29px;padding-right:29px}
 
   <section class="hero" data-num="00">
     <p class="kicker rv" data-en="full-stack lead dev · ai agent tamer · compliance by proof">lead dev full-stack · dompteur d'agents ia · conformité par la preuve</p>
-    <h1 class="rv d1" id="pagename" data-txt="Sam Labbe">Sam Labbe</h1>
+    <h1 class="rv d1" id="pagename" data-txt="Sam LABBE">Sam LABBE</h1>
+    <p class="punch rv d1" id="punch" data-en="Occupation? Secret agent.">Métier ? Agent secret.</p>
     <div class="hero-grid">
       <div>
         <p class="lede rv d2" data-en="Developer since 2004, lead across front end, back end and mobile. Today: AI agent systems heading to production, <strong>and the proof they can be trusted</strong>. Code can be verified — commitments should be too.">Développeur depuis 2004, lead tech front, back et mobile. Aujourd'hui : des systèmes d'agents IA qui partent en production, <strong>et les preuves qu'on peut leur faire confiance</strong>. Le code se vérifie — les engagements aussi.</p>
@@ -668,6 +670,8 @@ section.hero{padding-left:29px;padding-right:29px}
     var fin=t.dataset.txt,CH='0123456789abcdef',f=0;
     (function dec(){f++;var p=f/40,o='';for(var j=0;j<fin.length;j++){var c=fin[j];o+=(c===' '||j<p*fin.length)?c:CH[Math.floor(Math.random()*16)]}t.textContent=o;if(p<1)requestAnimationFrame(dec);else t.textContent=fin})();
   }
+  var pu=document.getElementById('punch');
+  if(pu&&!reduced){ setTimeout(function(){ var fin2=pu.textContent,CH2='0123456789abcdef',f2=0;(function d2(){f2++;var p=f2/44,o='';for(var j=0;j<fin2.length;j++){var c=fin2[j];o+=(c===' '||j<p*fin2.length)?c:CH2[Math.floor(Math.random()*16)]}pu.textContent=o;if(p<1)requestAnimationFrame(d2);else pu.textContent=fin2})(); },650); }
   function fmt(v,dec,suf){var s=dec?v.toFixed(1).replace('.',dec):String(Math.round(v));return s+(suf||'')}
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){
