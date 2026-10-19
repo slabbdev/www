@@ -1,7 +1,7 @@
 {
   "site": "slabb.dev",
   "format": "seal v1 — SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
-  "built_at": "2026-10-18T21:05:05+00:00",
+  "built_at": "2026-10-19T13:03:20+00:00",
   "genesis": "slabb.dev-genesis",
   "files": [
     {
