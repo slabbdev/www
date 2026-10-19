@@ -23,7 +23,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px
 ::selection{background:var(--accent);color:#08110c}
 a{color:var(--fg);text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
 .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.09em;color:var(--accent);margin-bottom:18px}
 
 header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,11,13,.88);backdrop-filter:blur(10px);z-index:10}
@@ -419,8 +419,7 @@ section.hero{padding-left:29px;padding-right:29px}
       <div class="tlrow" data-cat="archi"><span class="tly">2003</span><b data-en="Self-proclaimed graphic designer">Infographiste autoproclamé</b><small data-en="the golden age of forums">la belle époque des forums</small></div>
       <div class="tlrow" data-cat="archi"><span class="tly">2004</span><b data-en="The first lines of code — his own phpBB forum">Les premières lignes de code — son propre forum phpBB</b><small data-en="web &amp; back end — where it all starts (we're not getting any younger)">web &amp; back — tout commence (ça nous rajeunit pas)</small></div>
       <div class="tlrow" data-cat="archi"><span class="tly">2008 → 2023</span><b data-en="graphicNAIVETY || WebSolutions">graphicNAIVETY || WebSolutions</b><small data-en="freelance through-line — full-stack developer &amp; designer · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis">fil rouge freelance — développeur &amp; designer full-stack · #php #symfony #laravel #javascript #vue #react #flutter #pgsql #gis</small></div>
-      <div class="tlrow" data-cat="secu"><span class="tly">2015 → 2016</span><b data-en="Founded GDG Nancy (Google Developer Group)">Création du GDG Nancy (Google Developer Group)</b><small data-en="the group's lead ethical hacker">lead ethical hacker du groupe</small></div>
-      <div class="tlrow" data-cat="impact"><span class="tly">2016 → 2017</span><b data-en="LiiNKART">LiiNKART</b><small data-en="online art-sales startup, born at Startup Weekend Metz — 1st prize">startup de vente d'art en ligne, née au Startup Weekend Metz — 1er prix</small></div>
+      <div class="tlrow" data-cat="impact"><span class="tly">2016 → 2017</span><b data-en="LiiNKART">LiiNKART</b><small data-en="online art-sales startup, born at Google Startup Weekend Metz — 1st prize">startup de vente d'art en ligne, née au Google Startup Weekend Metz — 1er prix</small></div>
       <div class="tlrow" data-cat="archi"><span class="tly">2018</span><b data-en="CODUSTEL — international">CODUSTEL — international</b><small data-en="Web Development Team Lead">Web Development Team Lead</small></div>
       <div class="tlrow" data-cat="archi"><span class="tly">2018 → 2020</span><b data-en="MGEL — Nancy">MGEL — Nancy</b><small data-en="full-stack development for the mutual insurer">développement full-stack pour la mutuelle</small></div>
       <div class="tlrow" data-cat="archi"><span class="tly">2019 → 2025</span><b data-en="Groupe Eco Energie France">Groupe Eco Energie France</b><small data-en="the group's full-stack developer, then Lead Tech/Dev (2024 → 2025)">développeur full-stack du groupe, puis Lead Tech/Dev (2024 → 2025)</small></div>
@@ -900,7 +899,7 @@ function blip(f){
     sec.appendChild(l);sec.appendChild(r);
   });
   /* registre filtrable */
-  var cats=[['all','Tout','All'],['archi','Architecture & full-stack','Architecture & full-stack'],['secu','Sécurité & pentest','Security & pentest'],['impact','Impact public','Public impact'],['form','Transmission','Teaching']];
+  var cats=[['all','Tout','All'],['archi','Architecture & full-stack','Architecture & full-stack'],['impact','Impact public','Public impact'],['form','Transmission','Teaching']];
   var box=document.getElementById('regChips');
   if(box){
     cats.forEach(function(c,i){
