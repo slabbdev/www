@@ -238,6 +238,12 @@ section.hero{padding-left:29px;padding-right:29px}
 .tlrow small{color:var(--dim);font-size:.85rem}
 @media (max-width:820px){.tl{margin-left:8px}.tly{position:static;display:block;text-align:left;width:auto;margin-bottom:2px;color:var(--accent)}}
 .punch{font-family:var(--mono);font-size:clamp(1rem,2.2vw,1.25rem);color:var(--accent);margin:-10px 0 26px;letter-spacing:.02em}
+.stack{margin-top:40px;border-top:1px solid var(--line);padding-top:28px}
+.sgrp{display:flex;gap:8px 10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.slab{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:190px}
+.tb{font-family:var(--mono);font-size:.72rem;padding:4px 9px;border:1px solid var(--line);border-radius:6px;color:var(--fg);background:var(--surface)}
+.tb.hot{border-color:var(--accent);color:var(--accent)}
+@media (max-width:820px){.slab{min-width:100%;margin-bottom:2px}}
 </style>
 </head>
 <body>
@@ -392,6 +398,15 @@ section.hero{padding-left:29px;padding-right:29px}
         <h3 data-en="Teaching &amp; mentoring">Transmission</h3>
         <p data-en="Teaching and mentoring: Git, Symfony, debugging, security. Courses, workshops, team upskilling. What is understood gets passed on — otherwise it was cargo cult.">Formation et mentorat&nbsp;: Git, Symfony, debugging, sécurité. Cours, ateliers, montée en compétences d'équipes. Ce qui se comprend se transmet — sinon c'était du cargo cult.</p>
       </div>
+    </div>
+    <div class="stack rv">
+      <p class="kicker" data-en="// stack — what recruiters search for">// stack — ce que les recruteurs cherchent</p>
+      <div class="sgrp"><span class="slab" data-en="Languages">Langages</span><span class="tb hot">PHP</span><span class="tb">JavaScript</span><span class="tb hot">TypeScript</span><span class="tb hot">Python</span><span class="tb hot">Rust</span><span class="tb">Dart</span><span class="tb">Swift</span><span class="tb">SQL</span><span class="tb">Bash</span></div>
+      <div class="sgrp"><span class="slab" data-en="Frameworks &amp; front end">Frameworks &amp; front</span><span class="tb hot">Symfony</span><span class="tb">Laravel</span><span class="tb">Vue</span><span class="tb">React</span><span class="tb">Flutter</span><span class="tb">Node.js</span><span class="tb">Express</span><span class="tb">Electron</span></div>
+      <div class="sgrp"><span class="slab" data-en="Data">Données</span><span class="tb hot">PostgreSQL</span><span class="tb">PostGIS / GIS</span><span class="tb">MySQL</span><span class="tb">SQLite</span><span class="tb">Kibana</span></div>
+      <div class="sgrp"><span class="slab" data-en="Infra, CI/CD &amp; ops">Infra, CI/CD &amp; ops</span><span class="tb hot">Docker</span><span class="tb hot">GitHub Actions</span><span class="tb">Linux</span><span class="tb">Azure</span><span class="tb">Microsoft 365 / AD</span><span class="tb">Sentry</span><span class="tb">Git</span></div>
+      <div class="sgrp"><span class="slab" data-en="Security &amp; proof">Sécurité &amp; preuve</span><span class="tb">OWASP</span><span class="tb">Pentest</span><span class="tb">SHA-256</span><span class="tb hot">Ed25519</span><span class="tb">RFC 3161</span><span class="tb">RGPD</span><span class="tb hot">AI Act</span><span class="tb">HDS</span></div>
+      <div class="sgrp"><span class="slab" data-en="AI &amp; agents">IA &amp; agents</span><span class="tb hot">Agents LLM en production</span><span class="tb">Tool calling</span><span class="tb">MCP</span><span class="tb">OpenAI-compatible APIs</span><span class="tb">Open weights (GLM)</span><span class="tb">WebView / WebKit</span></div>
     </div>
   </section>
 
