@@ -1,9 +1,9 @@
 {"n": 1, "event": "file", "name": "404.html", "sha256": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca", "prev": "slabb.dev-genesis"}
-{"n": 2, "event": "file", "name": "client.html", "sha256": "ad89f7dac5073738778273de83e2c4c1fbb26848e561e8b11550e978acac87bf", "prev": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca"}
-{"n": 3, "event": "file", "name": "index.html", "sha256": "dcc17b48cf7a261cea9b6e6fb02b1ce70e5bf585e82eef758bdcf71d985cafbd", "prev": "ad89f7dac5073738778273de83e2c4c1fbb26848e561e8b11550e978acac87bf"}
+{"n": 2, "event": "file", "name": "client.html", "sha256": "c2196cd923d3ae894e65aed3dededc78953f66c28b40f8c5a2477c78f7fd261e", "prev": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca"}
+{"n": 3, "event": "file", "name": "index.html", "sha256": "dcc17b48cf7a261cea9b6e6fb02b1ce70e5bf585e82eef758bdcf71d985cafbd", "prev": "c2196cd923d3ae894e65aed3dededc78953f66c28b40f8c5a2477c78f7fd261e"}
 {"n": 4, "event": "file", "name": "journal.jsonl", "sha256": "8b55a48d52cbe82175c8c927487fa9dfc83091a1fb14b91cde9f20b596e1dd43", "prev": "dcc17b48cf7a261cea9b6e6fb02b1ce70e5bf585e82eef758bdcf71d985cafbd"}
 {"n": 5, "event": "file", "name": "replay.json", "sha256": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76", "prev": "8b55a48d52cbe82175c8c927487fa9dfc83091a1fb14b91cde9f20b596e1dd43"}
-{"n": 6, "event": "file", "name": "tech.html", "sha256": "ff87ffcc50403bb19a5cebda031f6a813c009f56fbee697de0c0554b4eaa930f", "prev": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76"}
-{"n": 7, "event": "file", "name": "verify.html", "sha256": "ffdbdc0c35dfdf75eedefeacf1a9011703149f59a31956845d14a0f2704e9dd8", "prev": "ff87ffcc50403bb19a5cebda031f6a813c009f56fbee697de0c0554b4eaa930f"}
+{"n": 6, "event": "file", "name": "tech.html", "sha256": "8b1df15e46403737d99074d9179867fe713e776ea3275d044a828e1f2000cd4e", "prev": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76"}
+{"n": 7, "event": "file", "name": "verify.html", "sha256": "ffdbdc0c35dfdf75eedefeacf1a9011703149f59a31956845d14a0f2704e9dd8", "prev": "8b1df15e46403737d99074d9179867fe713e776ea3275d044a828e1f2000cd4e"}
 {"n": 8, "event": "file", "name": "verify.py", "sha256": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48", "prev": "ffdbdc0c35dfdf75eedefeacf1a9011703149f59a31956845d14a0f2704e9dd8"}
-{"n": 9, "event": "seal", "head": "b74bd5b22e3759f39acb8c869db01420f5260022a759d3490fbe404a99a6302e", "prev": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48"}
+{"n": 9, "event": "seal", "head": "29c9aa4cc70273c45fa7c5ee704bfd234149383a624fb057f5a2c06694eb6476", "prev": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48"}
