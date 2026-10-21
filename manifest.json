@@ -1,7 +1,7 @@
 {
   "site": "slabb.dev",
   "format": "seal v1 — SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
-  "built_at": "2026-10-21T09:04:05+00:00",
+  "built_at": "2026-10-21T17:09:25+00:00",
   "genesis": "slabb.dev-genesis",
   "files": [
     {
@@ -11,13 +11,13 @@
     },
     {
       "name": "client.html",
-      "sha256": "ad89f7dac5073738778273de83e2c4c1fbb26848e561e8b11550e978acac87bf",
-      "bytes": 25128
+      "sha256": "9929572cdad4f2eb81966e679fc74ab8b8341456dff58b7f8aa11d7a01a2643b",
+      "bytes": 25215
     },
     {
       "name": "index.html",
-      "sha256": "dcc17b48cf7a261cea9b6e6fb02b1ce70e5bf585e82eef758bdcf71d985cafbd",
-      "bytes": 12122
+      "sha256": "d1759812f93a373e0ec44d319ae32a7ac2e3655e4e0c9408531f21099aacff89",
+      "bytes": 12209
     },
     {
       "name": "journal.jsonl",
@@ -31,13 +31,13 @@
     },
     {
       "name": "tech.html",
-      "sha256": "146705d7c0763b539bca79a3fefb03912900d76d5bc6414c7e2362c9b9193fa4",
-      "bytes": 102615
+      "sha256": "6aa1a5bb905842101ad738f655991669c5880a316a1be16ff7907dc23e9204c4",
+      "bytes": 102702
     },
     {
       "name": "verify.html",
-      "sha256": "ffdbdc0c35dfdf75eedefeacf1a9011703149f59a31956845d14a0f2704e9dd8",
-      "bytes": 14062
+      "sha256": "ea1fd9d7dbffac47f80885e1ec23cb8a74ce8643d1bf88e51396fc4e000cb1db",
+      "bytes": 14149
     },
     {
       "name": "verify.py",
@@ -45,8 +45,8 @@
       "bytes": 5375
     }
   ],
-  "head": "8b83280a5b23f2c8c3ef34918fbcadad435e359fd988fe86848849871b787e92",
-  "sig": "WuAojmxdTSmNNnLeBnS66EVKAuD36O2zJpJR+vxGEW8KyhJDqmvxah0cQHdHDS3Q6kf/B59Iw2f9oon3Du9KBA==",
+  "head": "e26927d93f04ae5ad89d2d2309f63a6b321f1b02aac0a1dd0134636549e3a3ad",
+  "sig": "9oYgNHg7Pc4823xe2dGvUcYno/bsHtJqAElQwnaBmAilwmX9Pq5p+ZSvGgz6iigpSs4cwxHI/bOJbF4ZcgfeAw==",
   "pubkey": "/LHmxPfkAyN10+Zoa5uXpYiPn8y6Cup4d1RVupbuUYs=",
   "fingerprint": "sha256:5d7e19291be7eb6b"
 }
