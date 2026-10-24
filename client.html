@@ -26,7 +26,7 @@ a{color:var(--fg);text-decoration:none}
 .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.09em;color:var(--accent);margin-bottom:18px}
 
 header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,11,13,.88);backdrop-filter:blur(10px);z-index:10}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px}
 .brand{font-family:var(--mono);font-size:.95rem}
 .brand span{color:var(--dim)}
 .barright{display:flex;align-items:center;gap:24px}
@@ -73,7 +73,7 @@ h2{font-size:1.55rem;font-weight:500;letter-spacing:-.01em;margin-bottom:8px}
 .loc{color:var(--dim);font-size:.9rem;margin-top:26px}
 
 footer{border-top:1px solid var(--line);margin-top:80px}
-.foot{padding:30px 0 40px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.foot{padding:30px 28px 40px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
 .rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
 .rv.vis{opacity:1;transform:none}
@@ -123,6 +123,7 @@ section[data-num]::before{font-size:clamp(4rem,10vw,6.5rem);top:-26px;right:10px
 .sico{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);color:var(--dim);display:inline-flex;align-items:center;justify-content:center;transition:color .15s,border-color .15s}
 .sico:hover{color:var(--accent);border-color:var(--accent)}
 .sico svg{fill:currentColor}
+@media (max-width:640px){.wrap{padding:0 16px}.bar{padding:14px 16px}.barright{gap:10px}.bar nav{display:none}.foot{padding:22px 16px 30px;flex-direction:column;gap:10px;align-items:flex-start}}
 </style>
 </head>
 <body>

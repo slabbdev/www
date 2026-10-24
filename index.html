@@ -25,7 +25,7 @@ a{color:var(--fg);text-decoration:none}
 .wrap{max-width:1280px;margin:0 auto;padding:0 28px;width:100%}
 
 header{border-bottom:1px solid var(--line);position:relative;z-index:5}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px}
 .brand{font-family:var(--mono);font-size:.95rem}
 .brand span{color:var(--dim)}
 .pill{font-family:var(--mono);font-size:.72rem;color:var(--dim);border:1px solid var(--line);padding:6px 13px;border-radius:999px;transition:color .15s,border-color .15s}
@@ -56,7 +56,7 @@ h1{font-size:clamp(2.5rem,7.5vw,4.8rem);font-weight:500;letter-spacing:-.03em;li
 .hintline{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:18px}
 
 footer{border-top:1px solid var(--line);position:relative;z-index:2}
-.foot{padding:26px 0 32px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.foot{padding:26px 28px 32px;font-family:var(--mono);font-size:.76rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .foot a{border-bottom:1px solid var(--line);transition:color .15s,border-color .15s}
 .foot a:hover{color:var(--accent);border-color:var(--accent)}
 
@@ -68,6 +68,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   .ghost{top:56px;right:24px}
 }
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+@media (max-width:640px){.wrap{padding:0 16px}.bar{padding:14px 16px}.barright{gap:10px}.bar nav{display:none}.foot{padding:22px 16px 30px;flex-direction:column;gap:10px;align-items:flex-start}}
 </style>
 </head>
 <body>

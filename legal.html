@@ -24,7 +24,7 @@ a:hover{color:var(--accent)}
 .wrap{max-width:860px;margin:0 auto;padding:0 28px}
 .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.09em;color:var(--accent);margin-bottom:18px}
 header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,11,13,.9);backdrop-filter:blur(10px);z-index:10}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px}
 .brand{font-family:var(--mono);font-size:.95rem;color:var(--accent)}
 .brand span{color:var(--dim);font-size:.7rem}
 h1{font-size:clamp(1.9rem,4.6vw,2.9rem);font-weight:500;letter-spacing:-.02em;line-height:1.12;margin-bottom:8px}
@@ -43,7 +43,7 @@ ul li{margin-bottom:8px}
 ul b{color:var(--fg);font-weight:500}
 .contact{color:var(--fg);font-family:var(--mono);font-size:1.05rem;border-bottom:1px solid var(--accent);display:inline-block;padding-bottom:2px;margin:6px 0 0}
 footer{border-top:1px solid var(--line);margin-top:64px}
-.foot{padding:26px 0 36px;font-family:var(--mono);font-size:.74rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.foot{padding:26px 28px 36px;font-family:var(--mono);font-size:.74rem;color:var(--dim);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .foot a{border-bottom:1px solid var(--line)}
 .foot a:hover{color:var(--accent);border-color:var(--accent)}
 .binfo{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 18px;max-width:720px}
@@ -56,6 +56,7 @@ footer{border-top:1px solid var(--line);margin-top:64px}
 .lang:hover{color:var(--accent);border-color:var(--accent)}
 @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
 @media (max-width:820px){.hero{padding:44px 0 8px}}
+@media (max-width:640px){.wrap{padding:0 16px}.bar{padding:14px 16px}.barright{gap:10px}.bar nav{display:none}.foot{padding:22px 16px 30px;flex-direction:column;gap:10px;align-items:flex-start}}
 </style>
 </head>
 <body>
