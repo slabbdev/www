@@ -1,7 +1,7 @@
 {
   "site": "slabb.dev",
   "format": "seal v1 — SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
-  "built_at": "2026-10-24T19:13:34+00:00",
+  "built_at": "2026-10-27T12:40:19+00:00",
   "genesis": "slabb.dev-genesis",
   "files": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "name": "client.html",
-      "sha256": "f749e98c2a7d56ef9a37cff400434fa21d142c581a9a14f66ef2757e2957007c",
-      "bytes": 25423
+      "sha256": "104572c2728cddf99c270f68a8ca40aaebadb457b85ac995a97c974f70c746ae",
+      "bytes": 25428
     },
     {
       "name": "index.html",
@@ -45,8 +45,8 @@
       "bytes": 5375
     }
   ],
-  "head": "5c2801ed08a8b65abe9d7ea1a9f6868b817042229f04b97c8954a862c284b285",
-  "sig": "uPwNN1DYYIBb510hMH7jy8l6u3TzP4oO3K9i0hdvAf3Cos39DolPD93L0/VIF9WDKw4ff4gV5H/vEXBOKWWjBQ==",
+  "head": "bfceee1a5c08537fa5132a1c1007b371fe8b877d0b66c16d4646bbbd69d1b36e",
+  "sig": "BsyIBsPXjdq/4IFulpKYpJCLfjNujYi5HoyA1VsxxHOtZWe1/2n3dQ2ccXRDi8HjI2JR62uYl/WEiqhhmOJ5Aw==",
   "pubkey": "/LHmxPfkAyN10+Zoa5uXpYiPn8y6Cup4d1RVupbuUYs=",
   "fingerprint": "sha256:5d7e19291be7eb6b"
 }
