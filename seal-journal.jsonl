@@ -1,9 +1,9 @@
 {"n": 1, "event": "file", "name": "404.html", "sha256": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca", "prev": "slabb.dev-genesis"}
-{"n": 2, "event": "file", "name": "client.html", "sha256": "104572c2728cddf99c270f68a8ca40aaebadb457b85ac995a97c974f70c746ae", "prev": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca"}
-{"n": 3, "event": "file", "name": "index.html", "sha256": "5e9db311841b2752c048f817dbcae2b1fb677e4b0374f513d27f44a1350e6e15", "prev": "104572c2728cddf99c270f68a8ca40aaebadb457b85ac995a97c974f70c746ae"}
+{"n": 2, "event": "file", "name": "client.html", "sha256": "04078cfdc833cb98637fb5df1bbe83e2b0a36325b09b24799bdc70752433dbda", "prev": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca"}
+{"n": 3, "event": "file", "name": "index.html", "sha256": "5e9db311841b2752c048f817dbcae2b1fb677e4b0374f513d27f44a1350e6e15", "prev": "04078cfdc833cb98637fb5df1bbe83e2b0a36325b09b24799bdc70752433dbda"}
 {"n": 4, "event": "file", "name": "journal.jsonl", "sha256": "8b55a48d52cbe82175c8c927487fa9dfc83091a1fb14b91cde9f20b596e1dd43", "prev": "5e9db311841b2752c048f817dbcae2b1fb677e4b0374f513d27f44a1350e6e15"}
 {"n": 5, "event": "file", "name": "replay.json", "sha256": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76", "prev": "8b55a48d52cbe82175c8c927487fa9dfc83091a1fb14b91cde9f20b596e1dd43"}
 {"n": 6, "event": "file", "name": "tech.html", "sha256": "7e9da600fab77661f3d218bb980a6be9dea74c2476ee66f17ace74d8b033ad85", "prev": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76"}
 {"n": 7, "event": "file", "name": "verify.html", "sha256": "88e03083a9a8e5ed03b81f53e79173134774a694bd1e59ebcf02decb42daa166", "prev": "7e9da600fab77661f3d218bb980a6be9dea74c2476ee66f17ace74d8b033ad85"}
 {"n": 8, "event": "file", "name": "verify.py", "sha256": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48", "prev": "88e03083a9a8e5ed03b81f53e79173134774a694bd1e59ebcf02decb42daa166"}
-{"n": 9, "event": "seal", "head": "bfceee1a5c08537fa5132a1c1007b371fe8b877d0b66c16d4646bbbd69d1b36e", "prev": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48"}
+{"n": 9, "event": "seal", "head": "f9c1ab3673e8092a9c8c80a95a55db9a4b906d1c386e187c0af090433e27cec2", "prev": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48"}
