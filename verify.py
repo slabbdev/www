@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""verify.py — vérification hors-bande d'un déploiement slabb.dev.
+"""verify.py, vérification hors-bande d'un déploiement slabb.dev.
 
     python3 verify.py                      # contre https://slabb.dev
     python3 verify.py https://autre-host   # contre un miroir
@@ -8,7 +8,7 @@
 Refait tout ce que verify.html fait, sans navigateur : hash SHA-256 de chaque
 fichier, recomputation de la chaîne, vérification de la signature Ed25519.
 Ce que ça prouve : le contenu n'a pas bougé depuis la construction signée.
-Ce que ça ne prouve pas : que le contenu est vrai — voir le pin out-of-band
+Ce que ça ne prouve pas : que le contenu est vrai, voir le pin out-of-band
 (fingerprint de la clé à comparer avec une copie publiée ailleurs).
 """
 import base64
@@ -158,7 +158,7 @@ def main():
     print(("signature   ") + ("PASS" if sig_ok else "FAIL") + T("  Ed25519 sur la tête de chaîne", "  Ed25519 over the chain head"))
     print(f"fingerprint {man.get('fingerprint')}  " + T("← comparez-le à une copie hors-bande (release GitHub, post dev.to)", "← compare it with an out-of-band copy (GitHub release, dev.to post)"))
     print("")
-    print(T("VERDICT : ", "VERDICT: ") + (T("INTÈGRE — rien n'a bougé depuis la construction signée.", "INTACT — nothing has changed since the signed build.") if ok else T("COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.", "COMPROMISED or corrupted — do not trust this deployment.")))
+    print(T("VERDICT : ", "VERDICT: ") + (T("INTÈGRE, rien n'a bougé depuis la construction signée.", "INTACT, nothing has changed since the signed build.") if ok else T("COMPROMIS ou corrompu, ne faites pas confiance à ce déploiement.", "COMPROMISED or corrupted, do not trust this deployment.")))
     sys.exit(0 if ok else 1)
 
 

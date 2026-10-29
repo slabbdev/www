@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""seal.py — scelle le site slabb.dev.
+"""seal.py, scelle le site slabb.dev.
 
 Chaque fichier est haché (SHA-256), les haches sont chaînées (même architecture
 de journal chaîné que noirebox), et la tête de chaîne est signée Ed25519
 (RFC 8032, implémentation stdlib auto-testée sur les vecteurs officiels).
 
 Génère : manifest.json, seal-journal.jsonl, pubkey.b64
-La clé privée vit dans keys/ — JAMAIS committée.
+La clé privée vit dans keys/, JAMAIS committée.
 """
 import base64
 import datetime
@@ -129,7 +129,7 @@ def verify(pk, msg, sig):
     return scalarmult(B, S) == edwards(Rr, scalarmult(A, k))
 
 
-# vecteurs RFC 8032 TEST 1 — si ça rate, on ne scelle rien
+# vecteurs RFC 8032 TEST 1, si ça rate, on ne scelle rien
 _SK = bytes.fromhex("9d61b19deffd5a60ba844af492ec2cc44449c5697b326919703bac031cae7f60")
 _PK = bytes.fromhex("d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a")
 _SG = bytes.fromhex(
@@ -171,7 +171,7 @@ def main():
     if not sk_file.exists():
         sk_file.write_bytes(hashlib.sha512(os.urandom(32)).digest()[:32])
         os.chmod(sk_file, 0o600)
-        print("clé Ed25519 générée → keys/seal.key (chmod 600 — JAMAIS committée)")
+        print("clé Ed25519 générée → keys/seal.key (chmod 600, JAMAIS committée)")
     sk = sk_file.read_bytes()
     pk = publickey(sk)
 
@@ -183,7 +183,7 @@ def main():
 
     manifest = {
         "site": "slabb.dev",
-        "format": "seal v1 — SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
+        "format": "seal v1, SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
         "built_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
         "genesis": GENESIS,
         "files": entries,
@@ -210,7 +210,7 @@ def main():
     )
     (ROOT / "seal-journal.jsonl").write_text("\n".join(lines) + "\n")
 
-    print(f"scellé — head {head[:16]}…  fingerprint {manifest['fingerprint']}  ({len(entries)} fichiers)")
+    print(f"scellé, head {head[:16]}…  fingerprint {manifest['fingerprint']}  ({len(entries)} fichiers)")
 
 
 if __name__ == "__main__":

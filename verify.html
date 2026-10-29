@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vérification — slabb.dev est scellé</title>
+<title>Vérification, slabb.dev est scellé</title>
 <meta name="description" content="Ce site se vérifie : SHA-256 par fichier, chaîne façon journal noirebox, sceau Ed25519. Vérifiez dans votre navigateur, ou hors-bande avec verify.py.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0b0d'/%3E%3Crect x='20' y='20' width='24' height='24' rx='4' fill='%237de8a9'/%3E%3C/svg%3E">
 <style>
@@ -86,7 +86,7 @@ footer{border-top:1px solid var(--line);margin-top:72px}
     <h1 data-en="This site verifies itself.">Ce site se vérifie.</h1>
     <p class="lede" data-en="“Trust me” is not proof. Every file of this site is hashed with <strong>SHA-256</strong>, the hashes are chained <strong>noirebox-journal style</strong>, and the chain head is signed with <strong>Ed25519</strong>. The button redoes all of it, on your machine, in your browser.">« Trust me » n'est pas une preuve. Chaque fichier de ce site est haché en <strong>SHA-256</strong>, les haches sont chaînées <strong>façon journal noirebox</strong>, et la tête de chaîne est signée <strong>Ed25519</strong>. Le bouton refait tout, chez vous, dans votre navigateur.</p>
     <button class="vbtn" id="go" type="button" data-en="Verify now">Vérifier maintenant</button>
-    <p class="vnote" data-en="local only — no network upload, no data collected. just hashes.">local uniquement — aucun envoi réseau, aucune donnée collectée. juste des hash.</p>
+    <p class="vnote" data-en="local only, no network upload, no data collected. just hashes.">local uniquement, aucun envoi réseau, aucune donnée collectée. juste des hash.</p>
     <div id="results" aria-live="polite">
       <p class="rt" id="rt"></p>
       <div id="rows"></div>
@@ -117,10 +117,10 @@ python3 verify.py .</code></pre>
   </section>
 
   <section>
-    <h2 data-en="What it proves — and what it doesn't">Ce que ça prouve — et ce que ça ne prouve pas</h2>
+    <h2 data-en="What it proves, and what it doesn't">Ce que ça prouve, et ce que ça ne prouve pas</h2>
     <ul class="honest">
       <li data-en="<b>It proves:</b> these files have not been modified by a single byte since the sealed build (date in manifest.json, public journal in seal-journal.jsonl)."><b>Ça prouve :</b> ces fichiers n'ont pas été modifiés d'un octet depuis la construction scellée (date dans manifest.json, journal public dans seal-journal.jsonl).</li>
-      <li data-en="<b>It does not prove:</b> who wrote the content, nor that the content is true. That evidence lives elsewhere — the GitHub repositories, the public benchmark, the articles."><b>Ça ne prouve pas :</b> qui a écrit le contenu, ni que le contenu est vrai. Ça, les preuves sont ailleurs — les dépôts GitHub, le bench public, les articles.</li>
+      <li data-en="<b>It does not prove:</b> who wrote the content, nor that the content is true. That evidence lives elsewhere, the GitHub repositories, the public benchmark, the articles."><b>Ça ne prouve pas :</b> qui a écrit le contenu, ni que le contenu est vrai. Ça, les preuves sont ailleurs, les dépôts GitHub, le bench public, les articles.</li>
       <li data-en="<b>The accepted limit:</b> manifest.json travels with the site. The signature protects against corruption and external tampering; against full replacement, only the out-of-band pin above protects."><b>La limite assumée :</b> manifest.json voyage avec le site. La signature protège contre la corruption et le tampering extérieur ; contre le remplacement total, seul le pin hors-bande ci-dessus protège.</li>
     </ul>
   </section>
@@ -138,7 +138,7 @@ python3 verify.py .</code></pre>
 function L(fr,en){return document.documentElement.lang==='en'?en:fr}
 (function(){
   var en=false,lb=document.getElementById('langBtn');
-  var T={fr:document.title,en:'Verification — slabb.dev is sealed'};
+  var T={fr:document.title,en:'Verification, slabb.dev is sealed'};
   lb.addEventListener('click',function(){
     en=!en;
     document.querySelectorAll('[data-en]').forEach(function(n){
@@ -189,7 +189,7 @@ function L(fr,en){return document.documentElement.lang==='en'?en:fr}
     var allOk=true;
 
     fetch('manifest.json').then(function(r){ return r.json(); }).then(function(man){
-      rt.textContent='manifest.json — '+L('construit le ','built on ')+man.built_at+' · format : '+man.format;
+      rt.textContent='manifest.json, '+L('construit le ','built on ')+man.built_at+' · format : '+man.format;
       var p=Promise.resolve();
       man.files.forEach(function(f){
         p=p.then(function(){
@@ -211,12 +211,12 @@ function L(fr,en){return document.documentElement.lang==='en'?en:fr}
         });
       });
     }).then(function(){
-      vsum.textContent=allOk?L('INTÈGRE — rien n\'a bougé depuis la construction scellée.','INTACT — nothing has changed since the sealed build.'):L('COMPROMIS ou corrompu — ne faites pas confiance à ce déploiement.','COMPROMISED or corrupted — do not trust this deployment.');
+      vsum.textContent=allOk?L('INTÈGRE, rien n\'a bougé depuis la construction scellée.','INTACT, nothing has changed since the sealed build.'):L('COMPROMIS ou corrompu, ne faites pas confiance à ce déploiement.','COMPROMISED or corrupted, do not trust this deployment.');
       vsum.className='vsum '+(allOk?'pass':'fail');
       btn.disabled=false;
       btn.textContent=L('Re-vérifier','Verify again');
     }).catch(function(e){
-      vsum.textContent=L('Erreur : ','Error: ')+e+L(' — utilisez verify.py hors navigateur.',' — use verify.py outside the browser.');
+      vsum.textContent=L('Erreur : ','Error: ')+e+L(', utilisez verify.py hors navigateur.',', use verify.py outside the browser.');
       vsum.className='vsum fail';
       btn.disabled=false;
       btn.textContent=L('Réessayer','Retry');

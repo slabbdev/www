@@ -1,23 +1,23 @@
 {
   "site": "slabb.dev",
-  "format": "seal v1 — SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
-  "built_at": "2026-10-27T12:43:02+00:00",
+  "format": "seal v1, SHA-256 chaînés + Ed25519 (architecture journal noirebox)",
+  "built_at": "2026-10-29T19:49:59+00:00",
   "genesis": "slabb.dev-genesis",
   "files": [
     {
       "name": "404.html",
-      "sha256": "38dc3e50db5f50ea3ac90af4511e3bfc42b48a401e246ef48ab0fe5a9a05faca",
-      "bytes": 2546
+      "sha256": "67aa4728820e9a341e415317453bb93ffe70d25b977aadca55b2e4216bc1b6b7",
+      "bytes": 2534
     },
     {
       "name": "client.html",
-      "sha256": "04078cfdc833cb98637fb5df1bbe83e2b0a36325b09b24799bdc70752433dbda",
-      "bytes": 25391
+      "sha256": "d2db211ee53979a742ba6d3aa36411adff9287303a36dc01b1bc31df6919fb03",
+      "bytes": 25325
     },
     {
       "name": "index.html",
-      "sha256": "5e9db311841b2752c048f817dbcae2b1fb677e4b0374f513d27f44a1350e6e15",
-      "bytes": 12410
+      "sha256": "06905d4fa720e7bc8a89f39101dd57c6651357e1e7229f525593f1a641e8ff4b",
+      "bytes": 12368
     },
     {
       "name": "journal.jsonl",
@@ -26,27 +26,27 @@
     },
     {
       "name": "replay.json",
-      "sha256": "ef685955d2ad2f9f7bd3f64ff1dc4152c09caa0a301bda1f3d0a5fd06ef6eb76",
-      "bytes": 18013
+      "sha256": "356991b71ca19ca3b4eedc3ab8c65816080c7fa16e3cd4cb7b24afe183172d3f",
+      "bytes": 17998
     },
     {
       "name": "tech.html",
-      "sha256": "7e9da600fab77661f3d218bb980a6be9dea74c2476ee66f17ace74d8b033ad85",
-      "bytes": 102910
+      "sha256": "268e0f29ca09cd94b9795be2efa3e6ece67feeb9273188fc00b7733bc6a8f062",
+      "bytes": 102556
     },
     {
       "name": "verify.html",
-      "sha256": "88e03083a9a8e5ed03b81f53e79173134774a694bd1e59ebcf02decb42daa166",
-      "bytes": 14350
+      "sha256": "c148477eaeed22d7eb6c5cf431f230d6399a54f59dd8de96452394c9956b0bc9",
+      "bytes": 14305
     },
     {
       "name": "verify.py",
-      "sha256": "c869bf320aa62129faa0721528e6e9faeb15062f3e3077dcade0de860fe4fc48",
-      "bytes": 5375
+      "sha256": "3d5d85efa24cebcef7abe673e74e48cd89a3f6274d2d78d9b21925b411287196",
+      "bytes": 5357
     }
   ],
-  "head": "f9c1ab3673e8092a9c8c80a95a55db9a4b906d1c386e187c0af090433e27cec2",
-  "sig": "wgVYOyikvjS4ME/aFPzaITqs5jT83nf+rMV8ybqWbmWFQmlLIAybhSptrfxBnuWUMhaEUPf5Juj/fPYydU+UAg==",
+  "head": "781d2c991d280762db9c2a1eeb79c8554d98913c8b83c10a1c3973f75a0a82d4",
+  "sig": "sWKdq6gRPg7eWuXvhB7esQ1crnxvWsoS3gxFmsDlZ3uLrwXc4xR2eEtbIA7ak2u8k2iGl/rrlIPzKDEGebOUCw==",
   "pubkey": "/LHmxPfkAyN10+Zoa5uXpYiPn8y6Cup4d1RVupbuUYs=",
   "fingerprint": "sha256:5d7e19291be7eb6b"
 }
